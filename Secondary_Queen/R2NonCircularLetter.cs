@@ -120,22 +120,22 @@ namespace Secondary_Queen
             throw new NotImplementedException();
         }
 
-        public override NonCircularLetter reflectAboutAxis(int axisIndex)
+        public override R2NonCircularLetter reflectAboutAxis(int axisIndex)
         {
             throw new NotImplementedException();
         }
 
-        public override NonCircularLetter reflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
+        public override R2NonCircularLetter reflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
 
-        public override NonCircularLetter rotateAroundAxis(int indexOfAxis, int numberOfTimes)
+        public override R2NonCircularLetter rotateAroundAxis(int indexOfAxis, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
 
-        public override NonCircularLetter rotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
+        public override R2NonCircularLetter rotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
@@ -155,7 +155,7 @@ namespace Secondary_Queen
             throw new NotImplementedException();
         }
 
-        public override NonCircularLetter translate(int coordinateSystemDirection, float amaunt)
+        public override R2NonCircularLetter translate(int coordinateSystemDirection, float amaunt)
         {
             throw new NotImplementedException();
         }

@@ -7,7 +7,7 @@ using Game_Defination;
 
 namespace BuildingBlocks
 {
-    public class CircularLinkedList<T> : IMyLinkedList<T>
+    public class CircularLinkedList<T> : MyLinkedList<T>
     {
         private MyNode<T> _head;
         
@@ -17,54 +17,149 @@ namespace BuildingBlocks
             _head = null;
         }
 
-        CircularLinkedList(List<T> objects)
+        CircularLinkedList(T[] objects) : base(objects)
         {
+            
 
         }
 
-        public void add(T element, int elementIndex)
+        CircularLinkedList(List<T> objects): base(objects)
         {
-            throw new NotImplementedException();
+                
+
         }
 
-        public void addFirst(T element)
+        public override void add(T element, int elementIndex)
         {
-            throw new NotImplementedException();
+            if (elementIndex == 0)
+                addFirst(element);
+            else if (elementIndex >= size)
+                addLast(element);
+            else
+            {
+                MyNode<T> current = _head;
+
+                for (int index = 1; index < elementIndex; index++)
+                    current = current.next;
+                MyNode<T> temp = current.next;
+                current.next = new MyNode<T>(element);
+                (current.next).next = temp;
+                size++;
+            }
         }
 
-        public void addLast(T element)
+        public override void addFirst(T element)
         {
-            throw new NotImplementedException();
+            MyNode<T> newNode = new MyNode<T>(element);
+            if (_head == null)
+                _head  = newNode;
+            else
+            {
+                MyNode<T> temp = _head;
+                _head = newNode;
+                newNode.next = temp;
+
+            }
+            size++;
         }
 
-        public T getFirst()
+        public override void addLast(T element)
         {
-            throw new NotImplementedException();
+            MyNode<T> lastNode = _head;
+
+            for(int i = 0; i < size;i++)
+            {
+                if(lastNode.next != null)
+                    lastNode = lastNode.next;
+            }
+
+            lastNode.next = new MyNode<T>(element);
+            size++;
         }
 
-        public T getLast()
+        public override T getFirst()
         {
-            throw new NotImplementedException();
+            return _head.element;
         }
 
-        public bool isEmpty()
+        public override T getLast()
         {
-            throw new NotImplementedException();
+            return getFirst();
         }
 
-        public T remove(int elementIndex)
+        public override T remove(int elementIndex)
         {
-            throw new NotImplementedException();
+            if (elementIndex < 0 || elementIndex >= size)
+            {
+                return default(T);
+            }
+            else if (elementIndex == 0)
+            {
+                return removeFirst();
+            }
+            else if (elementIndex == size - 1)
+            {
+                return removeLast();
+            }
+            else
+            {
+                MyNode<T> prev = _head;
+
+                for (int i = 1; i < elementIndex; i++)
+                {
+                    prev = prev.next;
+                }
+
+                MyNode<T> current = prev.next;
+                prev.next = current.next;
+                size--;
+
+                return current.element;
+            }
         }
 
-        public T removeFirst()
+        public override T removeFirst()
         {
-            throw new NotImplementedException();
+            if (size == 0)
+            {
+                return default(T);
+            }
+            else
+            {
+                MyNode<T> temp = _head.next; // Keep the first node temporarily.
+                _head = _head.next; // Move head to point to the next node.
+                size--; // Reduce size by 1.
+
+                return temp.element;
+            }
         }
 
-        public T removeLast()
+        public override T removeLast()
         {
-            throw new NotImplementedException();
+            if (size == 0)
+            {
+                return default(T);
+            }
+            else if (size == 1)
+            {
+                MyNode<T> temp = _head;
+                _head  = null;
+                size = 0;
+                return temp.element;
+            }
+            else
+            {
+                MyNode<T> current = _head;
+
+                for (int i = 0; i < size - 1; i++)
+                {
+                    current = current.next;
+                }
+
+                MyNode<T> temp = current.next;
+                size--;
+                return temp.element;
+            }
         }
     }
 }

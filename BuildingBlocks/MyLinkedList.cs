@@ -22,6 +22,12 @@ namespace BuildingBlocks
                 add(objects[index],size);
         }
 
+        protected MyLinkedList(List<T> objects)
+        {
+            for (int index = 0; index < objects.Count; index++)
+                addLast(objects[index]);
+        }
+
         public abstract void add(T element, int elementIndex);
         public abstract void addFirst(T element);
         public abstract void addLast(T element);
@@ -36,5 +42,11 @@ namespace BuildingBlocks
         public abstract T remove(int elementIndex);
         public abstract T removeFirst();
         public abstract T removeLast();
+
+        public int Size
+        {
+            get { return size; }
+            set { size = value; }
+        }
     }
 }
