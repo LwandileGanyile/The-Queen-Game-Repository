@@ -12,18 +12,18 @@ namespace BuildingBlocks
         private MyNode<T> _head;
         
 
-        CircularLinkedList()
+        public CircularLinkedList()
         {
             _head = null;
         }
 
-        CircularLinkedList(T[] objects) : base(objects)
+        public CircularLinkedList(T[] objects) : base(objects)
         {
             
 
         }
 
-        CircularLinkedList(List<T> objects): base(objects)
+        public CircularLinkedList(List<T> objects): base(objects)
         {
                 
 
@@ -41,11 +41,28 @@ namespace BuildingBlocks
 
                 for (int index = 1; index < elementIndex; index++)
                     current = current.next;
+
                 MyNode<T> temp = current.next;
                 current.next = new MyNode<T>(element);
                 (current.next).next = temp;
                 size++;
             }
+        }
+
+        public override void displayList()
+        {
+            MyNode<T> current = _head;
+
+            for (int i = 1; i <= size; i++)
+            {
+                if (current != null)
+                {
+                    Console.Write(current.element+" ");
+                    current = current.next;
+                }
+                
+            }
+              
         }
 
         public override void addFirst(T element)
@@ -84,7 +101,13 @@ namespace BuildingBlocks
 
         public override T getLast()
         {
-            return getFirst();
+
+            MyNode<T> current = _head;
+
+            for (int i = 0; i < size-1; i++)
+                current = current.next;
+
+            return current.element;
         }
 
         public override T remove(int elementIndex)
@@ -161,5 +184,26 @@ namespace BuildingBlocks
                 return temp.element;
             }
         }
+
+        public override T getAt(int atElement)
+        {
+            
+
+            if (atElement == 0)
+                return getFirst();
+            else if (atElement >= size - 1)
+                return getLast();
+            else
+            {
+                MyNode<T> current = _head;
+
+                for (int i = 0; i < atElement; i++)
+                    current = current.next;
+                return current.element;
+            }
+
+        }
     }
+
+
 }

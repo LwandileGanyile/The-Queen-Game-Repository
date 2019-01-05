@@ -28,6 +28,22 @@ namespace BuildingBlocks
 
         }
 
+        public override void displayList()
+        {
+            Node<T> current = _head;
+
+            for (int i = 1; i <= size; i++)
+            {
+                if (current != null)
+                {
+                    Console.Write(current.element + " ");
+                    current = current.next;
+                }
+
+            }
+
+        }
+
         public override void add(T element, int elementIndex)
         {
 
@@ -41,6 +57,7 @@ namespace BuildingBlocks
 
                 for (int index = 1; index < elementIndex; index++)
                     current = current.next;
+
                 Node<T> temp = current.next;
                 current.next = new Node<T>(element);
                 (current.next).next = temp;
@@ -168,6 +185,21 @@ namespace BuildingBlocks
             
         }
 
-        
+        public override T getAt(int atElement)
+        {
+            if (atElement == 0)
+                return getFirst();
+            else if (atElement >= size - 1)
+                return getLast();
+            else
+            {
+                Node<T> current = _head;
+
+                for (int i = 0; i < atElement; i++)
+                    current = current.next;
+                return current.element;
+            }
+
+        }
     }
 }

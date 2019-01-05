@@ -10,9 +10,14 @@ namespace Game_Defination
     {
         void addFirst(T element);
         void addLast(T element);
+        void add(T element);
 
         T getFirst();
         T getLast();
+        T getAt(int atElement);
+
+        void displayList();
+
 
         T removeFirst();
         T removeLast();

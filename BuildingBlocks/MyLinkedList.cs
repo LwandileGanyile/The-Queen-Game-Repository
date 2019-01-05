@@ -19,7 +19,7 @@ namespace BuildingBlocks
         protected MyLinkedList(T[] objects)
         {
             for (int index = 0; index < objects.Length; index++)
-                add(objects[index],size);
+                add(objects[index]);
         }
 
         protected MyLinkedList(List<T> objects)
@@ -31,8 +31,13 @@ namespace BuildingBlocks
         public abstract void add(T element, int elementIndex);
         public abstract void addFirst(T element);
         public abstract void addLast(T element);
+
+        
         public abstract T getFirst();
+        public abstract T getAt(int index);
         public abstract T getLast();
+
+        public abstract void displayList();
 
         public bool isEmpty()
         {
@@ -48,5 +53,12 @@ namespace BuildingBlocks
             get { return size; }
             set { size = value; }
         }
+
+        public void add(T element)
+        {
+            add(element, size);
+        }
+
+        
     }
 }
