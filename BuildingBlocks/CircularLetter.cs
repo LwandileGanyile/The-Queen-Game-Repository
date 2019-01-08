@@ -8,7 +8,7 @@ using Pieces;
 
 namespace BuildingBlocks
 {
-    public abstract class CircularLetter<T> : Circular<T>, Comparable<T>, ILetterDimension, ILetter
+    public abstract class CircularLetter<T,U> : Circular<T,U>, Comparable<T>, ILetterDimension, ILetter
     {
 
         protected CircularLetter()

@@ -8,66 +8,141 @@ using Pieces;
 
 namespace Secondary_Queen
 {
-    public class R2CircularDirection : CircularDirection<R2CircularDirection>
+    public class R2CircularDirection : CircularDirection<R2CircularDirection,R2Point>
     {
-        public R2CircularDirection()
+      
+        public R2CircularDirection():base()
         {
-
+            dimension = 2;
+            fillDirection();
         }
 
         public R2CircularDirection(R2Point startingPoint, int direction, float directionLength, float directionDivisor, List<bool> canShootList, int directionDuration)
+        : this(startingPoint, direction, directionLength, directionDivisor, canShootList, directionDuration, 1)
         {
+            
+        }
 
+        public R2CircularDirection(R2Point startingPoint, int direction, float directionLength, float divisor, List<bool> canShootList, int directionDuration, int numberOfRotations)
+        : base(startingPoint.Point, direction,divisor,canShootList,directionDuration,numberOfRotations)
+        {
+            this.directionLength = directionLength;
+            dimension = 2;
+            fillDirection();
+        }
+
+       
+
+        public override void fillDirection()
+        {
+            R2Point point = new R2Point(StartingPoint);
+            CircularLinkedList<R2Point> circularLinkedList = new CircularLinkedList<R2Point>();
+
+
+
+            switch (direction)
+            {
+                case 1:
+                    for (int i = 0; i < directionLength / divisor; i++)
+                        circularLinkedList.add(new R2Point(point.getXCoordinate() - i * divisor, point.getYCoordinate()));
+                    break;
+                case 2:
+
+                    for (int i = 0; i < directionLength / divisor; i++)
+                        circularLinkedList.add(new R2Point(point.getXCoordinate(), point.getYCoordinate() + i * divisor));
+
+                    break;
+                case 3:
+
+                    for (int i = 0; i < directionLength / divisor; i++)
+                        circularLinkedList.add(new R2Point(point.getXCoordinate(), point.getYCoordinate() - i * divisor));
+
+                    break;
+                case 4:
+
+                    for (int i = 0; i < directionLength / divisor; i++)
+                        circularLinkedList.add(new R2Point(point.getXCoordinate() - i * divisor, point.getYCoordinate() + i * divisor));
+
+                    break;
+                case 5:
+
+                    for (int i = 0; i < directionLength / divisor; i++)
+                        circularLinkedList.add(new R2Point(point.getXCoordinate() + i * divisor, point.getYCoordinate() - i * divisor));
+
+                    break;
+                case 6:
+
+                    for (int i = 0; i < directionLength / divisor; i++)
+                        circularLinkedList.add(new R2Point(point.getXCoordinate() + i * divisor, point.getYCoordinate() + i * divisor));
+                    
+                    break;
+                case 7:
+
+                    for (int i = 0; i < directionLength / divisor; i++)
+                        circularLinkedList.add(new R2Point(point.getXCoordinate() - i * divisor, point.getYCoordinate() - i * divisor));
+
+                    break;
+                case 8:
+
+                    for (int i = 0; i < directionLength / divisor; i++)
+                        circularLinkedList.add(new R2Point(point.getXCoordinate()+i*divisor,point.getYCoordinate()));
+                    
+                    break;
+                    
+            }
         }
 
         public override void display()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < circularLinkedList.Size; i++)
+            
+                circularLinkedList.getAt(i).display();
         }
 
         public override int getDimension()
         {
-            throw new NotImplementedException();
+            return 2; 
         }
 
         public override int getDirection()
         {
-            throw new NotImplementedException();
+            return direction;
         }
 
         public override float getDirectionDivisor()
         {
-            throw new NotImplementedException();
+            return divisor;
         }
 
         public override float getDirectionLength()
         {
-            throw new NotImplementedException();
+            return directionLength; ;
         }
 
         public override int getDuration()
         {
-            throw new NotImplementedException();
+            return duration;
         }
 
         public override Point getStartingPoint()
         {
-            throw new NotImplementedException();
+            return _startingPoint;
         }
 
+       
         public override bool isDirectionDimensionCorrect()
         {
-            throw new NotImplementedException();
+            return 2==getDimension();
         }
 
         public override bool isDirectionValid(int direction)
         {
-            throw new NotImplementedException();
+            return direction >= 1 && direction <= 8;
         }
 
         public override bool isPointDimensionCorrect()
         {
-            throw new NotImplementedException();
+            return StartingPoint.getDimension() == 2;
         }
 
         public override R2CircularDirection reflectAboutAxis(int axisIndex)
@@ -92,27 +167,27 @@ namespace Secondary_Queen
 
         public override void setCanShootList(List<bool> canShootList)
         {
-            throw new NotImplementedException();
+            this.canShootList = canShootList;
         }
 
         public override void setDirectionDivisor(float directionDivisor)
         {
-            throw new NotImplementedException();
+            this.divisor = directionDivisor;
         }
 
         public override void setDirectionLength(float directionLength)
         {
-            throw new NotImplementedException();
+            this.directionLength = directionLength;
         }
 
         public override void setDuration(int timeInMiliiseconds)
         {
-            throw new NotImplementedException();
+            this.duration = timeInMiliiseconds;
         }
 
         public override void setStartingPoint(Point startingPoint)
         {
-            throw new NotImplementedException();
+            StartingPoint = startingPoint;
         }
 
         public override R2CircularDirection translate(int coordinateSystemDirection, float amaunt)

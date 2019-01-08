@@ -31,7 +31,7 @@ namespace BuildingBlocks
 
         public override void add(T element, int elementIndex)
         {
-            if (elementIndex == 0)
+            if (elementIndex <= 0)
                 addFirst(element);
             else if (elementIndex >= size)
                 addLast(element);
@@ -112,15 +112,12 @@ namespace BuildingBlocks
 
         public override T remove(int elementIndex)
         {
-            if (elementIndex < 0 || elementIndex >= size)
-            {
-                return default(T);
-            }
-            else if (elementIndex == 0)
+            
+            if (elementIndex <= 0)
             {
                 return removeFirst();
             }
-            else if (elementIndex == size - 1)
+            else if (elementIndex >= size - 1)
             {
                 return removeLast();
             }
@@ -145,11 +142,11 @@ namespace BuildingBlocks
         {
             if (size == 0)
             {
-                return default(T);
+                return _head.element;
             }
             else
             {
-                MyNode<T> temp = _head.next; // Keep the first node temporarily.
+                MyNode<T> temp = _head; // Keep the first node temporarily.
                 _head = _head.next; // Move head to point to the next node.
                 size--; // Reduce size by 1.
 
@@ -161,7 +158,7 @@ namespace BuildingBlocks
         {
             if (size == 0)
             {
-                return default(T);
+                return removeFirst();
             }
             else if (size == 1)
             {
@@ -174,7 +171,7 @@ namespace BuildingBlocks
             {
                 MyNode<T> current = _head;
 
-                for (int i = 0; i < size - 1; i++)
+                for (int i = 0; i < size - 2; i++)
                 {
                     current = current.next;
                 }
@@ -189,7 +186,7 @@ namespace BuildingBlocks
         {
             
 
-            if (atElement == 0)
+            if (atElement <= 0)
                 return getFirst();
             else if (atElement >= size - 1)
                 return getLast();

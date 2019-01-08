@@ -7,6 +7,7 @@ using Game_Defination;
 
 namespace BuildingBlocks
 {
+    // The class don't work at all.
     public class DoubleLinkedList<T> : MyLinkedList<T>
     {
         private Node<T> _head;
@@ -47,7 +48,7 @@ namespace BuildingBlocks
         public override void add(T element, int elementIndex)
         {
 
-            if (elementIndex == 0)
+            if (elementIndex <= 0)
                 addFirst(element);
             else if (elementIndex >= size)
                 addLast(element);

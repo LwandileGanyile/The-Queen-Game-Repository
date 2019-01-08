@@ -1,0 +1,34 @@
+/BuildingBlocks/bin
+/BuildingBlocks/obj
+/BuildingBlocks/App.config
+/BuildingBlocks/BuildingBlocks.csproj
+/CircularIteration/bin
+/CircularIteration/obj
+/CircularIteration/App.config
+/CircularIteration/CircularIteration.csproj
+/Game Defination/bin
+/Game Defination/obj
+/Game Defination/App.config
+/Game Defination/Game_Defination.csproj
+/NonCircularIteration/bin
+/NonCircularIteration/obj
+/NonCircularIteration/App.config
+/NonCircularIteration/NonCircularIteration.csproj
+/Pieces/bin
+/Pieces/obj
+/Pieces/App.config
+/Pieces/Pieces.csproj
+/Primary_Queen/bin
+/Primary_Queen/obj
+/Primary_Queen/App.config
+/Primary_Queen/Primary_Queen.csproj
+/Secondary_Queen/bin
+/Secondary_Queen/obj
+/Secondary_Queen/App.config
+/Secondary_Queen/Secondary_Queen.csproj
+/Tertiary_Queen/bin
+/Tertiary_Queen/obj
+/Tertiary_Queen/App.config
+/Tertiary_Queen/Tertiary_Queen.csproj
+/The Queen Code.sln
+/.vs/
