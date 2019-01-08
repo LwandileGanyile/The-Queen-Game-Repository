@@ -28,6 +28,7 @@ namespace Pieces
 
         }
 
+        // Status - Checked , Result - working.
         public int compareTo(Point point)
         {
             if (point._coordinate.Count == _coordinate.Count)
@@ -44,50 +45,77 @@ namespace Pieces
         }
 
         public bool CanShoot { get; set; }
-        public List<float> Coordinate{get { return _coordinate; }}
+        public List<float> Coordinate
+        {
+            get
+            {
+                return _coordinate;
+            }
 
-        // Checked
+            set
+            {
+                _coordinate = value;
+            }
+        }
+
+        // Status - Checked , Result - working.
         public void setAxisAt(int coordinateAt, float value)
         {
             if (coordinateAt >= 0 && coordinateAt < _coordinate.Count)
                 _coordinate[coordinateAt] = value;
+            else if (coordinateAt >= _coordinate.Count)
+                _coordinate[_coordinate.Count - 1] = value ;
+            else
+                _coordinate[0] = value; ;
 
         }
-        // Checked
+
+        // Status - Checked , Result - working.
         // Return the first element if the coordinateAt parameter is out of range.
         public float getAxisAt(int coordinateAt)
         {
 
             if ((coordinateAt >= 0 && coordinateAt < _coordinate.Count))
                 return _coordinate[coordinateAt];
-
-             return _coordinate[0];
+            else if (coordinateAt >= _coordinate.Count)
+                return _coordinate[_coordinate.Count - 1];
+            else
+                return _coordinate[0];
         }
 
+
+        // Status - Checked , Result - working.
+        // The method only works for a valid coordinate index.
         public void decreaseAxisAt(int coordinateAt, float amount)
         {
             if (coordinateAt >= 0 && coordinateAt < _coordinate.Count)
                 _coordinate[coordinateAt] = _coordinate[coordinateAt]-amount; 
         }
 
+        // Status - Checked , Result - working.
+        // The method only works for a valid coordinate index.
         public void increaseAxisAt(int coordinateAt, float amount)
         {
             if (coordinateAt >= 0 && coordinateAt < _coordinate.Count)
                 _coordinate[coordinateAt] = _coordinate[coordinateAt]+amount;
         }
 
+        // Status - Checked , Result - working.
         public int getDimension()
         {
             return _coordinate.Count;
         }
 
+        // Status - Checked , Result - working.
         public void display()
         {
             Console.Write("(");
 
-            for (int i = 0; i <_coordinate.Count-1;i++)
-                Console.Write(_coordinate[i]+" , ");
-            Console.Write(_coordinate[_coordinate.Count - 1] + ") ");
+            for (int i = 0; i <_coordinate.Count;i++)
+                if(i< _coordinate.Count - 1)
+                    Console.Write(_coordinate[i]+" , ");
+                else
+                    Console.Write(_coordinate[_coordinate.Count - 1] + ") ");
         }
     }
 }
