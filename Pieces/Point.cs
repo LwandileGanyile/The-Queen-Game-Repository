@@ -16,7 +16,7 @@ namespace Pieces
         public Point()
         {
             _coordinate = new List<float> { 0, 0f };
-            _coordinate.Add(0.0f);
+            
             canShoot = false;
         }
 
@@ -116,6 +116,15 @@ namespace Pieces
                     Console.Write(_coordinate[i]+" , ");
                 else
                     Console.Write(_coordinate[_coordinate.Count - 1] + ") ");
+        }
+
+        public int Dimension { get { return _coordinate.Count; } }
+
+        public void negateAtCoornate(int axisAt)
+        {
+            if (axisAt >= 0 && axisAt < Dimension)
+                _coordinate[axisAt] *= (-1); 
+
         }
     }
 }
