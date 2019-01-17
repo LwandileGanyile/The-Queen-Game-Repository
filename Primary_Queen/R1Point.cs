@@ -13,56 +13,56 @@ namespace Primary_Queen
     {
         /* Used to access methods and attributes by this class because any n 
         dimensional point isn't allowed to directly access the Point class.*/
-        private Point point;
+        private Point _point;
 
         public R1Point()
         {
-            point = new Point();
+            _point = new Point();
         }
 
-        public R1Point(float xCoordinate)
+        public R1Point(float _xCoordinate)
         {
-            point = new Point(new List<float> { xCoordinate},false);
+            _point = new Point(new List<float> { _xCoordinate},false);
         }
 
-        public R1Point(Point point)
+        public R1Point(Point _point)
         {
-            this.point = point;
+            this._point = _point;
         }
 
-        // Status - Checked , Result - working.
-        public void setXCoordinate(float xCoordinate)
+        // Change x value.
+        public void SetXCoordinate(float _xCoordinate)
         {
-            point.setAxisAt(0, xCoordinate);
+            _point.SetAxisAt(0, _xCoordinate);
         }
 
         public Point Position
         {
-            get { return point; }
+            get { return _point; }
         }
 
         // Retrieve x- value.
-        public float getXCoordinate()
+        public float GetXCoordinate()
         {
-            return point.getAxisAt(0);
+            return _point.GetAxisAt(0);
         }
 
         // Increasing the current x value by amount.
-        public void increaseXCoordinate(float amount)
+        public void IncreaseXCoordinate(float amount)
         {
-            point.increaseAxisAt(0,amount);
+            _point.IncreaseAxisAt(0,amount);
         }
 
         // Decreasing the current x value by amount.
-        public void decreaseXCoordinate(float amount)
+        public void DecreaseXCoordinate(float amount)
         {
-            point.decreaseAxisAt(0, amount);
+            _point.DecreaseAxisAt(0, amount);
         }
 
         // The dimension will always be 1.
-        public int getDimension()
+        public int GetDimension()
         {
-            return point.Dimension;
+            return _point.Dimension;
         }
 
         // Move a point a long a number line.
@@ -70,44 +70,44 @@ namespace Primary_Queen
         {
 
             if (coordinateSystemDirection == 1)
-                return new R1Point(point.getAxisAt(0) - amount);
+                return new R1Point(_point.GetAxisAt(0) - amount);
             else if (coordinateSystemDirection >= 2)
-                return new R1Point(point.getAxisAt(0) + amount);
+                return new R1Point(_point.GetAxisAt(0) + amount);
 
-            return new R1Point(point.getAxisAt(0));
+            return new R1Point(_point.GetAxisAt(0));
            
         }
 
         // The method is unsupported to this class however it is implemented.
         // The method returns a copy of this instance.
-        public R1Point reflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
+        public R1Point ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
 
-            return new R1Point(point.getAxisAt(0));
+            return new R1Point(_point.GetAxisAt(0));
         }
 
         // Negative x of this point.
-        public void negateAtCoornate(int axisAt)
+        public void NegateAtCoornate(int axisAt)
         {
             if(axisAt==1)
-                point.negateAtCoornate(axisAt);
+                _point.NegateAtCoornate(axisAt);
 
         }
 
         // Return a new R1Point as a result of reflecting this R1Point about the origin.
         // The axisIndex value equals to 0 means reflecting about the origin.
-        public R1Point reflectAboutAxis(int axisIndex)
+        public R1Point ReflectAboutAxis(int axisIndex)
         {
             if (axisIndex == 0)
-                return new R1Point(-point.getAxisAt(0));
-            return new R1Point(point.getAxisAt(0));
+                return new R1Point(-_point.GetAxisAt(0));
+            return new R1Point(_point.GetAxisAt(0));
         }
 
         // Display a 1 dimensional point in the form (x).
-        public void display()
+        public void Display()
         {
-            if (point != null)
-                point.display();
+            if (_point != null)
+                _point.Display();
         }
 
         /* Compare any two R1Point objects, the returned values is -1, 0, 1, or -99
@@ -115,7 +115,7 @@ namespace Primary_Queen
         public int CompareTo(R1Point other)
         {
           
-            return point.compareTo(other.Position);
+            return _point.CompareTo(other.Position);
         }
     }
 }
