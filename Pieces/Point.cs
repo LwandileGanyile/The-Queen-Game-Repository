@@ -10,26 +10,26 @@ namespace Pieces
     public class Point : RetrievableDimension, IDisplay
     {
         private List<float> _coordinate;
-        private bool canShoot;
+        private bool _canShoot;
 
 
         public Point()
         {
             _coordinate = new List<float> { 0, 0f };
             
-            canShoot = false;
+            _canShoot = false;
         }
 
-        public Point(List<float> coordinate, bool canShoot)
+        public Point(List<float> _coordinate, bool _canShoot)
         {
-            if(coordinate.Count>0)
-                _coordinate = coordinate;
-            this.canShoot = canShoot;
+            if(_coordinate.Count>0)
+                this._coordinate = _coordinate;
+            this._canShoot = _canShoot;
 
         }
 
-        // Status - Checked , Result - working.
-        public int compareTo(Point point)
+        // Compare two points of the same dimension.
+        public int CompareTo(Point point)
         {
             if (point._coordinate.Count == _coordinate.Count)
             {
@@ -58,8 +58,8 @@ namespace Pieces
             }
         }
 
-        // Status - Checked , Result - working.
-        public void setAxisAt(int coordinateAt, float value)
+        // Set to a new value at coordinateAt.
+        public void SetAxisAt(int coordinateAt, float value)
         {
             if (coordinateAt >= 0 && coordinateAt < _coordinate.Count)
                 _coordinate[coordinateAt] = value;
@@ -70,9 +70,9 @@ namespace Pieces
 
         }
 
-        // Status - Checked , Result - working.
+        // Get the axis value.
         // Return the first element if the coordinateAt parameter is out of range.
-        public float getAxisAt(int coordinateAt)
+        public float GetAxisAt(int coordinateAt)
         {
 
             if ((coordinateAt >= 0 && coordinateAt < _coordinate.Count))
@@ -83,31 +83,28 @@ namespace Pieces
                 return _coordinate[0];
         }
 
-
-        // Status - Checked , Result - working.
         // The method only works for a valid coordinate index.
-        public void decreaseAxisAt(int coordinateAt, float amount)
+        public void DecreaseAxisAt(int coordinateAt, float amount)
         {
             if (coordinateAt >= 0 && coordinateAt < _coordinate.Count)
                 _coordinate[coordinateAt] = _coordinate[coordinateAt]-amount; 
         }
 
-        // Status - Checked , Result - working.
         // The method only works for a valid coordinate index.
-        public void increaseAxisAt(int coordinateAt, float amount)
+        public void IncreaseAxisAt(int coordinateAt, float amount)
         {
             if (coordinateAt >= 0 && coordinateAt < _coordinate.Count)
                 _coordinate[coordinateAt] = _coordinate[coordinateAt]+amount;
         }
 
-        // Status - Checked , Result - working.
-        public int getDimension()
+        // Return the dimension of this point.
+        public int GetDimension()
         {
             return _coordinate.Count;
         }
 
-        // Status - Checked , Result - working.
-        public void display()
+        // Print this point to a console.
+        public void Display()
         {
             Console.Write("(");
 
@@ -120,7 +117,8 @@ namespace Pieces
 
         public int Dimension { get { return _coordinate.Count; } }
 
-        public void negateAtCoornate(int axisAt)
+        // Negate this point on the specific axis.
+        public void NegateAtCoornate(int axisAt)
         {
             if (axisAt >= 0 && axisAt < Dimension)
                 _coordinate[axisAt] *= (-1); 
