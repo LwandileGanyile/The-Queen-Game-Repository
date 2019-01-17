@@ -44,43 +44,43 @@ namespace Secondary_Queen
            if the returned value is -99 it means the two points are of different dimension.*/
         public int CompareTo(R2Point other)
         {
-            return _point.compareTo(other.Position);
+            return _point.CompareTo(other.Position);
         }
 
         // Display a 2 dimensional point in the form (x,y).
-        public void display()
+        public void Display()
         {
             if(_point != null)
-                _point.display();
+                _point.Display();
 
         }
 
         // Negative x or y of this point.
-        public void negateAtCoornate(int axisAt)
+        public void NegateAtCoornate(int axisAt)
         {
-            _point.negateAtCoornate(axisAt);
+            _point.NegateAtCoornate(axisAt);
 
         }
 
         // The dimension of this point. It will always be 2.
-        public int getDimension()
+        public int GetDimension()
         {
-            return _point.getDimension();
+            return _point.GetDimension();
         }
 
         // Return a new R2Point as a result of reflecting this R2Point about the x-axis or y-axis.
-        public R2Point reflectAboutAxis(int axisIndex)
+        public R2Point ReflectAboutAxis(int axisIndex)
         {
-            return new R2Point((axisIndex==2)?-getXCoordinate():getXCoordinate(), (axisIndex == 1) ? -getYCoordinate() : getYCoordinate());
+            return new R2Point((axisIndex==2)?-GetXCoordinate():GetXCoordinate(), (axisIndex == 1) ? -GetYCoordinate() : GetYCoordinate());
         }
 
         // Return a new R2Point as a result of reflecting this R2Point about the line y=x or y = -x.
         // 0 -  means no axis, 1 - means on the positive axis and -1 - means on the positive axis.
         // axisIndex[0] is the x-axis value and axisIndex[1] is the y-axis value.
-        public R2Point reflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
+        public R2Point ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
-            float initialX = getXCoordinate();
-            float initialY = getYCoordinate();
+            float initialX = GetXCoordinate();
+            float initialY = GetYCoordinate();
             
             
 
@@ -118,9 +118,9 @@ namespace Secondary_Queen
         // Move point along any one of the eight directions by a certain amount.
         public R2Point translate(int coordinateSystemDirection, float amount)
         {
-            float initialX = _point.getAxisAt(0);
+            float initialX = _point.GetAxisAt(0);
             float finalX = initialX;
-            float initialY = _point.getAxisAt(1);
+            float initialY = _point.GetAxisAt(1);
             float finalY = initialY;
 
 
@@ -162,52 +162,52 @@ namespace Secondary_Queen
         }
 
         // Increase the value of the x-coordinate by amount.
-        public void increaseXCoordinate(float amount)
+        public void IncreaseXCoordinate(float amount)
         {
-            _point.increaseAxisAt(0, amount);
+            _point.IncreaseAxisAt(0, amount);
 
         }
 
         // Increase the value of the y-coordinate by amount.
-        public void increaseYCoordinate(float amount)
+        public void IncreaseYCoordinate(float amount)
         {
-            _point.increaseAxisAt(1, amount);
+            _point.IncreaseAxisAt(1, amount);
         }
 
         // Decrease the value of the x-coordinate by amount.
-        public void decreaseXCoordinate(float amount)
+        public void DecreaseXCoordinate(float amount)
         {
-            _point.decreaseAxisAt(0, amount);
+            _point.DecreaseAxisAt(0, amount);
         }
 
         // Decrease the value of the y-coordinate by amount..
-        public void decreaseYCoordinate(float amount)
+        public void DecreaseYCoordinate(float amount)
         {
-            _point.decreaseAxisAt(1, amount);
+            _point.DecreaseAxisAt(1, amount);
         }
 
         // Set x-coordinate to a new value.
-        public void setXCoordinate(float xCoordinate)
+        public void SetXCoordinate(float xCoordinate)
         {
-            _point.setAxisAt(0,xCoordinate);
+            _point.SetAxisAt(0,xCoordinate);
         }
 
         // Set y-coordinate to a new value.
-        public void setYCoordinate(float yCoordinate)
+        public void SetYCoordinate(float yCoordinate)
         {
-            _point.setAxisAt(1, yCoordinate);
+            _point.SetAxisAt(1, yCoordinate);
         }
 
         // Retrieve x-coordinate.
-        public float getXCoordinate()
+        public float GetXCoordinate()
         {
-            return _point.getAxisAt(0);
+            return _point.GetAxisAt(0);
         }
 
         // Retrieve y-coordinate.
-        public float getYCoordinate()
+        public float GetYCoordinate()
         {
-            return _point.getAxisAt(1);
+            return _point.GetAxisAt(1);
         }
     }
 }
