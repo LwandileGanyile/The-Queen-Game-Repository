@@ -8,23 +8,24 @@ namespace Game_Defination
 {
     public interface IMyLinkedList<T>
     {
-        void addFirst(T element);
-        void addLast(T element);
-        void add(T element);
+        void AddFirst(T element);
+        void AddLast(T element);
+        void Add(T element);
 
-        T getFirst();
-        T getLast();
-        T getAt(int atElement);
+        T GetFirst();
+        T GetLast();
+        T GetAt(int atElement);
 
-        void displayList();
+        void DisplayList();
 
 
-        T removeFirst();
-        T removeLast();
+        T RemoveFirst();
+        T RemoveLast();
 
-        void add(T element, int elementIndex);
-        T remove(int elementIndex);
+        void Add(T element, int elementIndex);
+        T Remove(int elementIndex);
 
-        bool isEmpty();
+        bool IsEmpty();
+        void Clear();
     }
 }

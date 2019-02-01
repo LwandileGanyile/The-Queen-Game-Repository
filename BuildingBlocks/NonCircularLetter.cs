@@ -8,7 +8,7 @@ using Pieces;
 
 namespace BuildingBlocks
 {
-    public abstract class NonCircularLetter<T>: NonCircular<T>,ILetter,IComparable<T>
+    public abstract class NonCircularLetter<T,U>: NonCircular<T,U>,ILetter,IComparable<T>
     {
         
         protected NonCircularLetter()
@@ -17,28 +17,28 @@ namespace BuildingBlocks
         }
 
         protected NonCircularLetter(Point startingPoint, char letter, int letterDirection,
-        Plane onPlane, bool smaller, int letterDuration, int letterDimension)
+        Plane onPlane, bool smaller, Dictionary<int,int> duration, int letterDimension)
         {
 
         }
 
         public abstract int CompareTo(T other);
 
-        public abstract void displayLetterInfo();
+        public abstract void DisplayLetterInfo();
  
-        public abstract int getDirection();
-        public abstract Plane getOnPlane();
-        public abstract bool getSmaller();
-        public abstract bool isC(List<int> directions);
-        public abstract bool isI(List<int> directions);
-        public abstract bool isL(List<int> directions);
-        public abstract bool isM(List<int> directions);
-        public abstract bool isN(List<int> directions);
-        public abstract bool isO(List<int> directions);
-        public abstract bool isR(List<int> directions);
-        public abstract bool isS(List<int> directions);
-        public abstract bool isW(List<int> directions);
- 
-        public abstract void setLetterDirection(int letterDirection);
+        public abstract int GetDirection();
+        public abstract Plane GetOnPlane();
+        public abstract bool GetSmaller();
+        public abstract bool IsC(List<int> directions);
+        public abstract bool IsI(List<int> directions);
+        public abstract bool IsL(List<int> directions);
+        public abstract bool IsM(List<int> directions);
+        public abstract bool IsN(List<int> directions);
+        public abstract bool IsO(List<int> directions);
+        public abstract bool IsR(List<int> directions);
+        public abstract bool IsS(List<int> directions);
+        public abstract bool IsW(List<int> directions);
+
+        public abstract void SetLetterDirection(int letterDirection);
     }
 }

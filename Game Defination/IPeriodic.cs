@@ -8,7 +8,7 @@ namespace Game_Defination
 {
     public interface IPeriodic
     {
-        void setDuration(int timeInMiliiseconds);
-        int getDuration();
+        void SetDuration(int timeInMiliiseconds);
+        int GetDuration();
     }
 }

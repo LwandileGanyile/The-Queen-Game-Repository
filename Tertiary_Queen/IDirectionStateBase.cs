@@ -8,31 +8,31 @@ namespace Tertiary_Queen
 {
     public interface IDirectionStateBase
     {
-        void createDirectionOne();
-        void createDirectionTwo();
-        void createDirectionThree();
-        void createDirectionFour();
-        void createDirectionFive();
-        void createDirectionSix();
-        void createDirectionSeven();
-        void createDirectionEight();
-        void createDirectionNine();
-        void createDirectionTen();
-        void createDirectionEleven();
-        void createDirectionTwelve();
-        void createDirectionThirtheen();
-        void createDirectionFortheen();
-        void createDirectionFiftheen();
-        void createDirectionSixtheen();
-        void createDirectionSeventheen();
-        void createDirectionEightheen();
-        void createDirectionNintheen();
-        void createDirectionTwenty();
-        void createDirectionTwentyOne();
-        void createDirectionTwentyTwo();
-        void createDirectionTwentyThree();
-        void createDirectionTwentyFour();
-        void createDirectionTwentyFive();
-        void createDirectionTwentySix();
+        void CreateDirectionOne();
+        void CreateDirectionTwo();
+        void CreateDirectionThree();
+        void CreateDirectionFour();
+        void CreateDirectionFive();
+        void CreateDirectionSix();
+        void CreateDirectionSeven();
+        void CreateDirectionEight();
+        void CreateDirectionNine();
+        void CreateDirectionTen();
+        void CreateDirectionEleven();
+        void CreateDirectionTwelve();
+        void CreateDirectionThirtheen();
+        void CreateDirectionFortheen();
+        void CreateDirectionFiftheen();
+        void CreateDirectionSixtheen();
+        void CreateDirectionSeventheen();
+        void CreateDirectionEightheen();
+        void CreateDirectionNintheen();
+        void CreateDirectionTwenty();
+        void CreateDirectionTwentyOne();
+        void CreateDirectionTwentyTwo();
+        void CreateDirectionTwentyThree();
+        void CreateDirectionTwentyFour();
+        void CreateDirectionTwentyFive();
+        void CreateDirectionTwentySix();
     }
 }

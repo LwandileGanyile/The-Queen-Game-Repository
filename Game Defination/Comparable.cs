@@ -8,6 +8,6 @@ namespace Game_Defination
 {
     public interface Comparable<T>
     {
-        int compareTo(T comparableInstance);
+        int CompareTo(T comparableInstance);
     }
 }

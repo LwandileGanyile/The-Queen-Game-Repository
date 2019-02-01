@@ -21,10 +21,10 @@ namespace NonCircularIteration
 
         }
 
-        public abstract T getNext();
-        public abstract T getPrevious();
-        public abstract bool hasNext();
-        public abstract bool hasPrevious();
-        public abstract T remove();
+        public abstract T GetNext();
+        public abstract T GetPrevious();
+        public abstract bool HasNext();
+        public abstract bool HasPrevious();
+        public abstract T Remove();
     }
 }

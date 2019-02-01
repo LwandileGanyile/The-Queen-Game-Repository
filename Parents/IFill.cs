@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BuildingBlocks
+namespace Parents
 {
-    public interface FillableDirection
+    public interface IFill
     {
-        void fillDirection();
+        void Fill();
     }
 }

@@ -8,11 +8,11 @@ namespace BuildingBlocks
 {
     public interface IDirection : Directional
     {
-        void setDirectionLength(float directionLength);
-        bool isDirectionValid(int direction);
-        void setCanShootList(List<bool> canShootList);
-        void setDirectionDivisor(float directionDivisor);
-        float getDirectionLength();
-        float getDirectionDivisor();
+        void SetDirectionLength(float directionLength);
+        bool IsDirectionValid(int direction);
+        void SetCanShootList(List<bool> canShootList);
+        void SetDirectionDivisor(float directionDivisor);
+        float GetDirectionLength();
+        float GetDirectionDivisor();
     }
 }

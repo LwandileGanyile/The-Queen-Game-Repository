@@ -8,6 +8,6 @@ namespace CircularIteration
 {
    public interface IPointIterator<T>
     {
-        PointIterator<T> retrievePointIterator();
+        PointIterator<T> RetrievePointIterator();
     }
 }

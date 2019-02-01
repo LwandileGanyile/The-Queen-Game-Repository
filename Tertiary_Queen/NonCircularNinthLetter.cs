@@ -8,7 +8,7 @@ using Pieces;
 
 namespace Tertiary_Queen
 {
-    public class NonCircularNinthLetter : NonCircularLetter<NonCircularNinthLetter>, ILetterStateBase
+    public class NonCircularNinthLetter : NonCircularLetter<NonCircularNinthLetter, NonCircularNinthDirection>, ILetterStateBase
     {
         public NonCircularNinthLetter()
         {
@@ -20,878 +20,837 @@ namespace Tertiary_Queen
 
         }
 
+        public void CreateO16OnPlaneOne()
+        {
+            throw new NotImplementedException();
+        }
+
         public override int CompareTo(NonCircularNinthLetter other)
         {
             throw new NotImplementedException();
         }
 
-        public void create26OnPlaneTwo()
+        public void Create26OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void create5OnPlaneTwo()
+        public void Create5OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createC10OnPlaneOne()
+        public void CreateC10OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createC11OnPlaneOne()
+        public void CreateC11OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createC12OnPlaneOne()
+        public void CreateC12OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createC12OnPlaneTwo()
+        public void CreateC12OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createC13OnPlaneOne()
+        public void CreateC13OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createC13OnPlaneTwo()
+        public void CreateC13OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createC14OnPlaneOne()
+        public void CreateC14OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createC15OnPlaneOne()
+        public void CreateC15OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createC16OnPlaneOne()
+        public void CreateC16OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createC17OnPlaneTwo()
+        public void CreateC17OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createC1OnPlaneTwo()
+        public void CreateC1OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createC25OnPlaneTwo()
+        public void CreateC25OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createC26OnPlaneTwo()
+        public void CreateC26OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createC5OnPlaneTwo()
+        public void CreateC5OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createC9OnPlaneOne()
+        public void CreateC9OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createC9OnPlaneTwo()
+        public void CreateC9OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createI10OnPlaneOne()
+        public void CreateI10OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createI11OnPlaneOne()
+        public void CreateI11OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createI12OnPlaneOne()
+        public void CreateI12OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createI13OnPlaneOne()
+        public void CreateI13OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createI13OnPlaneTwo()
+        public void CreateI13OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createI14OnPlaneOne()
+        public void CreateI14OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createI15OnPlaneOne()
+        public void CreateI15OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createI16OnPlaneOne()
+        public void CreateI16OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createI17OnPlaneTwo()
+        public void CreateI17OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createI1OnPlaneTwo()
+        public void CreateI1OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createI21OnPlaneTwo()
+        public void CreateI21OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createI25OnPlaneTwo()
+        public void CreateI25OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createI26OnPlaneTwo()
+        public void CreateI26OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createI9OnPlaneOne()
+        public void CreateI9OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createI9OnPlaneTwo()
+        public void CreateI9OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createL10OnPlaneOne()
+        public void CreateL10OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createL11OnPlaneOne()
+        public void CreateL11OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createL12OnPlaneOne()
+        public void CreateL12OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createL13OnPlaneOne()
+        public void CreateL13OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createL13OnPlaneTwo()
+        public void CreateL13OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createL14OnPlaneOne()
+        public void CreateL14OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createL15OnPlaneOne()
+        public void CreateL15OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createL16OnPlaneOne()
+        public void CreateL16OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createL17OnPlaneTwo()
+        public void CreateL17OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createL1OnPlaneTwo()
+        public void CreateL1OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createL21OnPlaneTwo()
+        public void CreateL21OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createL25OnPlaneTwo()
+        public void CreateL25OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createL26OnPlaneTwo()
+        public void CreateL26OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createL5OnPlaneTwo()
+        public void CreateL5OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createL9OnPlaneOne()
+        public void CreateL9OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createL9OnPlaneTwo()
+        public void CreateL9OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createM10OnPlaneOne()
+        public void CreateM10OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createM11OnPlaneOne()
+        public void CreateM11OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createM12OnPlaneOne()
+        public void CreateM12OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createM13OnPlaneOne()
+        public void CreateM13OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createM13OnPlaneTwo()
+        public void CreateM13OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createM14OnPlaneOne()
+        public void CreateM14OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-
-
-        public void createM15OnPlaneOne()
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-        public void createM16nPlaneOne()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void createM16OnPlaneOne()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void createM17OnPlaneTwo()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void createM1OnPlaneTwo()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void createM21OnPlaneTwo()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void createM25OnPlaneTwo()
+        public void CreateM15OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createM26OnPlaneTwo()
+        public void CreateM16nPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createM5OnPlaneTwo()
+        public void CreateM17OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createM9OnPlaneOne()
+        public void CreateM1OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createM9OnPlaneTwo()
+        public void CreateM21OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createN10OnPlaneOne()
+        public void CreateM25OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createN11OnPlaneOne()
+        public void CreateM26OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createN12OnPlaneOne()
+        public void CreateM5OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createN13OnPlaneOne()
+        public void CreateM9OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createN13OnPlaneTwo()
+        public void CreateM9OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createN14OnPlaneOne()
+        public void CreateN10OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createN15OnPlaneOne()
+        public void CreateN11OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createN16OnPlaneOne()
+        public void CreateN12OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createN17OnPlaneTwo()
+        public void CreateN13OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createN1OnPlaneTwo()
+        public void CreateN13OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createN21OnPlaneTwo()
+        public void CreateN14OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createN25OnPlaneTwo()
+        public void CreateN15OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createN26OnPlaneTwo()
+        public void CreateN16OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createN5OnPlaneTwo()
+        public void CreateN17OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createN9OnPlaneOne()
+        public void CreateN1OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createN9OnPlaneTwo()
+        public void CreateN21OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createO10OnPlaneOne()
+        public void CreateN25OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createO11OnPlaneOne()
+        public void CreateN26OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createO12OnPlaneOne()
+        public void CreateN5OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createO13OnPlaneOne()
+        public void CreateN9OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createO13OnPlaneTwo()
+        public void CreateN9OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createO14OnPlaneOne()
+        public void CreateO10OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createO15OnPlaneOne()
+        public void CreateO11OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createO16OnPlaneOne()
+        public void CreateO12OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createO17OnPlaneTwo()
+        public void CreateO13OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createO1OnPlaneTwo()
+        public void CreateO13OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createO21OnPlaneTwo()
+        public void CreateO14OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createO25OnPlaneTwo()
+        public void CreateO15OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createO26OnPlaneTwo()
+        public void CreateO17OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createO5OnPlaneTwo()
+        public void CreateO1OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createO9OnPlaneOne()
+        public void CreateO21OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createO9OnPlaneTwo()
+        public void CreateO25OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createR10OnPlaneOne()
+        public void CreateO26OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createR11OnPlaneOne()
+        public void CreateO5OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createR12OnPlaneOne()
+        public void CreateO9OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createR13OnPlaneOne()
+        public void CreateO9OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createR13OnPlaneTwo()
+        public void CreateR10OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createR14OnPlaneOne()
+        public void CreateR11OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createR15OnPlaneOne()
+        public void CreateR12OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createR16OnPlaneOne()
+        public void CreateR13OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createR17OnPlaneTwo()
+        public void CreateR13OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createR1OnPlaneTwo()
+        public void CreateR14OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createR21OnPlaneTwo()
+        public void CreateR15OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createR25OnPlaneTwo()
+        public void CreateR16OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createR26OnPlaneTwo()
+        public void CreateR17OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createR5OnPlaneTwo()
+        public void CreateR1OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createR9OnPlaneOne()
+        public void CreateR21OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createR9OnPlaneTwo()
+        public void CreateR25OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createS10OnPlaneOne()
+        public void CreateR26OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createS11OnPlaneOne()
+        public void CreateR5OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createS12OnPlaneOne()
+        public void CreateR9OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createS13OnPlaneOne()
+        public void CreateR9OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createS13OnPlaneTwo()
+        public void CreateS10OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createS14OnPlaneOne()
+        public void CreateS11OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createS15OnPlaneOne()
+        public void CreateS12OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createS16OnPlaneOne()
+        public void CreateS13OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createS17OnPlaneTwo()
+        public void CreateS13OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createS1OnPlaneTwo()
+        public void CreateS14OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createS21OnPlaneTwo()
+        public void CreateS15OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createS25OnPlaneTwo()
+        public void CreateS16OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createS26OnPlaneTwo()
+        public void CreateS17OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createS5OnPlaneTwo()
+        public void CreateS1OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createS9OnPlaneOne()
+        public void CreateS21OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createS9OnPlaneTwo()
+        public void CreateS25OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createW10OnPlaneOne()
+        public void CreateS26OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createW11OnPlaneOne()
+        public void CreateS5OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
-
-        public void createW120OnPlaneOne()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void createW12OnPlaneOne()
-        {
-            throw new NotImplementedException();
-        }
-
-
 
-        public void createW13OnPlaneOne()
+        public void CreateS9OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createW13OnPlaneTwo()
+        public void CreateS9OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createW14OnPlaneOne()
+        public void CreateW10OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createW150OnPlaneOne()
+        public void CreateW11OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createW15OnPlaneOne()
+        public void CreateW120OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createW16OnPlaneOne()
+        public void CreateW13OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createW17OnPlaneTwo()
+        public void CreateW13OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createW1OnPlaneTwo()
+        public void CreateW14OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createW21OnPlaneTwo()
+        public void CreateW15OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createW250OnPlaneTwo()
+        public void CreateW16OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createW5OnPlaneTwo()
+        public void CreateW17OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createW9OnPlaneOne()
+        public void CreateW1OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createW9OnPlaneTwo()
+        public void CreateW21OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public override void display()
+        public void CreateW250OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public override void displayLetterInfo()
+        public void CreateW5OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public override int getDimension()
+        public void CreateW9OnPlaneOne()
         {
             throw new NotImplementedException();
         }
 
-        public override int getDirection()
+        public void CreateW9OnPlaneTwo()
         {
             throw new NotImplementedException();
         }
 
-        public override int getDuration()
+        public override void Display()
         {
             throw new NotImplementedException();
         }
 
-        public override Plane getOnPlane()
+        public override void DisplayLetterInfo()
         {
             throw new NotImplementedException();
         }
 
-        public override bool getSmaller()
+        public override void Fill()
         {
             throw new NotImplementedException();
         }
 
-        public override Point getStartingPoint()
+        public override int GetDirection()
         {
             throw new NotImplementedException();
         }
 
-        public override bool isC(List<int> directions)
+        public override Plane GetOnPlane()
         {
             throw new NotImplementedException();
         }
 
-        public override bool isDirectionDimensionCorrect()
+        public override bool GetSmaller()
         {
             throw new NotImplementedException();
         }
 
-        public override bool isI(List<int> directions)
+        public override bool IsC(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isL(List<int> directions)
+        public override bool IsDirectionDimensionCorrect()
         {
             throw new NotImplementedException();
         }
 
-        public override bool isM(List<int> directions)
+        public override bool IsI(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isN(List<int> directions)
+        public override bool IsL(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isO(List<int> directions)
+        public override bool IsM(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isPointDimensionCorrect()
+        public override bool IsN(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isR(List<int> directions)
+        public override bool IsO(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isS(List<int> directions)
+        public override bool IsPointDimensionCorrect()
         {
             throw new NotImplementedException();
         }
 
-        public override bool isW(List<int> directions)
+        public override bool IsR(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override NonCircularNinthLetter reflectAboutAxis(int axisIndex)
+        public override bool IsS(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override NonCircularNinthLetter reflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
+        public override bool IsW(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override NonCircularNinthLetter rotateAroundAxis(int indexOfAxis, int numberOfTimes)
+        public override NonCircularNinthLetter ReflectAboutAxis(int axisIndex)
         {
             throw new NotImplementedException();
         }
 
-        public override NonCircularNinthLetter rotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
+        public override NonCircularNinthLetter ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
 
-        public override void setDuration(int timeInMiliiseconds)
+        public override NonCircularNinthLetter RotateAroundAxis(int indexOfAxis, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
 
-        public override void setLetterDirection(int letterDirection)
+        public override NonCircularNinthLetter RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
 
-        public override void setStartingPoint(Point startingPoint)
+        public override void SetLetterDirection(int letterDirection)
         {
             throw new NotImplementedException();
         }

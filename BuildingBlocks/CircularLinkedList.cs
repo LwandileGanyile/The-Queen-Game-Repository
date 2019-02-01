@@ -29,12 +29,12 @@ namespace BuildingBlocks
 
         }
 
-        public override void add(T element, int elementIndex)
+        public override void Add(T element, int elementIndex)
         {
             if (elementIndex <= 0)
-                addFirst(element);
+                AddFirst(element);
             else if (elementIndex >= size)
-                addLast(element);
+                AddLast(element);
             else
             {
                 MyNode<T> current = _head;
@@ -49,7 +49,7 @@ namespace BuildingBlocks
             }
         }
 
-        public override void displayList()
+        public override void DisplayList()
         {
             MyNode<T> current = _head;
 
@@ -65,7 +65,7 @@ namespace BuildingBlocks
               
         }
 
-        public override void addFirst(T element)
+        public override void AddFirst(T element)
         {
             MyNode<T> newNode = new MyNode<T>(element);
             if (_head == null)
@@ -80,7 +80,7 @@ namespace BuildingBlocks
             size++;
         }
 
-        public override void addLast(T element)
+        public override void AddLast(T element)
         {
             MyNode<T> lastNode = _head;
 
@@ -94,12 +94,12 @@ namespace BuildingBlocks
             size++;
         }
 
-        public override T getFirst()
+        public override T GetFirst()
         {
             return _head.element;
         }
 
-        public override T getLast()
+        public override T GetLast()
         {
 
             MyNode<T> current = _head;
@@ -110,16 +110,16 @@ namespace BuildingBlocks
             return current.element;
         }
 
-        public override T remove(int elementIndex)
+        public override T Remove(int elementIndex)
         {
             
             if (elementIndex <= 0)
             {
-                return removeFirst();
+                return RemoveFirst();
             }
             else if (elementIndex >= size - 1)
             {
-                return removeLast();
+                return RemoveLast();
             }
             else
             {
@@ -138,7 +138,7 @@ namespace BuildingBlocks
             }
         }
 
-        public override T removeFirst()
+        public override T RemoveFirst()
         {
             if (size == 0)
             {
@@ -154,11 +154,11 @@ namespace BuildingBlocks
             }
         }
 
-        public override T removeLast()
+        public override T RemoveLast()
         {
             if (size == 0)
             {
-                return removeFirst();
+                return RemoveFirst();
             }
             else if (size == 1)
             {
@@ -182,14 +182,14 @@ namespace BuildingBlocks
             }
         }
 
-        public override T getAt(int atElement)
+        public override T GetAt(int atElement)
         {
             
 
             if (atElement <= 0)
-                return getFirst();
+                return GetFirst();
             else if (atElement >= size - 1)
-                return getLast();
+                return GetLast();
             else
             {
                 MyNode<T> current = _head;
@@ -200,6 +200,8 @@ namespace BuildingBlocks
             }
 
         }
+
+       
     }
 
 

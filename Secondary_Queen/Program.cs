@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Secondary_Queen.Unit_Testing_Classes;
+using Secondary_Queen;
 
 
 namespace ConsoleApp1
@@ -11,10 +13,13 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+
            
 
-            Console.WriteLine("Secondary Queen Main");
+            Console.WriteLine("\nSecondary Queen Main");
             Console.ReadLine();
         }
+
+        
     }
 }

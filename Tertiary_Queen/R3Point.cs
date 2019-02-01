@@ -9,7 +9,7 @@ using Pieces;
 
 namespace Tertiary_Queen
 {
-    public class R3Point:RetrievableDimension,ITranslate<R3Point>,IComparable<R3Point>,IDisplay,IReflect<R3Point>, Reflectable<R3Point>
+    public class R3Point:RetrievableDimension,ITranslate<R3Point>,IComparable<R3Point>,IDisplay,IReflect<R3Point>, IReflectable<R3Point>
     {
         private Point point;
 
@@ -23,72 +23,72 @@ namespace Tertiary_Queen
 
         }
 
-        public float getXCoordinate()
+        public float GetXCoordinate()
         {
             return 0.0f;
         }
 
-        public void setXCoordinate(float xCoordinate)
+        public void SetXCoordinate(float xCoordinate)
         {
 
         }
 
-        public void increaseXCoordinate(float amount)
+        public void IncreaseXCoordinate(float amount)
         {
 
         }
 
-        public void decreaseXCoordinate(float amount)
+        public void DecreaseXCoordinate(float amount)
         {
 
         }
 
-        public float getYCoordinate()
-        {
-            return 0.0f;
-        }
-
-        public void setYCoordinate(float yCoordinate)
-        {
-
-        }
-
-        public void increaseYCoordinate(float amount)
-        {
-
-        }
-
-        public void decreaseYCoordinate(float amount)
-        {
-
-        }
-
-        public float getZCoordinate()
+        public float GetYCoordinate()
         {
             return 0.0f;
         }
 
-        public void setZCoordinate(float yCoordinate)
+        public void SetYCoordinate(float yCoordinate)
         {
 
         }
 
-        public void increaseZCoordinate(float amount)
+        public void IncreaseYCoordinate(float amount)
         {
 
         }
 
-        public void decreaseZCoordinate(float amount)
+        public void DecreaseYCoordinate(float amount)
         {
 
         }
 
-        public Point getPoint()
+        public float GetZCoordinate()
+        {
+            return 0.0f;
+        }
+
+        public void SetZCoordinate(float yCoordinate)
+        {
+
+        }
+
+        public void IncreaseZCoordinate(float amount)
+        {
+
+        }
+
+        public void DecreaseZCoordinate(float amount)
+        {
+
+        }
+
+        public Point GetPoint()
         {
             return point;
         }
 
-        public int getDimension()
+        public int GetDimension()
         {
             throw new NotImplementedException();
         }
@@ -103,17 +103,17 @@ namespace Tertiary_Queen
             throw new NotImplementedException();
         }
 
-        public void display()
+        public void Display()
         {
             throw new NotImplementedException();
         }
 
-        public R3Point reflectAboutAxis(int axisIndex)
+        public R3Point ReflectAboutAxis(int axisIndex)
         {
             throw new NotImplementedException();
         }
 
-        public R3Point reflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
+        public R3Point ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();
         }

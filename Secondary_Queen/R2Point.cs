@@ -8,7 +8,7 @@ using Pieces;
 
 namespace Secondary_Queen
 {
-    public class R2Point : RetrievableDimension, ITranslate<R2Point>, IComparable<R2Point>, IDisplay, IReflect<R2Point>, Reflectable<R2Point>
+    public class R2Point : RetrievableDimension, ITranslate<R2Point>, IComparable<R2Point>, IDisplay, IReflect<R2Point>, IReflectable<R2Point>
     {
 
         /* Used to access methods and attributes by this class because any n 

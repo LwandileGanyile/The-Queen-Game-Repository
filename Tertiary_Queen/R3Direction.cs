@@ -21,137 +21,137 @@ namespace Tertiary_Queen
 
         }
 
-        public void changeDirectionState(IDirectionStateBase implementation)
+        public void ChangeDirectionState(IDirectionStateBase implementation)
         {
 
         }
 
-        public void createDirectionEight()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void createDirectionEightheen()
+        public void CreateDirectionEight()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionEleven()
+        public void CreateDirectionEightheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionFiftheen()
+        public void CreateDirectionEleven()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionFive()
+        public void CreateDirectionFiftheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionFortheen()
+        public void CreateDirectionFive()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionFour()
+        public void CreateDirectionFortheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionNine()
+        public void CreateDirectionFour()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionNintheen()
+        public void CreateDirectionNine()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionOne()
+        public void CreateDirectionNintheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionSeven()
+        public void CreateDirectionOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionSeventheen()
+        public void CreateDirectionSeven()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionSix()
+        public void CreateDirectionSeventheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionSixtheen()
+        public void CreateDirectionSix()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTen()
+        public void CreateDirectionSixtheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionThirtheen()
+        public void CreateDirectionTen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionThree()
+        public void CreateDirectionThirtheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwelve()
+        public void CreateDirectionThree()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwenty()
+        public void CreateDirectionTwelve()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwentyFive()
+        public void CreateDirectionTwenty()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwentyFour()
+        public void CreateDirectionTwentyFive()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwentyOne()
+        public void CreateDirectionTwentyFour()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwentySix()
+        public void CreateDirectionTwentyOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwentyThree()
+        public void CreateDirectionTwentySix()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwentyTwo()
+        public void CreateDirectionTwentyThree()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwo()
+        public void CreateDirectionTwentyTwo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateDirectionTwo()
         {
             throw new NotImplementedException();
         }

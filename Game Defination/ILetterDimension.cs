@@ -8,6 +8,6 @@ namespace Game_Defination
 {
     public interface ILetterDimension
     {
-        bool isLetterDimensionCorrect();
+        bool IsLetterDimensionCorrect();
     }
 }

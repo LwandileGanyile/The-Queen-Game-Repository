@@ -8,121 +8,147 @@ using Pieces;
 
 namespace Primary_Queen
 {
-    public class R1NonCircularDirection:NonCircularDirection<R1NonCircularDirection>
+    public class R1NonCircularDirection:NonCircularDirection<R1NonCircularDirection,R1Point>
     {
         public R1NonCircularDirection()
         {
-
+            StartingPoint = new R1Point().Position;
+            Fill();
+            FillCanShootList();
+        }
+   
+        // Construct without specifying the length property.
+        public R1NonCircularDirection(R1Point startingPoint, int direction,
+        float directionDivisor,Dictionary<int,int> duration)
+        : base(startingPoint.Position, direction, directionDivisor, new List<bool>(), duration, 1)
+        {
+            Fill();
         }
 
-        public R1NonCircularDirection(R1Point startingPoint, int direction, float directionLength, float directionDivisor, List<bool> canShootList, int directionDuration)
+        // Construct without specifying the number of rotations.
+        public R1NonCircularDirection(R1Point startingPoint, int direction, float directionLength,
+        float directionDivisor, Dictionary<int,int> duration)
+        : base(startingPoint.Position, direction, directionLength, directionDivisor, new List<bool>(), duration, 1)
         {
-
+            Fill();
+            FillCanShootList();
         }
 
-        public override void display()
+        // Construct by specifying the number of rotations.
+        public R1NonCircularDirection(R1Point startingPoint, int direction, float directionLength,
+        float divisor, Dictionary<int,int> duration, int numberOfRotations)
+        : base(startingPoint.Position, direction, directionLength, divisor, new List<bool>(), duration, 1, numberOfRotations)
         {
-            throw new NotImplementedException();
+            Fill();
+            FillCanShootList();
         }
 
-        public override void fillDirection()
+        // Displays an R1NonCircularDirection. However the method suppose to be on a super class "CircularDirection".
+        public override void Display()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < doubleLinkedList.Size; i++)
+            {
+                doubleLinkedList.GetAt(i).Display();
+                if (i !=doubleLinkedList.Size - 1)
+                    Console.Write(" , ");
+            }
         }
 
-        public override int getDimension()
+       
+        public override void Fill()
         {
-            throw new NotImplementedException();
+            R1Point point = new R1Point(_startingPoint);
+            doubleLinkedList.Add(point);
+
+            // Going left.
+            if (Direction == 1)
+                for (int i = 1; i <= _directionLength / _divisor; i++)
+                    doubleLinkedList.Add(new R1Point(point.GetXCoordinate() - i * _divisor));
+            // Going right.
+            else
+                for (int i = 1; i <= _directionLength / _divisor; i++)
+                    doubleLinkedList.Add(new R1Point(point.GetXCoordinate() + i * _divisor));
         }
 
-        public override int getDirection()
+        // Will always return  true for a one dimensional direction.
+        public override bool IsDirectionDimensionCorrect()
         {
-            throw new NotImplementedException();
+            return Dimension == 1;
         }
 
-        public override float getDirectionDivisor()
+        // Determines whether or not a direction is within the boundaries.
+        public override bool IsDirectionValid(int direction)
         {
-            throw new NotImplementedException();
+            return direction == 1 || direction == 2;
         }
 
-        public override float getDirectionLength()
+        // Checkes whether or not points making up a direction have a correct dimension.
+        public override bool IsPointDimensionCorrect()
         {
-            throw new NotImplementedException();
+            return StartingPoint.Dimension == 1;
         }
 
-        public override int getDuration()
+        // Only reflect about the origin. That is axisIndex 1.
+        public override R1NonCircularDirection ReflectAboutAxis(int axisIndex)
         {
-            throw new NotImplementedException();
+            if (axisIndex == 1)
+            {
+                direction = (direction * -1);
+            }
+
+
+            return new R1NonCircularDirection(new R1Point(StartingPoint), direction,DirectioLength , Divisor, Duration, NumberOfRepeatations);
         }
 
-        public override Point getStartingPoint()
+        // The method is unsupported for a one dimensional direction. 
+        // However the method will return a non reflection of this current object.
+        public override R1NonCircularDirection ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
-            throw new NotImplementedException();
+            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, Direction, Divisor, Duration, numberOfTimes);
         }
 
-        public override bool isDirectionDimensionCorrect()
+        /* The method is unsupported for a one dimensional direction. 
+           However the method will return a non reflection of the current object.
+           For the rotate method this R1CircularDirection instance will be returned because in R1 rotation isn't applicable.*/
+        public override R1NonCircularDirection RotateAroundAxis(int indexOfAxis, int numberOfTimes)
         {
-            throw new NotImplementedException();
+            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, Direction, Divisor, Duration, numberOfTimes);
         }
 
-        public override bool isDirectionValid(int direction)
+        // The method is unsupported for a one dimensional direction. 
+        // However the method will return a non reflection of this current object.
+        public override R1NonCircularDirection RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
         {
-            throw new NotImplementedException();
+            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, Direction, Divisor, Duration, numberOfTimes);
         }
 
-        public override bool isPointDimensionCorrect()
+        // Move direction.
+        // Change the starting position on a direction.
+        public override R1NonCircularDirection translate(int coordinateSystemDirection, float amount)
         {
-            throw new NotImplementedException();
-        }
+            R1CircularDirection initialDirection = new R1CircularDirection(new R1Point(StartingPoint), Direction, _directionLength, Divisor, Duration,NumberOfRepeatations);
 
-        public override R1NonCircularDirection reflectAboutAxis(int axisIndex)
-        {
-            throw new NotImplementedException();
-        }
+            float initialX = initialDirection.StartingPoint.GetAxisAt(0);
 
-        public override R1NonCircularDirection reflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
+            float finalX = initialX;
 
-        public override R1NonCircularDirection rotateAroundAxis(int indexOfAxis, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
 
-        public override R1NonCircularDirection rotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
 
-        public override void setCanShootList(List<bool> canShootList)
-        {
-            throw new NotImplementedException();
-        }
+            switch (coordinateSystemDirection)
+            {
+                case 1:
+                    finalX -= amount;
 
-        public override void setDirectionDivisor(float directionDivisor)
-        {
-            throw new NotImplementedException();
-        }
+                    break;
+                default:
+                    finalX += amount;
+                    break;
+            }
 
-        public override void setDirectionLength(float directionLength)
-        {
-            throw new NotImplementedException();
-        }
 
-        public override void setDuration(int timeInMiliiseconds)
-        {
-            throw new NotImplementedException();
-        }
 
-        public override void setStartingPoint(Point startingPoint)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override R1NonCircularDirection translate(int coordinateSystemDirection, float amaunt)
-        {
-            throw new NotImplementedException();
+            return new R1NonCircularDirection(new R1Point(finalX),
+                                            Direction, _directionLength, Divisor, Duration,NumberOfRepeatations);
         }
     }
 }

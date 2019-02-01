@@ -21,24 +21,24 @@ namespace Tertiary_Queen
 
         }
 
-        public bool areDirectionsNeighbors(int firstDirection, int secondDirection)
+        public bool AreDirectionsNeighbors(int firstDirection, int secondDirection)
         {
-            return planePerspective.areDirectionsNeighbors(firstDirection, secondDirection);
+            return planePerspective.AreDirectionsNeighbors(firstDirection, secondDirection);
         }
 
-        public bool areDirectionsNFarAway(int firstDirection, int secondDirection, int howFar)
+        public bool AreDirectionsNFarAway(int firstDirection, int secondDirection, int howFar)
         {
-            return planePerspective.areDirectionsNFarAway(firstDirection, secondDirection, howFar);
+            return planePerspective.AreDirectionsNFarAway(firstDirection, secondDirection, howFar);
         }
 
-        public bool areDirectionsOnPlane(List<int> directions)
+        public bool AreDirectionsOnPlane(List<int> directions)
         {
-            return planePerspective.areDirectionsOnPlane(directions);
+            return planePerspective.AreDirectionsOnPlane(directions);
         }
 
-        public bool areDirectionsPerpendicular(int firstDirection, int secondDirection)
+        public bool AreDirectionsPerpendicular(int firstDirection, int secondDirection)
         {
-            return planePerspective.areDirectionsPerpendicular(firstDirection, secondDirection);
+            return planePerspective.AreDirectionsPerpendicular(firstDirection, secondDirection);
         }
 
         public void changePlanePerspective(IR3Plane planePerspectiv)
@@ -46,22 +46,22 @@ namespace Tertiary_Queen
             this.planePerspective = planePerspectiv;
         }
 
-        public void retrieveAllDistancedDirections(int direction, int howFar, List<int> distancedDirections)
+        public void RetrieveAllDistancedDirections(int direction, int howFar, List<int> distancedDirections)
         {
-            planePerspective.retrieveAllDistancedDirections(direction, howFar, distancedDirections);
+            planePerspective.RetrieveAllDistancedDirections(direction, howFar, distancedDirections);
         }
 
-        public void retrieveAllNeighborDirections(int direction, List<int> neighborDirections)
+        public void RetrieveAllNeighborDirections(int direction, List<int> neighborDirections)
         {
-            planePerspective.retrieveAllNeighborDirections(direction, neighborDirections);
+            planePerspective.RetrieveAllNeighborDirections(direction, neighborDirections);
         }
 
-        public void retrieveAllPerpendicularDirections(int direction, List<int> perpendicularDirections)
+        public void RetrieveAllPerpendicularDirections(int direction, List<int> perpendicularDirections)
         {
-            planePerspective.retrieveAllPerpendicularDirections(direction, perpendicularDirections);
+            planePerspective.RetrieveAllPerpendicularDirections(direction, perpendicularDirections);
         }
 
-        public void setPlaneCentre(R3Point point)
+        public void SetPlaneCentre(R3Point point)
         {
 
         }

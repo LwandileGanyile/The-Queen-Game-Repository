@@ -19,17 +19,17 @@ namespace CircularIteration
 
         }
 
-        public override T getNext()
+        public override T GetNext()
         {
             throw new NotImplementedException();
         }
 
-        public override bool hasNext()
+        public override bool HasNext()
         {
             throw new NotImplementedException();
         }
 
-        public override T remove()
+        public override T Remove()
         {
             throw new NotImplementedException();
         }

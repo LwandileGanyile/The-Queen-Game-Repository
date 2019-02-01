@@ -5,24 +5,43 @@ using System.Text;
 using System.Threading.Tasks;
 using Game_Defination;
 using Pieces;
+using Parents;
 
 namespace BuildingBlocks
 {
-    public abstract class NonCircular<T> : IRotate<T>, IReflect<T>, Reflectable<T>, Rotateable<T>,
-        ITranslate<T>, IBegin, IDirectionDimension, IPointDimension, RetrievableDimension, IDisplay,
-        IPeriodic
+    public abstract class NonCircular<T,U> :Parent, IRotate<T>, IReflect<T>, IReflectable<T>, IRotateable<T>,
+        ITranslate<T>, IDirectionDimension, IPointDimension, IDisplay
     {
         protected int numberOfRepeatations;
-        protected DoubleLinkedList<T> doubleLinkedList;
+        protected DoubleLinkedList<U> doubleLinkedList;
 
-        public NonCircular()
+        public NonCircular():base()
         {
-
+            numberOfRepeatations = 1;
+            doubleLinkedList = new DoubleLinkedList<U>();
         }
 
-        public NonCircular(int numberOfRepeatations)
+        protected NonCircular(Point _startingPoint, int direction,
+        float divisor, Dictionary<int,int> duration, int directionDimension, int numberOfRepeatations)
+        :base(_startingPoint, direction,
+        divisor, duration,directionDimension, numberOfRepeatations)
         {
 
+            this.numberOfRepeatations = numberOfRepeatations;
+            doubleLinkedList = new DoubleLinkedList<U>();
+            
+        }
+
+        protected NonCircular(Point _startingPoint, int direction,
+        float divisor, List<bool> canShootList, Dictionary<int,int> duration, int directionDimension, int numberOfRepeatations)
+        :base(_startingPoint, direction,
+        divisor, canShootList, duration, directionDimension, numberOfRepeatations)
+        {
+
+            this.numberOfRepeatations = numberOfRepeatations;
+            
+            doubleLinkedList = new DoubleLinkedList<U>();
+            
         }
 
         public int NumberOfRepeatations
@@ -31,18 +50,28 @@ namespace BuildingBlocks
             get;
         }
 
-        public abstract void display();
-        public abstract int getDimension();
-        public abstract int getDuration();
-        public abstract Point getStartingPoint();
-        public abstract bool isDirectionDimensionCorrect();
-        public abstract bool isPointDimensionCorrect();
-        public abstract T reflectAboutAxis(int axisIndex);
-        public abstract T reflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes);
-        public abstract T rotateAroundAxis(int indexOfAxis, int numberOfTimes);
-        public abstract T rotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes);
-        public abstract void setDuration(int timeInMiliiseconds);
-        public abstract void setStartingPoint(Point startingPoint);
+        protected void FillCanShootList()
+        {
+            for (int i = 0; i < doubleLinkedList.Size; i++)
+                canShootList.Add(false);
+        }
+
+        public abstract void Display();
+
+        public abstract bool IsDirectionDimensionCorrect();
+        public abstract bool IsPointDimensionCorrect();
+
+        public abstract T ReflectAboutAxis(int axisIndex);
+        public abstract T ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes);
+        public abstract T RotateAroundAxis(int indexOfAxis, int numberOfTimes);
+        public abstract T RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes);
+
+
         public abstract T translate(int coordinateSystemDirection, float amaunt);
+
+        public override void Clear()
+        {
+            doubleLinkedList.Clear();
+        }
     }
 }

@@ -8,6 +8,6 @@ namespace Game_Defination
 {
     public interface IPointDimension
     {
-        bool isPointDimensionCorrect();
+        bool IsPointDimensionCorrect();
     }
 }

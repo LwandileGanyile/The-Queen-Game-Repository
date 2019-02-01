@@ -103,24 +103,24 @@ namespace BuildingBlocks.Unit_Testing_Classes
             Console.WriteLine();
 
             Console.WriteLine("----------------removeFirst()------------------------------");
-            Console.WriteLine("Remove first on list1 " + doubleLinkedList11.removeFirst());
-            Console.WriteLine("Remove first on list2 " + doubleLinkedList22.removeFirst());
-            Console.WriteLine("Remove first on list3 " + doubleLinkedList33.removeFirst());
-            Console.WriteLine("Remove first on list4 " + doubleLinkedList44.removeFirst());
+            Console.WriteLine("Remove first on list1 " + doubleLinkedList11.RemoveFirst());
+            Console.WriteLine("Remove first on list2 " + doubleLinkedList22.RemoveFirst());
+            Console.WriteLine("Remove first on list3 " + doubleLinkedList33.RemoveFirst());
+            Console.WriteLine("Remove first on list4 " + doubleLinkedList44.RemoveFirst());
 
             Console.WriteLine();
 
-            Console.WriteLine("Remove first on chars1 " + doubleLinkedList111.removeFirst());
-            Console.WriteLine("Remove first on chars2 " + doubleLinkedList222.removeFirst());
-            Console.WriteLine("Remove first on chars3 " + doubleLinkedList333.removeFirst());
-            Console.WriteLine("Remove first on chars4 " + doubleLinkedList444.removeFirst());
+            Console.WriteLine("Remove first on chars1 " + doubleLinkedList111.RemoveFirst());
+            Console.WriteLine("Remove first on chars2 " + doubleLinkedList222.RemoveFirst());
+            Console.WriteLine("Remove first on chars3 " + doubleLinkedList333.RemoveFirst());
+            Console.WriteLine("Remove first on chars4 " + doubleLinkedList444.RemoveFirst());
 
             Console.WriteLine();
 
-            Console.WriteLine("Remove first on names1 " + doubleLinkedList1111.removeFirst());
-            Console.WriteLine("Remove first on names2 " + doubleLinkedList2222.removeFirst());
-            Console.WriteLine("Remove first on names3 " + doubleLinkedList3333.removeFirst());
-            Console.WriteLine("Remove first on names4 " + doubleLinkedList4444.removeFirst());
+            Console.WriteLine("Remove first on names1 " + doubleLinkedList1111.RemoveFirst());
+            Console.WriteLine("Remove first on names2 " + doubleLinkedList2222.RemoveFirst());
+            Console.WriteLine("Remove first on names3 " + doubleLinkedList3333.RemoveFirst());
+            Console.WriteLine("Remove first on names4 " + doubleLinkedList4444.RemoveFirst());
 
             Console.WriteLine();
 
@@ -129,24 +129,24 @@ namespace BuildingBlocks.Unit_Testing_Classes
             Console.WriteLine();
 
             Console.WriteLine("----------------removeAt(index)------------------------------");
-            Console.WriteLine("Remove element at '4' on list1, " + doubleLinkedList11.remove(4) + " removed.");
-            Console.WriteLine("Remove element at '2' on list2, " + doubleLinkedList22.remove(2) + " removed.");
-            Console.WriteLine("Remove element at '3' on list3, " + doubleLinkedList33.remove(3) + " removed.");
-            Console.WriteLine("Remove element at '1' on list4, " + doubleLinkedList44.remove(1) + " removed.");
+            Console.WriteLine("Remove element at '4' on list1, " + doubleLinkedList11.Remove(4) + " removed.");
+            Console.WriteLine("Remove element at '2' on list2, " + doubleLinkedList22.Remove(2) + " removed.");
+            Console.WriteLine("Remove element at '3' on list3, " + doubleLinkedList33.Remove(3) + " removed.");
+            Console.WriteLine("Remove element at '1' on list4, " + doubleLinkedList44.Remove(1) + " removed.");
 
             Console.WriteLine();
 
-            Console.WriteLine("Remove element at '1' on chars1, " + doubleLinkedList111.remove(1) + " removed.");
-            Console.WriteLine("Remove element at '2' on chars2, " + doubleLinkedList222.remove(2) + " removed.");
-            Console.WriteLine("Remove element at '3' on chars3, " + doubleLinkedList333.remove(3) + " removed.");
-            Console.WriteLine("Remove element at '4' on chars4, " + doubleLinkedList444.remove(4) + " removed.");
+            Console.WriteLine("Remove element at '1' on chars1, " + doubleLinkedList111.Remove(1) + " removed.");
+            Console.WriteLine("Remove element at '2' on chars2, " + doubleLinkedList222.Remove(2) + " removed.");
+            Console.WriteLine("Remove element at '3' on chars3, " + doubleLinkedList333.Remove(3) + " removed.");
+            Console.WriteLine("Remove element at '4' on chars4, " + doubleLinkedList444.Remove(4) + " removed.");
 
             Console.WriteLine();
 
-            Console.WriteLine("Remove element at '3' on names1, " + doubleLinkedList1111.remove(3) + " removed.");
-            Console.WriteLine("Remove element at '2' on names2, " + doubleLinkedList2222.remove(2) + " removed.");
-            Console.WriteLine("Remove element at '4' on names3, " + doubleLinkedList3333.remove(4) + " removed.");
-            Console.WriteLine("Remove element at '0' on names4, " + doubleLinkedList4444.remove(0) + " removed.");
+            Console.WriteLine("Remove element at '3' on names1, " + doubleLinkedList1111.Remove(3) + " removed.");
+            Console.WriteLine("Remove element at '2' on names2, " + doubleLinkedList2222.Remove(2) + " removed.");
+            Console.WriteLine("Remove element at '4' on names3, " + doubleLinkedList3333.Remove(4) + " removed.");
+            Console.WriteLine("Remove element at '0' on names4, " + doubleLinkedList4444.Remove(0) + " removed.");
 
             Console.WriteLine();
 
@@ -155,25 +155,25 @@ namespace BuildingBlocks.Unit_Testing_Classes
             Console.WriteLine();
 
             Console.WriteLine("----------------removeLast()------------------------------");
-            Console.WriteLine("Remove last on list1, " + doubleLinkedList11.removeLast() + " removed.");
-            Console.WriteLine("Remove last on list2, " + doubleLinkedList22.removeLast() + " removed.");
-            Console.WriteLine("Remove last on list3, " + doubleLinkedList33.removeLast() + " removed.");
-            Console.WriteLine("Remove last on list4, " + doubleLinkedList44.removeLast() + " removed.");
+            Console.WriteLine("Remove last on list1, " + doubleLinkedList11.RemoveLast() + " removed.");
+            Console.WriteLine("Remove last on list2, " + doubleLinkedList22.RemoveLast() + " removed.");
+            Console.WriteLine("Remove last on list3, " + doubleLinkedList33.RemoveLast() + " removed.");
+            Console.WriteLine("Remove last on list4, " + doubleLinkedList44.RemoveLast() + " removed.");
 
             Console.WriteLine();
 
-            Console.WriteLine("Remove last on chars1, " + doubleLinkedList111.removeLast() + " removed.");
-            Console.WriteLine("Remove last on chars2, " + doubleLinkedList222.removeLast() + " removed.");
-            Console.WriteLine("Remove last on chars3, " + doubleLinkedList333.removeLast() + " removed.");
-            Console.WriteLine("Remove last on chars4, " + doubleLinkedList444.removeLast() + " removed.");
+            Console.WriteLine("Remove last on chars1, " + doubleLinkedList111.RemoveLast() + " removed.");
+            Console.WriteLine("Remove last on chars2, " + doubleLinkedList222.RemoveLast() + " removed.");
+            Console.WriteLine("Remove last on chars3, " + doubleLinkedList333.RemoveLast() + " removed.");
+            Console.WriteLine("Remove last on chars4, " + doubleLinkedList444.RemoveLast() + " removed.");
 
 
             Console.WriteLine();
 
-            Console.WriteLine("Remove last on names1, " + doubleLinkedList1111.removeLast() + " removed.");
-            Console.WriteLine("Remove last on names2, " + doubleLinkedList2222.removeLast() + " removed.");
-            Console.WriteLine("Remove last on names3, " + doubleLinkedList3333.removeLast() + " removed.");
-            Console.WriteLine("Remove last on names4, " + doubleLinkedList4444.removeLast() + " removed.");
+            Console.WriteLine("Remove last on names1, " + doubleLinkedList1111.RemoveLast() + " removed.");
+            Console.WriteLine("Remove last on names2, " + doubleLinkedList2222.RemoveLast() + " removed.");
+            Console.WriteLine("Remove last on names3, " + doubleLinkedList3333.RemoveLast() + " removed.");
+            Console.WriteLine("Remove last on names4, " + doubleLinkedList4444.RemoveLast() + " removed.");
 
             Console.WriteLine();
 
@@ -190,35 +190,35 @@ namespace BuildingBlocks.Unit_Testing_Classes
 
             Console.WriteLine("----------------addFirst()------------------------------");
             Console.WriteLine("Add first '23' of list1 ");
-            doubleLinkedList11.addFirst(23);
+            doubleLinkedList11.AddFirst(23);
             Console.WriteLine("Add first '35'  of list2 ");
-            doubleLinkedList22.addFirst(35);
+            doubleLinkedList22.AddFirst(35);
             Console.WriteLine("Add first '76'  of list3 ");
-            doubleLinkedList33.addFirst(76);
+            doubleLinkedList33.AddFirst(76);
             Console.WriteLine("Add first '102'  of list4 ");
-            doubleLinkedList44.addFirst(102);
+            doubleLinkedList44.AddFirst(102);
 
             Console.WriteLine();
 
             Console.WriteLine("Add first 'i' on chars1 ");
-            doubleLinkedList111.addFirst('i');
+            doubleLinkedList111.AddFirst('i');
             Console.WriteLine("Add first 'r' on chars2 ");
-            doubleLinkedList222.addFirst('r');
+            doubleLinkedList222.AddFirst('r');
             Console.WriteLine("Add first 'e' on chars3 ");
-            doubleLinkedList333.addFirst('e');
+            doubleLinkedList333.AddFirst('e');
             Console.WriteLine("Add first 'w' on chars4 ");
-            doubleLinkedList444.addFirst('w');
+            doubleLinkedList444.AddFirst('w');
 
             Console.WriteLine();
 
             Console.WriteLine("Add first 'Justin' on names1 ");
-            doubleLinkedList1111.addFirst("Justin");
+            doubleLinkedList1111.AddFirst("Justin");
             Console.WriteLine("Add first 'Melvin' on names2 ");
-            doubleLinkedList2222.addFirst("Melvin");
+            doubleLinkedList2222.AddFirst("Melvin");
             Console.WriteLine("Add first 'Kalen' on names3 ");
-            doubleLinkedList3333.addFirst("Kalen");
+            doubleLinkedList3333.AddFirst("Kalen");
             Console.WriteLine("Add first 'Tu' on names4 ");
-            doubleLinkedList4444.addFirst("Tu");
+            doubleLinkedList4444.AddFirst("Tu");
 
             Console.WriteLine();
 
@@ -228,35 +228,35 @@ namespace BuildingBlocks.Unit_Testing_Classes
 
             Console.WriteLine("----------------addAt(E element,3)------------------------------");
             Console.WriteLine("Add '1000' at '3' on list1 ");
-            doubleLinkedList11.add(1000, 3);
+            doubleLinkedList11.Add(1000, 3);
             Console.WriteLine("Add '2000' at '4' on list2 ");
-            doubleLinkedList22.add(2000, 4);
+            doubleLinkedList22.Add(2000, 4);
             Console.WriteLine("Add '5000' at '0' on list3 ");
-            doubleLinkedList33.add(5000, 0);
+            doubleLinkedList33.Add(5000, 0);
             Console.WriteLine("Add '20200' at '2' on list4 ");
-            doubleLinkedList44.add(20200, 2);
+            doubleLinkedList44.Add(20200, 2);
 
             Console.WriteLine();
 
             Console.WriteLine("Add 'f' at '0' on chars1 ");
-            doubleLinkedList111.add('f', 0);
+            doubleLinkedList111.Add('f', 0);
             Console.WriteLine("Add 's' at '2' on chars2 ");
-            doubleLinkedList222.add('s', 2);
+            doubleLinkedList222.Add('s', 2);
             Console.WriteLine("Add 'q' at '4' on chars3 ");
-            doubleLinkedList333.add('q', 4);
+            doubleLinkedList333.Add('q', 4);
             Console.WriteLine("Add 'm' at '6' on chars4 ");
-            doubleLinkedList444.add('m', 6);
+            doubleLinkedList444.Add('m', 6);
 
             Console.WriteLine();
 
             Console.WriteLine("Add 'Nolwazi' at '4' on names1 ");
-            doubleLinkedList1111.add("Nolwazi", 4);
+            doubleLinkedList1111.Add("Nolwazi", 4);
             Console.WriteLine("Add 'Lizwi' at '3' on names2 ");
-            doubleLinkedList2222.add("Lizwi", 3);
+            doubleLinkedList2222.Add("Lizwi", 3);
             Console.WriteLine("Add 'Scelo' at '7' on names3 ");
-            doubleLinkedList3333.add("Scelo", 7);
+            doubleLinkedList3333.Add("Scelo", 7);
             Console.WriteLine("Add 'Cebo' at '0' on names4 ");
-            doubleLinkedList4444.add("Cebo", 0);
+            doubleLinkedList4444.Add("Cebo", 0);
 
             Console.WriteLine();
 
@@ -266,35 +266,35 @@ namespace BuildingBlocks.Unit_Testing_Classes
 
             Console.WriteLine("----------------addLast(T element)------------------------------");
             Console.WriteLine("Add last '4' on list1 ");
-            doubleLinkedList11.addLast(4);
+            doubleLinkedList11.AddLast(4);
             Console.WriteLine("Add last '5' on list2 ");
-            doubleLinkedList22.addLast(5);
+            doubleLinkedList22.AddLast(5);
             Console.WriteLine("Add last '6' on list3 ");
-            doubleLinkedList33.addLast(6);
+            doubleLinkedList33.AddLast(6);
             Console.WriteLine("Add last '7' of list4 ");
-            doubleLinkedList44.addLast(7);
+            doubleLinkedList44.AddLast(7);
 
             Console.WriteLine();
 
             Console.WriteLine("Add last 'k' on chars1 ");
-            doubleLinkedList111.addLast('k');
+            doubleLinkedList111.AddLast('k');
             Console.WriteLine("Add last 'i' on chars2 ");
-            doubleLinkedList222.addLast('i');
+            doubleLinkedList222.AddLast('i');
             Console.WriteLine("Add last 't' on chars3 ");
-            doubleLinkedList333.addLast('t');
+            doubleLinkedList333.AddLast('t');
             Console.WriteLine("Add last 'x' on chars4 ");
-            doubleLinkedList444.addLast('x');
+            doubleLinkedList444.AddLast('x');
 
             Console.WriteLine();
 
             Console.WriteLine("Add last 'Wendy' on names1 ");
-            doubleLinkedList1111.addLast("Wendy");
+            doubleLinkedList1111.AddLast("Wendy");
             Console.WriteLine("Add last 'Anele' on names2 ");
-            doubleLinkedList2222.addLast("Anele");
+            doubleLinkedList2222.AddLast("Anele");
             Console.WriteLine("Add last 'Samke' on names3 ");
-            doubleLinkedList3333.addLast("Samke");
+            doubleLinkedList3333.AddLast("Samke");
             Console.WriteLine("Add last 'Anathi' on names4 ");
-            doubleLinkedList4444.addLast("Anathi");
+            doubleLinkedList4444.AddLast("Anathi");
 
             Console.WriteLine();
 
@@ -310,68 +310,68 @@ namespace BuildingBlocks.Unit_Testing_Classes
             Console.WriteLine();
 
             Console.WriteLine("----------------getFirst()------------------------------");
-            Console.WriteLine("First value of list1 " + doubleLinkedList11.getFirst());
-            Console.WriteLine("First value of list2 " + doubleLinkedList22.getFirst());
-            Console.WriteLine("First value of list3 " + doubleLinkedList33.getFirst());
-            Console.WriteLine("First value of list4 " + doubleLinkedList44.getFirst());
+            Console.WriteLine("First value of list1 " + doubleLinkedList11.GetFirst());
+            Console.WriteLine("First value of list2 " + doubleLinkedList22.GetFirst());
+            Console.WriteLine("First value of list3 " + doubleLinkedList33.GetFirst());
+            Console.WriteLine("First value of list4 " + doubleLinkedList44.GetFirst());
 
             Console.WriteLine();
 
-            Console.WriteLine("First value of chars1 " + doubleLinkedList111.getFirst());
-            Console.WriteLine("First value of chars2 " + doubleLinkedList222.getFirst());
-            Console.WriteLine("First value of chars3 " + doubleLinkedList333.getFirst());
-            Console.WriteLine("First value of chars4 " + doubleLinkedList444.getFirst());
+            Console.WriteLine("First value of chars1 " + doubleLinkedList111.GetFirst());
+            Console.WriteLine("First value of chars2 " + doubleLinkedList222.GetFirst());
+            Console.WriteLine("First value of chars3 " + doubleLinkedList333.GetFirst());
+            Console.WriteLine("First value of chars4 " + doubleLinkedList444.GetFirst());
 
             Console.WriteLine();
 
-            Console.WriteLine("First value of names1 " + doubleLinkedList1111.getFirst());
-            Console.WriteLine("First value of names2 " + doubleLinkedList2222.getFirst());
-            Console.WriteLine("First value of names3 " + doubleLinkedList3333.getFirst());
-            Console.WriteLine("First value of names4 " + doubleLinkedList4444.getFirst());
+            Console.WriteLine("First value of names1 " + doubleLinkedList1111.GetFirst());
+            Console.WriteLine("First value of names2 " + doubleLinkedList2222.GetFirst());
+            Console.WriteLine("First value of names3 " + doubleLinkedList3333.GetFirst());
+            Console.WriteLine("First value of names4 " + doubleLinkedList4444.GetFirst());
 
             Console.WriteLine();
 
             Console.WriteLine("----------------getAt(3)------------------------------");
-            Console.WriteLine("At value of list1 " + doubleLinkedList11.getAt(3));
-            Console.WriteLine("At value of list2 " + doubleLinkedList22.getAt(3));
-            Console.WriteLine("At value of list3 " + doubleLinkedList33.getAt(3));
-            Console.WriteLine("At value of list4 " + doubleLinkedList44.getAt(3));
+            Console.WriteLine("At value of list1 " + doubleLinkedList11.GetAt(3));
+            Console.WriteLine("At value of list2 " + doubleLinkedList22.GetAt(3));
+            Console.WriteLine("At value of list3 " + doubleLinkedList33.GetAt(3));
+            Console.WriteLine("At value of list4 " + doubleLinkedList44.GetAt(3));
 
             Console.WriteLine();
 
-            Console.WriteLine("At value of chars1 " + doubleLinkedList111.getAt(3));
-            Console.WriteLine("At value of chars2 " + doubleLinkedList222.getAt(3));
-            Console.WriteLine("At value of chars3 " + doubleLinkedList333.getAt(3));
-            Console.WriteLine("At value of chars4 " + doubleLinkedList444.getAt(3));
+            Console.WriteLine("At value of chars1 " + doubleLinkedList111.GetAt(3));
+            Console.WriteLine("At value of chars2 " + doubleLinkedList222.GetAt(3));
+            Console.WriteLine("At value of chars3 " + doubleLinkedList333.GetAt(3));
+            Console.WriteLine("At value of chars4 " + doubleLinkedList444.GetAt(3));
 
             Console.WriteLine();
 
-            Console.WriteLine("At value of names1 " + doubleLinkedList1111.getAt(3));
-            Console.WriteLine("At value of names2 " + doubleLinkedList2222.getAt(3));
-            Console.WriteLine("At value of names3 " + doubleLinkedList3333.getAt(3));
-            Console.WriteLine("At value of names4 " + doubleLinkedList4444.getAt(3));
+            Console.WriteLine("At value of names1 " + doubleLinkedList1111.GetAt(3));
+            Console.WriteLine("At value of names2 " + doubleLinkedList2222.GetAt(3));
+            Console.WriteLine("At value of names3 " + doubleLinkedList3333.GetAt(3));
+            Console.WriteLine("At value of names4 " + doubleLinkedList4444.GetAt(3));
 
             Console.WriteLine();
 
             Console.WriteLine("----------------getLast()------------------------------");
-            Console.WriteLine("Last value of list1 " + doubleLinkedList11.getLast());
-            Console.WriteLine("Last value of list2 " + doubleLinkedList22.getLast());
-            Console.WriteLine("Last value of list3 " + doubleLinkedList33.getLast());
-            Console.WriteLine("Last value of list4 " + doubleLinkedList44.getLast());
+            Console.WriteLine("Last value of list1 " + doubleLinkedList11.GetLast());
+            Console.WriteLine("Last value of list2 " + doubleLinkedList22.GetLast());
+            Console.WriteLine("Last value of list3 " + doubleLinkedList33.GetLast());
+            Console.WriteLine("Last value of list4 " + doubleLinkedList44.GetLast());
 
             Console.WriteLine();
 
-            Console.WriteLine("Last value of chars1 " + doubleLinkedList111.getLast());
-            Console.WriteLine("Last value of chars2 " + doubleLinkedList222.getLast());
-            Console.WriteLine("Last value of chars3 " + doubleLinkedList333.getLast());
-            Console.WriteLine("Last value of chars4 " + doubleLinkedList444.getLast());
+            Console.WriteLine("Last value of chars1 " + doubleLinkedList111.GetLast());
+            Console.WriteLine("Last value of chars2 " + doubleLinkedList222.GetLast());
+            Console.WriteLine("Last value of chars3 " + doubleLinkedList333.GetLast());
+            Console.WriteLine("Last value of chars4 " + doubleLinkedList444.GetLast());
 
             Console.WriteLine();
 
-            Console.WriteLine("Last value of names1 " + doubleLinkedList1111.getLast());
-            Console.WriteLine("Last value of names2 " + doubleLinkedList2222.getLast());
-            Console.WriteLine("Last value of names3 " + doubleLinkedList3333.getLast());
-            Console.WriteLine("Last value of names4 " + doubleLinkedList4444.getLast());
+            Console.WriteLine("Last value of names1 " + doubleLinkedList1111.GetLast());
+            Console.WriteLine("Last value of names2 " + doubleLinkedList2222.GetLast());
+            Console.WriteLine("Last value of names3 " + doubleLinkedList3333.GetLast());
+            Console.WriteLine("Last value of names4 " + doubleLinkedList4444.GetLast());
 
             Console.WriteLine();
 
@@ -384,55 +384,55 @@ namespace BuildingBlocks.Unit_Testing_Classes
 
             Console.WriteLine("-----List Elements------&-----Size Property------------------------------");
             Console.Write("Elements of list1 -> ");
-            doubleLinkedList11.displayList();
+            doubleLinkedList11.DisplayList();
             Console.WriteLine("\t\tSize of list1 :" + doubleLinkedList11.Size);
 
             Console.Write("Elements of list2 -> ");
-            doubleLinkedList22.displayList();
+            doubleLinkedList22.DisplayList();
             Console.WriteLine("\t\tSize of list2 : " + doubleLinkedList22.Size);
 
             Console.Write("Elements of list3 -> ");
-            doubleLinkedList33.displayList();
+            doubleLinkedList33.DisplayList();
             Console.WriteLine("\t\tSize of list3 : " + doubleLinkedList33.Size);
 
             Console.Write("Elements of list4 -> ");
-            doubleLinkedList44.displayList();
+            doubleLinkedList44.DisplayList();
             Console.WriteLine("\t\tSize of list4 : " + doubleLinkedList44.Size);
 
             Console.WriteLine();
 
             Console.Write("Elements of chars1 -> ");
-            doubleLinkedList111.displayList();
+            doubleLinkedList111.DisplayList();
             Console.WriteLine("\t\tSize of chars1 : " + doubleLinkedList111.Size);
 
             Console.Write("Elements of chars2 -> ");
-            doubleLinkedList222.displayList();
+            doubleLinkedList222.DisplayList();
             Console.WriteLine("\t\tSize of chars2 : " + doubleLinkedList222.Size);
 
             Console.Write("Elements of chars3 -> ");
-            doubleLinkedList333.displayList();
+            doubleLinkedList333.DisplayList();
             Console.WriteLine("\t\tSize of chars3 : " + doubleLinkedList333.Size);
 
             Console.Write("Elements of chars4 -> ");
-            doubleLinkedList444.displayList();
+            doubleLinkedList444.DisplayList();
             Console.WriteLine("\t\tSize of chars4 : " + doubleLinkedList444.Size);
             Console.WriteLine();
 
             Console.Write("Elements of names1 -> ");
-            doubleLinkedList1111.displayList();
+            doubleLinkedList1111.DisplayList();
             Console.WriteLine("\t\tSize of names1 : " + doubleLinkedList1111.Size);
 
             Console.Write("Elements of names2 -> ");
-            doubleLinkedList2222.displayList();
+            doubleLinkedList2222.DisplayList();
             Console.WriteLine();
             Console.WriteLine("\t\tSize of names2 : " + doubleLinkedList2222.Size);
 
             Console.Write("Elements of names3 -> ");
-            doubleLinkedList3333.displayList();
+            doubleLinkedList3333.DisplayList();
             Console.WriteLine("\t\tSize of names3 : " + doubleLinkedList3333.Size);
 
             Console.Write("Elements of names4 -> ");
-            doubleLinkedList4444.displayList();
+            doubleLinkedList4444.DisplayList();
             Console.WriteLine("\t\tSize of names4 : " + doubleLinkedList4444.Size);
 
             Console.WriteLine();

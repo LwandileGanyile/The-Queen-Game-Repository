@@ -8,8 +8,8 @@ namespace Game_Defination
 {
     public interface IUnidirectionalIterator<T>
     {
-        T getNext();
-        bool hasNext();
-        T remove();
+        T GetNext();
+        bool HasNext();
+        T Remove();
     }
 }

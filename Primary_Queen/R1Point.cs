@@ -9,7 +9,7 @@ using Pieces;
 
 namespace Primary_Queen
 {
-    public class R1Point : RetrievableDimension, ITranslate<R1Point>, IComparable<R1Point>, IDisplay, IReflect<R1Point>, Reflectable<R1Point>
+    public class R1Point : RetrievableDimension, ITranslate<R1Point>, IComparable<R1Point>, IDisplay, IReflect<R1Point>, IReflectable<R1Point>
     {
         /* Used to access methods and attributes by this class because any n 
         dimensional point isn't allowed to directly access the Point class.*/

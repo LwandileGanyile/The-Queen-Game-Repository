@@ -8,6 +8,6 @@ namespace Game_Defination
 {
     public interface IDisplay
     {
-        void display();
+        void Display();
     }
 }

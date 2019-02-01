@@ -8,6 +8,6 @@ namespace Game_Defination
 {
     public interface RetrievableDimension
     {
-        int getDimension();
+        int GetDimension();
     }
 }

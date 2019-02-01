@@ -8,6 +8,6 @@ namespace Game_Defination
 {
     public interface IRotate<T>
     {
-        T rotateAroundAxis(int indexOfAxis, int numberOfTimes);
+        T RotateAroundAxis(int indexOfAxis, int numberOfTimes);
     }
 }

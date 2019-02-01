@@ -8,7 +8,7 @@ using Pieces;
 
 namespace Secondary_Queen
 {
-    public class R2NonCircularLetter:NonCircularLetter<R2NonCircularLetter>
+    public class R2NonCircularLetter:NonCircularLetter<R2NonCircularLetter, R2NonCircularDirection>
     {
         public R2NonCircularLetter()
         {
@@ -25,135 +25,122 @@ namespace Secondary_Queen
             throw new NotImplementedException();
         }
 
-        public override void display()
+        public override void Display()
         {
             throw new NotImplementedException();
         }
 
-        public override void displayLetterInfo()
+        public override void DisplayLetterInfo()
         {
             throw new NotImplementedException();
         }
 
-        public override int getDimension()
+        public override void Fill()
         {
             throw new NotImplementedException();
         }
 
-        public override int getDirection()
+       
+        public override int GetDirection()
         {
             throw new NotImplementedException();
         }
 
-        public override int getDuration()
+        
+        public override Plane GetOnPlane()
         {
             throw new NotImplementedException();
         }
 
-        public override Plane getOnPlane()
+        public override bool GetSmaller()
         {
             throw new NotImplementedException();
         }
 
-        public override bool getSmaller()
+        
+        public override bool IsC(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override Point getStartingPoint()
+        public override bool IsDirectionDimensionCorrect()
         {
             throw new NotImplementedException();
         }
 
-        public override bool isC(List<int> directions)
+        public override bool IsI(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isDirectionDimensionCorrect()
+        public override bool IsL(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isI(List<int> directions)
+        public override bool IsM(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isL(List<int> directions)
+        public override bool IsN(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isM(List<int> directions)
+        public override bool IsO(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isN(List<int> directions)
+        public override bool IsPointDimensionCorrect()
         {
             throw new NotImplementedException();
         }
 
-        public override bool isO(List<int> directions)
+        public override bool IsR(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isPointDimensionCorrect()
+        public override bool IsS(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isR(List<int> directions)
+        public override bool IsW(List<int> directions)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isS(List<int> directions)
+        public override R2NonCircularLetter ReflectAboutAxis(int axisIndex)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isW(List<int> directions)
+        public override R2NonCircularLetter ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
 
-        public override R2NonCircularLetter reflectAboutAxis(int axisIndex)
+        public override R2NonCircularLetter RotateAroundAxis(int indexOfAxis, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
 
-        public override R2NonCircularLetter reflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
+        public override R2NonCircularLetter RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
 
-        public override R2NonCircularLetter rotateAroundAxis(int indexOfAxis, int numberOfTimes)
+       
+
+        public override void SetLetterDirection(int letterDirection)
         {
             throw new NotImplementedException();
         }
 
-        public override R2NonCircularLetter rotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void setDuration(int timeInMiliiseconds)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void setLetterDirection(int letterDirection)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void setStartingPoint(Point startingPoint)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public override R2NonCircularLetter translate(int coordinateSystemDirection, float amaunt)
         {

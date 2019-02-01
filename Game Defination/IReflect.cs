@@ -8,6 +8,6 @@ namespace Game_Defination
 {
     public interface IReflect<T>
     {
-        T reflectAboutAxis(int axisIndex);
+        T ReflectAboutAxis(int axisIndex);
     }
 }

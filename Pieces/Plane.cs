@@ -7,7 +7,7 @@ using Game_Defination;
 
 namespace Pieces
 {
-    public abstract class Plane : Reflectable<Plane>, Rotateable<Plane>, IReflect<Plane>, IRotate<Plane>
+    public abstract class Plane : IReflectable<Plane>, IRotateable<Plane>, IReflect<Plane>, IRotate<Plane>
     {
         protected int planeDimension;
         protected int planeNumber;
@@ -24,69 +24,69 @@ namespace Pieces
 
         }
 
-        public bool areDirectionsOnPlane(List<int> directions)
+        public bool AreDirectionsOnPlane(List<int> directions)
         {
             return false;
         }
 
-        public bool areNFarAway(int direction1, int direction2, int howFar)
+        public bool AreNFarAway(int direction1, int direction2, int howFar)
         {
             return false;
         }
 
-        public static List<int> retrieveAllNeighborDirections(int direction)
+        public static List<int> RetrieveAllNeighborDirections(int direction)
         {
             return null;
         }
 
-        public static List<int> retrieveAllPerpendicularDirections(int direction)
+        public static List<int> RetrieveAllPerpendicularDirections(int direction)
         {
             return null;
         }
 
-        public int[] retrieveNeighborDirections(int direction)
+        public int[] RetrieveNeighborDirections(int direction)
         {
             int[] array = new int[2];
             return array;
         }
 
-        public int[] retrievePerpendicularDirections(int direction)
+        public int[] RetrievePerpendicularDirections(int direction)
         {
             int[] array = new int[2];
             return array;
         }
 
-        public bool areDirectionsNeighbors(int direction1, int direction2)
+        public bool RreDirectionsNeighbors(int direction1, int direction2)
         {
             return false;
         }
 
-        public bool areDirectionsPerpendicular(int direction1, int direction2)
+        public bool RreDirectionsPerpendicular(int direction1, int direction2)
         {
             return false;
         }
 
-        protected void fillDirections()
+        protected void RillDirections()
         {
 
         }
 
-        public Plane reflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Plane rotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
+        public Plane ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
 
-        public Plane reflectAboutAxis(int axisIndex)
+        public Plane RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
 
-        public Plane rotateAroundAxis(int indexOfAxis, int numberOfTimes)
+        public Plane ReflectAboutAxis(int axisIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Plane RotateAroundAxis(int indexOfAxis, int numberOfTimes)
         {
             throw new NotImplementedException();
         }

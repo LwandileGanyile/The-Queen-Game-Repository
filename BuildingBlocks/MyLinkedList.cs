@@ -19,46 +19,55 @@ namespace BuildingBlocks
         protected MyLinkedList(T[] objects)
         {
             for (int index = 0; index < objects.Length; index++)
-                add(objects[index]);
+                Add(objects[index]);
         }
 
         protected MyLinkedList(List<T> objects)
         {
             for (int index = 0; index < objects.Count; index++)
-                addLast(objects[index]);
+                AddLast(objects[index]);
         }
 
-        public abstract void add(T element, int elementIndex);
-        public abstract void addFirst(T element);
-        public abstract void addLast(T element);
+        public abstract void Add(T element, int elementIndex);
+        public abstract void AddFirst(T element);
+        public abstract void AddLast(T element);
 
         
-        public abstract T getFirst();
-        public abstract T getAt(int index);
-        public abstract T getLast();
+        public abstract T GetFirst();
+        public abstract T GetAt(int index);
+        public abstract T GetLast();
 
-        public abstract void displayList();
+        public abstract void DisplayList();
 
-        public bool isEmpty()
-        {
-            return size == 0;
-        }
+       
 
-        public abstract T remove(int elementIndex);
-        public abstract T removeFirst();
-        public abstract T removeLast();
+        public abstract T Remove(int elementIndex);
+        public abstract T RemoveFirst();
+        public abstract T RemoveLast();
 
         public int Size
         {
             get { return size; }
-            set { size = value; }
+            //set { size = value; }
         }
 
-        public void add(T element)
+        public void Add(T element)
         {
-            add(element, size);
+            Add(element, size);
         }
 
-        
+        public void Clear()
+        {
+            while (!IsEmpty())
+            {
+                RemoveFirst();
+            }
+        }
+
+        public bool IsEmpty()
+        {
+            return size == 0;
+        }
+
     }
 }

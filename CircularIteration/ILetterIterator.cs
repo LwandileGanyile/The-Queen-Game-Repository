@@ -8,6 +8,6 @@ namespace CircularIteration
 {
     public interface ILetterIterator<T>
     {
-        LetterIterator<T> retrieveLetterIterator();
+        LetterIterator<T> RetrieveLetterIterator();
     }
 }

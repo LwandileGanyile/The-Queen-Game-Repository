@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Game_Defination
 {
-    public interface Reflectable<T>
+    public interface ICanShoot
     {
-        T reflectAroundEqualAxis(List<int> axisIndeces,int numberOfTimes);
+        void DisplayCanShoot();
     }
 }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Game_Defination
 {
-    public interface Rotateable<T>
+    public interface IReflectable<T>
     {
-        T rotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes);
+        T ReflectAroundEqualAxis(List<int> axisIndeces,int numberOfTimes);
     }
 }

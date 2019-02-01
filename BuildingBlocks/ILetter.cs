@@ -9,20 +9,20 @@ namespace BuildingBlocks
 {
     public interface ILetter:Directional
     {
-        void displayLetterInfo();
-        void setLetterDirection(int letterDirection);
-        Plane getOnPlane();
-        bool getSmaller();
+        void DisplayLetterInfo();
+        void SetLetterDirection(int letterDirection);
+        Plane GetOnPlane();
+        bool GetSmaller();
 
-        bool isC(List<int> directions);
-        bool isI(List<int> directions);
-        bool isL(List<int> directions);
-        bool isM(List<int> directions);
-        bool isN(List<int> directions);
-        bool isO(List<int> directions);
-        bool isR(List<int> directions);
-        bool isS(List<int> directions);
-        bool isW(List<int> directions);
+        bool IsC(List<int> directions);
+        bool IsI(List<int> directions);
+        bool IsL(List<int> directions);
+        bool IsM(List<int> directions);
+        bool IsN(List<int> directions);
+        bool IsO(List<int> directions);
+        bool IsR(List<int> directions);
+        bool IsS(List<int> directions);
+        bool IsW(List<int> directions);
         
     }
 }

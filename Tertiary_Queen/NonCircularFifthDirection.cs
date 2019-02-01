@@ -8,7 +8,7 @@ using Pieces;
 
 namespace Tertiary_Queen
 {
-    public class NonCircularFifthDirection : NonCircularDirection<NonCircularFifthDirection>, IDirectionStateBase
+    public class NonCircularFifthDirection : NonCircularDirection<NonCircularFifthDirection,R3Point>, IDirectionStateBase
     {
 
         public NonCircularFifthDirection()
@@ -21,232 +21,177 @@ namespace Tertiary_Queen
 
         }
 
-        public void createDirectionEight()
+        public void CreateDirectionEight()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionEightheen()
+        public void CreateDirectionEightheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionEleven()
+        public void CreateDirectionEleven()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionFiftheen()
+        public void CreateDirectionFiftheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionFive()
+        public void CreateDirectionFive()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionFortheen()
+        public void CreateDirectionFortheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionFour()
+        public void CreateDirectionFour()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionNine()
+        public void CreateDirectionNine()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionNintheen()
+        public void CreateDirectionNintheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionOne()
+        public void CreateDirectionOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionSeven()
+        public void CreateDirectionSeven()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionSeventheen()
+        public void CreateDirectionSeventheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionSix()
+        public void CreateDirectionSix()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionSixtheen()
+        public void CreateDirectionSixtheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTen()
+        public void CreateDirectionTen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionThirtheen()
+        public void CreateDirectionThirtheen()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionThree()
+        public void CreateDirectionThree()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwelve()
+        public void CreateDirectionTwelve()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwenty()
+        public void CreateDirectionTwenty()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwentyFive()
+        public void CreateDirectionTwentyFive()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwentyFour()
+        public void CreateDirectionTwentyFour()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwentyOne()
+        public void CreateDirectionTwentyOne()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwentySix()
+        public void CreateDirectionTwentySix()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwentyThree()
+        public void CreateDirectionTwentyThree()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwentyTwo()
+        public void CreateDirectionTwentyTwo()
         {
             throw new NotImplementedException();
         }
 
-        public void createDirectionTwo()
+        public void CreateDirectionTwo()
         {
             throw new NotImplementedException();
         }
 
-        public override void display()
+        public override void Display()
         {
             throw new NotImplementedException();
         }
 
-        public override void fillDirection()
+        public override void Fill()
         {
             throw new NotImplementedException();
         }
 
-        public override int getDimension()
+        public override bool IsDirectionDimensionCorrect()
         {
             throw new NotImplementedException();
         }
 
-        public override int getDirection()
+        public override bool IsDirectionValid(int direction)
         {
             throw new NotImplementedException();
         }
 
-        public override float getDirectionDivisor()
+        public override bool IsPointDimensionCorrect()
         {
             throw new NotImplementedException();
         }
 
-        public override float getDirectionLength()
+        public override NonCircularFifthDirection ReflectAboutAxis(int axisIndex)
         {
             throw new NotImplementedException();
         }
 
-        public override int getDuration()
+        public override NonCircularFifthDirection ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
 
-        public override Point getStartingPoint()
+        public override NonCircularFifthDirection RotateAroundAxis(int indexOfAxis, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
 
-        public override bool isDirectionDimensionCorrect()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool isDirectionValid(int direction)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool isPointDimensionCorrect()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override NonCircularFifthDirection reflectAboutAxis(int axisIndex)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override NonCircularFifthDirection reflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override NonCircularFifthDirection rotateAroundAxis(int indexOfAxis, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override NonCircularFifthDirection rotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void setCanShootList(List<bool> canShootList)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void setDirectionDivisor(float directionDivisor)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void setDirectionLength(float directionLength)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void setDuration(int timeInMiliiseconds)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void setStartingPoint(Point startingPoint)
+        public override NonCircularFifthDirection RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
         {
             throw new NotImplementedException();
         }

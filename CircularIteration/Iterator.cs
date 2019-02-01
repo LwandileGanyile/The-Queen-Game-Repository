@@ -21,8 +21,8 @@ namespace CircularIteration
 
         }
 
-        public abstract T getNext();
-        public abstract bool hasNext();
-        public abstract T remove();
+        public abstract T GetNext();
+        public abstract bool HasNext();
+        public abstract T Remove();
     }
 }

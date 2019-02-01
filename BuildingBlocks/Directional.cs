@@ -8,6 +8,6 @@ namespace BuildingBlocks
 {
     public interface Directional
     {
-        int getDirection();
+        int GetDirection();
     }
 }

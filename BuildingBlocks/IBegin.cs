@@ -9,7 +9,7 @@ namespace BuildingBlocks
 {
     public interface IBegin
     {
-        void setStartingPoint(Point startingPoint);
-        Point getStartingPoint();
+        void SetStartingPoint(Point startingPoint);
+        Point GetStartingPoint();
     }
 }

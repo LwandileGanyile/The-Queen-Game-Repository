@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Pieces.Unit_Testing_Classes
 {
     // All methods work as expected.
@@ -44,8 +45,8 @@ namespace Pieces.Unit_Testing_Classes
 
         public PointTester(Point pointZero, Point pointOne, Point pointTwo)
         {
-            if (pointZero.getDimension() == pointOne.getDimension()
-               && pointZero.getDimension() == pointTwo.getDimension())
+            if (pointZero.GetDimension() == pointOne.GetDimension()
+               && pointZero.GetDimension() == pointTwo.GetDimension())
             {
                 this.pointZero = pointZero;
                 this.pointOne = pointOne;
@@ -76,13 +77,13 @@ namespace Pieces.Unit_Testing_Classes
             
 
 
-            pointZero.display();
+            pointZero.Display();
             Console.Write("\t\t");
 
-            pointOne.display();
+            pointOne.Display();
             Console.Write(" \t");
 
-            pointTwo.display();
+            pointTwo.Display();
             Console.WriteLine("\n");
         }
 
@@ -101,32 +102,32 @@ namespace Pieces.Unit_Testing_Classes
         {
             Console.WriteLine("----------------Comparing pointZero and pointZZ-----------------");
             Console.Write("\nCompare ");
-            pointZero.display();
+            pointZero.Display();
 
             Console.Write(" with ");
-            pointZZ.display();
+            pointZZ.Display();
 
             Console.Write(" we get that point ");
-            if (pointZero.compareTo(pointZZ) == -1)
+            if (pointZero.CompareTo(pointZZ) == -1)
             {
-                pointZero.display();
+                pointZero.Display();
                 Console.Write(" is less than ");
-                pointZZ.display();
+                pointZZ.Display();
             }
 
-            else if (pointZero.compareTo(pointZZ) == 1)
+            else if (pointZero.CompareTo(pointZZ) == 1)
             {
-                pointZero.display();
+                pointZero.Display();
                 Console.Write(" is greater than ");
-                pointZZ.display();
+                pointZZ.Display();
             }
 
 
-            else if (pointZero.compareTo(pointZZ) == 0)
+            else if (pointZero.CompareTo(pointZZ) == 0)
             {
-                pointZero.display();
+                pointZero.Display();
                 Console.Write(" is equals to ");
-                pointZZ.display();
+                pointZZ.Display();
             }
             else
                 Console.WriteLine("they can't be compared because they on of different dimensions.");
@@ -140,32 +141,32 @@ namespace Pieces.Unit_Testing_Classes
         {
             Console.WriteLine("----------------Comparing pointTwo and pointTT-----------------");
             Console.Write("\nCompare ");
-            pointOne.display();
+            pointOne.Display();
 
             Console.Write(" with ");
-            pointOO.display();
+            pointOO.Display();
 
             Console.Write(" we get that point ");
-            if (pointOne.compareTo(pointOO) == -1)
+            if (pointOne.CompareTo(pointOO) == -1)
             {
-                pointOne.display();
+                pointOne.Display();
                 Console.Write(" is less than ");
-                pointOO.display();
+                pointOO.Display();
             }
 
-            else if (pointOne.compareTo(pointOO) == 1)
+            else if (pointOne.CompareTo(pointOO) == 1)
             {
-                pointOne.display();
+                pointOne.Display();
                 Console.Write(" is greater than ");
-                pointOO.display();
+                pointOO.Display();
             }
 
 
-            else if (pointOne.compareTo(pointOO) == 0)
+            else if (pointOne.CompareTo(pointOO) == 0)
             {
-                pointOne.display();
+                pointOne.Display();
                 Console.Write(" is equals to ");
-                pointOO.display();
+                pointOO.Display();
             }
             else
                 Console.WriteLine("they can't be compared because they on of different dimensions.");
@@ -180,32 +181,32 @@ namespace Pieces.Unit_Testing_Classes
         {
             Console.WriteLine("----------------Comparing pointTwo and pointTT-----------------");
             Console.Write("\nCompare ");
-            pointTwo.display();
+            pointTwo.Display();
 
             Console.Write(" with ");
-            pointTT.display();
+            pointTT.Display();
 
             Console.Write(" we get that point ");
-            if (pointTwo.compareTo(pointTT) == -1)
+            if (pointTwo.CompareTo(pointTT) == -1)
             {
-                pointTwo.display();
+                pointTwo.Display();
                 Console.Write(" is less than ");
-                pointTT.display();
+                pointTT.Display();
             }
 
-            else if (pointTwo.compareTo(pointTT) == 1)
+            else if (pointTwo.CompareTo(pointTT) == 1)
             {
-                pointTwo.display();
+                pointTwo.Display();
                 Console.Write(" is greater than ");
-                pointTT.display();
+                pointTT.Display();
             }
 
 
-            else if (pointTwo.compareTo(pointTT) == 0)
+            else if (pointTwo.CompareTo(pointTT) == 0)
             {
-                pointTwo.display();
+                pointTwo.Display();
                 Console.Write(" is equals to ");
-                pointTT.display();
+                pointTT.Display();
             }
             else
                 Console.WriteLine("they can't be compared because they on of different dimensions.");
@@ -223,25 +224,25 @@ namespace Pieces.Unit_Testing_Classes
 
             Console.WriteLine("\n\n----Point[---getAxisAt(index)--&--setAxistAt(index)---]--");
             Console.Write("\t\tThe list of pointZero -> ");
-            pointZero.display();
-            Console.Write("\nUpdate pointZero at '1' from " + pointZero.getAxisAt(1) + " to ");
-            pointZero.setAxisAt(1, 111.0f);
-            Console.WriteLine(pointZero.getAxisAt(1) + ".");
+            pointZero.Display();
+            Console.Write("\nUpdate pointZero at '1' from " + pointZero.GetAxisAt(1) + " to ");
+            pointZero.SetAxisAt(1, 111.0f);
+            Console.WriteLine(pointZero.GetAxisAt(1) + ".");
 
             Console.WriteLine();
             Console.Write("\t\tThe list of pointOne -> ");
-            pointOne.display();
-            Console.Write("\nUpdate pointOne at '2' from " + pointOne.getAxisAt(2) + " to ");
-            pointOne.setAxisAt(2, 798.0f);
-            Console.WriteLine(pointOne.getAxisAt(2) + ".");
+            pointOne.Display();
+            Console.Write("\nUpdate pointOne at '2' from " + pointOne.GetAxisAt(2) + " to ");
+            pointOne.SetAxisAt(2, 798.0f);
+            Console.WriteLine(pointOne.GetAxisAt(2) + ".");
 
             Console.WriteLine();
             Console.Write("\t\tThe list of pointTwo -> ");
 
-            pointTwo.display();
-            Console.Write("\nUpdate pointTwo at '3' from " + pointTwo.getAxisAt(3) + " to ");
-            pointTwo.setAxisAt(3, 1.0f);
-            Console.WriteLine(pointTwo.getAxisAt(3) + ".");
+            pointTwo.Display();
+            Console.Write("\nUpdate pointTwo at '3' from " + pointTwo.GetAxisAt(3) + " to ");
+            pointTwo.SetAxisAt(3, 1.0f);
+            Console.WriteLine(pointTwo.GetAxisAt(3) + ".");
 
             
 
@@ -253,35 +254,35 @@ namespace Pieces.Unit_Testing_Classes
 
             Console.WriteLine("\n\n----Point[---increaseAxisAt(index,amount)--&--decreaseAxistAt(index,amount)---]--");
 
-            Console.Write("\n\nIncrease pointZero at '0' from " + pointZero.getAxisAt(0) + " to ");
-            pointZero.increaseAxisAt(0, 100.0f);
-            Console.WriteLine(pointZero.getAxisAt(0) + " by amount of 100.0f.");
+            Console.Write("\n\nIncrease pointZero at '0' from " + pointZero.GetAxisAt(0) + " to ");
+            pointZero.IncreaseAxisAt(0, 100.0f);
+            Console.WriteLine(pointZero.GetAxisAt(0) + " by amount of 100.0f.");
 
-            Console.Write("\nIncrease pointOne at '1' from " + pointOne.getAxisAt(1) + " to ");
-            pointOne.increaseAxisAt(1, 200.0f);
-            Console.WriteLine(pointOne.getAxisAt(1) + " by amount of 200.0f.");
+            Console.Write("\nIncrease pointOne at '1' from " + pointOne.GetAxisAt(1) + " to ");
+            pointOne.IncreaseAxisAt(1, 200.0f);
+            Console.WriteLine(pointOne.GetAxisAt(1) + " by amount of 200.0f.");
 
-            Console.Write("\nIncrease pointTwo at '1' from " + pointTwo.getAxisAt(1) + " to ");
-            pointTwo.increaseAxisAt(1, 100.0f);
-            Console.WriteLine(pointTwo.getAxisAt(1) + " by amount of 100.0f.");
+            Console.Write("\nIncrease pointTwo at '1' from " + pointTwo.GetAxisAt(1) + " to ");
+            pointTwo.IncreaseAxisAt(1, 100.0f);
+            Console.WriteLine(pointTwo.GetAxisAt(1) + " by amount of 100.0f.");
 
             Console.WriteLine();
             checkPoint();
             Console.WriteLine();
 
-            Console.Write("\nDecrease pointZero at '0' from " + pointZero.getAxisAt(0) + " to ");
-            pointZero.decreaseAxisAt(0, 10.0f);
-            Console.WriteLine(pointZero.getAxisAt(0) + " by amount of 10.0f.");
+            Console.Write("\nDecrease pointZero at '0' from " + pointZero.GetAxisAt(0) + " to ");
+            pointZero.DecreaseAxisAt(0, 10.0f);
+            Console.WriteLine(pointZero.GetAxisAt(0) + " by amount of 10.0f.");
 
             
-            Console.Write("\nDecrease pointOne at '1' from " + pointOne.getAxisAt(1) + " to ");
-            pointOne.decreaseAxisAt(1, 200.0f);
-            Console.WriteLine(pointOne.getAxisAt(1) + " by amount of 200.0f.");
+            Console.Write("\nDecrease pointOne at '1' from " + pointOne.GetAxisAt(1) + " to ");
+            pointOne.DecreaseAxisAt(1, 200.0f);
+            Console.WriteLine(pointOne.GetAxisAt(1) + " by amount of 200.0f.");
 
             
-            Console.Write("\nDecrease pointTwo at '1' from " + pointTwo.getAxisAt(1) + " to ");
-            pointTwo.decreaseAxisAt(1, 50.0f);
-            Console.WriteLine(pointTwo.getAxisAt(1) + " by amount of 50.0f.");
+            Console.Write("\nDecrease pointTwo at '1' from " + pointTwo.GetAxisAt(1) + " to ");
+            pointTwo.DecreaseAxisAt(1, 50.0f);
+            Console.WriteLine(pointTwo.GetAxisAt(1) + " by amount of 50.0f.");
             
             checkPoint();
 

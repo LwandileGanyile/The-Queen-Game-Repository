@@ -8,7 +8,7 @@ namespace Game_Defination
 {
     public interface IBidirectionalIterator<T> : IUnidirectionalIterator<T>
     {
-        T getPrevious();
-        bool hasPrevious();
+        T GetPrevious();
+        bool HasPrevious();
     }
 }

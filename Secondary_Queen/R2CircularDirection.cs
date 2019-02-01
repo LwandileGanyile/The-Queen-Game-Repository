@@ -13,186 +13,369 @@ namespace Secondary_Queen
       
         public R2CircularDirection():base()
         {
+           
+            _startingPoint = new R2Point().Position;
             dimension = 2;
-            fillDirection();
+
+            Fill();
+            FillCanShootList();
         }
 
-        public R2CircularDirection(R2Point startingPoint, int direction, float directionLength, float directionDivisor, List<bool> canShootList, int directionDuration)
-        : this(startingPoint, direction, directionLength, directionDivisor, canShootList, directionDuration, 1)
+        // Construct without specifying the canshoot property.
+        public R2CircularDirection(R2Point startingPoint, int direction, float directionLength,
+        float divisor, Dictionary<int,int> duration, int numberOfRotations)
+        : base(startingPoint.Position, direction, divisor,directionLength,duration,2,numberOfRotations)
         {
+            Fill();
+            FillCanShootList();
+        }
+
+        // Construct without specifying the  length property cause it doesn't exist.
+        public R2CircularDirection(R2Point startingPoint, int direction,
+        float directionDivisor, List<bool> canShootList, Dictionary<int,int> duration)
+        : base(startingPoint.Position, direction, directionDivisor, canShootList, duration, 2)
+        {
+
+            Fill();
             
         }
 
-        public R2CircularDirection(R2Point startingPoint, int direction, float directionLength, float divisor, List<bool> canShootList, int directionDuration, int numberOfRotations)
-        : base(startingPoint.Point, direction,divisor,canShootList,directionDuration,numberOfRotations)
+        // Construct without specifying the number of rotations.
+        public R2CircularDirection(R2Point startingPoint, int direction, float directionLength, float directionDivisor, List<bool> canShootList, Dictionary<int,int> duration)
+        : base(startingPoint.Position, direction, directionLength, directionDivisor, canShootList, duration, 2)
         {
-            this.directionLength = directionLength;
-            dimension = 2;
-            fillDirection();
+
+            Fill();
+            
         }
 
-       
+        // Construct by specifying the number of rotations.
+        public R2CircularDirection(R2Point startingPoint, int direction, float directionLength, float divisor, List<bool> canShootList, Dictionary<int,int> duration, int numberOfRotations)
+        : base(startingPoint.Position, direction, directionLength,divisor, canShootList,duration, 2, numberOfRotations)
+        {
 
-        public override void fillDirection()
+            Fill();
+            
+        }
+
+        // Add points making up this direction.
+        // Directio 1-7.
+        // Any direction value correspond to Direction 8.
+        public override void Fill()
         {
             R2Point point = new R2Point(StartingPoint);
-            CircularLinkedList<R2Point> circularLinkedList = new CircularLinkedList<R2Point>();
+            
+            circularLinkedList.Add(point);
 
 
 
             switch (direction)
             {
                 case 1:
-                    for (int i = 0; i < directionLength / divisor; i++)
-                        circularLinkedList.add(new R2Point(point.getXCoordinate() - i * divisor, point.getYCoordinate()));
+                    for (int i = 1; i <= _directionLength / _divisor; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() - i * _divisor, point.GetYCoordinate()));
                     break;
                 case 2:
 
-                    for (int i = 0; i < directionLength / divisor; i++)
-                        circularLinkedList.add(new R2Point(point.getXCoordinate(), point.getYCoordinate() + i * divisor));
+                    for (int i = 1; i <= _directionLength / _divisor; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate(), point.GetYCoordinate() + i * _divisor));
 
                     break;
                 case 3:
 
-                    for (int i = 0; i < directionLength / divisor; i++)
-                        circularLinkedList.add(new R2Point(point.getXCoordinate(), point.getYCoordinate() - i * divisor));
+                    for (int i = 1; i <= _directionLength / _divisor; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate(), point.GetYCoordinate() - i * _divisor));
 
                     break;
                 case 4:
 
-                    for (int i = 0; i < directionLength / divisor; i++)
-                        circularLinkedList.add(new R2Point(point.getXCoordinate() - i * divisor, point.getYCoordinate() + i * divisor));
+                    for (int i = 1; i <= _directionLength / _divisor; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() - i * _divisor, point.GetYCoordinate() + i * _divisor));
 
                     break;
                 case 5:
 
-                    for (int i = 0; i < directionLength / divisor; i++)
-                        circularLinkedList.add(new R2Point(point.getXCoordinate() + i * divisor, point.getYCoordinate() - i * divisor));
+                    for (int i = 1; i <= _directionLength / _divisor; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() + i * _divisor, point.GetYCoordinate() - i * _divisor));
 
                     break;
                 case 6:
 
-                    for (int i = 0; i < directionLength / divisor; i++)
-                        circularLinkedList.add(new R2Point(point.getXCoordinate() + i * divisor, point.getYCoordinate() + i * divisor));
+                    for (int i = 1; i <= _directionLength / _divisor; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() + i * _divisor, point.GetYCoordinate() + i * _divisor));
                     
                     break;
                 case 7:
 
-                    for (int i = 0; i < directionLength / divisor; i++)
-                        circularLinkedList.add(new R2Point(point.getXCoordinate() - i * divisor, point.getYCoordinate() - i * divisor));
+                    for (int i = 1; i <= _directionLength / _divisor; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() - i * _divisor, point.GetYCoordinate() - i * _divisor));
 
                     break;
                 case 8:
 
-                    for (int i = 0; i < directionLength / divisor; i++)
-                        circularLinkedList.add(new R2Point(point.getXCoordinate()+i*divisor,point.getYCoordinate()));
+                    for (int i = 1; i <= _directionLength / _divisor; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate()+i*_divisor,point.GetYCoordinate()));
                     
                     break;
                     
             }
         }
 
-        public override void display()
+        // Will always return true for a two dimensional direction.
+        public override bool IsDirectionDimensionCorrect()
         {
-            for (int i = 0; i < circularLinkedList.Size; i++)
-            
-                circularLinkedList.getAt(i).display();
+            return 2==Dimension;
         }
 
-        public override int getDimension()
-        {
-            return 2; 
-        }
-
-        public override int getDirection()
-        {
-            return direction;
-        }
-
-        public override float getDirectionDivisor()
-        {
-            return divisor;
-        }
-
-        public override float getDirectionLength()
-        {
-            return directionLength; ;
-        }
-
-        public override int getDuration()
-        {
-            return duration;
-        }
-
-        public override Point getStartingPoint()
-        {
-            return _startingPoint;
-        }
-
-       
-        public override bool isDirectionDimensionCorrect()
-        {
-            return 2==getDimension();
-        }
-
-        public override bool isDirectionValid(int direction)
+        // Determines whether or not a direction is within the boundaries..
+        public override bool IsDirectionValid(int direction)
         {
             return direction >= 1 && direction <= 8;
         }
 
-        public override bool isPointDimensionCorrect()
+        // Checkes whether or not points making up a direction have a correct dimension.
+        public override bool IsPointDimensionCorrect()
         {
-            return StartingPoint.getDimension() == 2;
+            return StartingPoint.Dimension == 2;
         }
 
-        public override R2CircularDirection reflectAboutAxis(int axisIndex)
+        // Reflect about the  x-axis or y-axis, and return the result.
+        // 0 means x-axis, 1 means y-axis.
+        public override R2CircularDirection ReflectAboutAxis(int axisIndex)
         {
-            throw new NotImplementedException();
+           
+
+            if (axisIndex == 0)
+            {
+                switch (direction)
+                {
+                    case 1:
+                        direction = 1;
+                        break;
+                    case 2:
+                        direction = 3;
+                        break;
+                    case 3:
+                        direction = 2;
+                        break;
+                    case 4:
+                        direction = 7;
+                        break;
+                    case 5:
+                        direction = 6;
+                        break;
+                    case 6:
+                        direction = 5;
+                        break;
+                    case 7:
+                        direction = 4;
+                        break;
+                    case 8:
+                        direction = 8;
+                        break;
+                }
+            }
+            else if (axisIndex == 1)
+            {
+                switch (direction)
+                {
+                    case 1:
+                        direction = 8;
+                        break;
+                    case 2:
+                        direction = 2;
+                        break;
+                    case 3:
+                        direction = 3;
+                        break;
+                    case 4:
+                        direction = 6;
+                        break;
+                    case 5:
+                        direction = 7;
+                        break;
+                    case 6:
+                        direction = 4;
+                        break;
+                    case 7:
+                        direction = 5;
+                        break;
+                    case 8:
+                        direction = 8;
+                        break;
+                }
+            }
+
+
+            return new R2CircularDirection(new R2Point(StartingPoint), direction, _directionLength, Divisor, canShootList, Duration);
+    }
+
+        // Reflect about the  line y = x or y = -x a certain number of times, and return the result.
+        // A negetive element means on the negetive side of the axis.
+        public override R2CircularDirection ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
+        {
+
+            R2CircularDirection r2Direction = null;
+
+            for (int i = 0; i < numberOfTimes; i++)
+            {
+                if ((axisIndeces[0] == 1 && axisIndeces[1] == 1) || (axisIndeces[0] == -1 && axisIndeces[1] == -1))
+                {
+                    switch (direction)
+                    {
+                        case 1:
+                            direction = 3;
+                            break;
+                        case 2:
+                            direction = 8;
+                            break;
+                        case 3:
+                            direction = 1;
+                            break;
+                        case 4:
+                            direction = 5;
+                            break;
+                        case 5:
+                            direction = 4;
+                            break;
+                        case 6:
+                            direction = 6;
+                            break;
+                        case 7:
+                            direction = 7;
+                            break;
+                        case 8:
+                            direction = 2;
+                            break;
+                    }
+                }
+
+                else if ((axisIndeces[0] == -1 && axisIndeces[1] == 1) || (axisIndeces[0] == 1 && axisIndeces[1] == -1))
+                {
+                    switch (direction)
+                    {
+                        case 1:
+                            direction = 2;
+                            break;
+                        case 2:
+                            direction = 1;
+                            break;
+                        case 3:
+                            direction = 8;
+                            break;
+                        case 4:
+                            direction = 4;
+                            break;
+                        case 5:
+                            direction = 5;
+                            break;
+                        case 6:
+                            direction = 7;
+                            break;
+                        case 7:
+                            direction = 6;
+                            break;
+                        case 8:
+                            direction = 3;
+                            break;
+                    }
+                }
+
+                r2Direction = new R2CircularDirection(new R2Point(StartingPoint), direction, _directionLength, Divisor, canShootList, Duration);
+            }
+            return r2Direction;
         }
 
-        public override R2CircularDirection reflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
+        // Rotate about the  x-axis or y-axis a certatin number of times, and return the result.
+        // Rotate around the x-axis or the y-axis.
+        public override R2CircularDirection RotateAroundAxis(int indexOfAxis, int numberOfTimes)
         {
-            throw new NotImplementedException();
+
+            R2CircularDirection direction = this;
+
+            for (int index = 1; index <= numberOfTimes; index++)
+            {
+                
+                direction = ReflectAboutAxis(indexOfAxis);
+            }
+
+            return direction;
         }
 
-        public override R2CircularDirection rotateAroundAxis(int indexOfAxis, int numberOfTimes)
+        // Rotate about the  line y = x or y = -x a certain number of times, and return the result.
+        // Rotate about y = x and y = -x.
+        public override R2CircularDirection RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
         {
-            throw new NotImplementedException();
+            return ReflectAroundEqualAxis(indecesOfAxis, numberOfTimes);
         }
 
-        public override R2CircularDirection rotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
+        // Move direction.
+        // Change the starting position on a direction.
+        public override R2CircularDirection translate(int coordinateSystemDirection, float amount)
         {
-            throw new NotImplementedException();
+
+            R2CircularDirection initialDirection = new R2CircularDirection(new R2Point(StartingPoint),Direction,_directionLength,Divisor,canShootList,Duration);
+
+            float initialX = initialDirection.StartingPoint.GetAxisAt(0);
+            float initialY = initialDirection.StartingPoint.GetAxisAt(1);
+            float finalX = initialX;
+            float finalY = initialY;
+
+
+            switch (coordinateSystemDirection)
+            {
+                case 1:
+                    finalX -= amount ;
+                   
+                    break;
+                case 2:
+                    finalY += amount;
+                    
+                    break;
+                case 3:
+                    finalY -= amount;
+                    
+                    break;
+                case 4:
+                    finalX -= amount;
+                    finalY += amount;
+                    
+                    break;
+                case 5:
+                    finalX += amount;
+                    finalY -= amount;
+                    
+                    break;
+                case 6:
+                    finalX += amount;
+                    finalY += amount;
+                    
+                    break;
+                case 7:
+                    finalX -= amount;
+                    finalY -= amount;
+                    
+                    break;
+                case 8:
+                    finalX += amount;
+                    
+                    break;
+            }
+
+            return new R2CircularDirection(new R2Point(finalX,finalY,initialDirection.StartingPoint.CanShoot),
+                                            Direction,_directionLength,Divisor,CanShoot,Duration);
         }
 
-        public override void setCanShootList(List<bool> canShootList)
+        // Print the direction on a console.
+        public override void Display()
         {
-            this.canShootList = canShootList;
-        }
+            for (int i = 0; i < circularLinkedList.Size; i++)
+            {
+                circularLinkedList.GetAt(i).Display();
+                if (i != circularLinkedList.Size - 1)
+                    Console.Write(" , ");
+            }
 
-        public override void setDirectionDivisor(float directionDivisor)
-        {
-            this.divisor = directionDivisor;
-        }
-
-        public override void setDirectionLength(float directionLength)
-        {
-            this.directionLength = directionLength;
-        }
-
-        public override void setDuration(int timeInMiliiseconds)
-        {
-            this.duration = timeInMiliiseconds;
-        }
-
-        public override void setStartingPoint(Point startingPoint)
-        {
-            StartingPoint = startingPoint;
-        }
-
-        public override R2CircularDirection translate(int coordinateSystemDirection, float amaunt)
-        {
-            throw new NotImplementedException();
         }
     }
 
