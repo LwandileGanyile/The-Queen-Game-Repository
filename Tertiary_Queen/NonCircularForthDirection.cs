@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BuildingBlocks;
+using NonCircularIteration;
 using Pieces;
 
 namespace Tertiary_Queen
@@ -182,6 +183,16 @@ namespace Tertiary_Queen
         }
 
         public override NonCircularForthDirection ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DirectionIterator<NonCircularForthDirection> RetrieveDirectionIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override PointIterator<R3Point> RetrievePointIterator()
         {
             throw new NotImplementedException();
         }

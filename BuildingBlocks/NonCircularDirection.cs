@@ -5,68 +5,73 @@ using System.Text;
 using System.Threading.Tasks;
 using Game_Defination;
 using Pieces;
+using SharedResources;
+using NonCircularIteration;
 
 namespace BuildingBlocks
 {
-    public abstract class NonCircularDirection<T,U>: NonCircular<T,U>, IDirection, ICanShoot
+    public abstract class NonCircularDirection<T,U>: NonCircular<T,U>, IPointIterator<U>
     {
-        protected float _directionLength;
-        protected float _divisor;
+
+        protected SharedDirection sharedDirection;
 
         protected NonCircularDirection()
         {
-            _divisor = 1;
-            _directionLength = 10;
+
+            sharedDirection = new SharedDirection(10,1);
         }
 
         // Construct without specifying the canshootlist property.
         protected NonCircularDirection(Point startingPoint, int direction, float directionLength,
         float divisor, Dictionary<int,int> duration, int directionDimension, int numberOfRotations)
-        : base(startingPoint, direction, divisor, duration, directionDimension, numberOfRotations)
+        : base(startingPoint, direction,duration, directionDimension, numberOfRotations)
         {
-            _divisor = divisor;
-            _directionLength = directionLength;
+            sharedDirection = new SharedDirection(directionLength, divisor);
         }
 
         // Construct without specifying the  length property cause it doesnh't exist.
         protected NonCircularDirection(Point startingPoint, int direction,
         float directionDivisor, List<bool> canShootList, Dictionary<int,int> duration, int directionDimension)
-        : base(startingPoint, direction, directionDivisor, canShootList, duration, directionDimension, 1)
+        : base(startingPoint, direction, canShootList, duration, directionDimension, 1)
         {
-            _divisor = directionDivisor;
-            _directionLength = 10 * _divisor;
+            sharedDirection = new SharedDirection(10* directionDivisor, directionDivisor);
         }
 
         // Construct without specifying the number of rotations.
         protected NonCircularDirection(Point startingPoint, int direction, float directionLength,
         float directionDivisor, List<bool> canShootList, Dictionary<int,int> duration, int directionDimension)
-        : base(startingPoint, direction, directionDivisor, canShootList, duration, directionDimension, 1)
+        : base(startingPoint, direction, canShootList, duration, directionDimension, 1)
         {
-            _divisor = directionDivisor;
-            _directionLength = directionLength;
+            sharedDirection = new SharedDirection(directionLength, directionDivisor);
         }
 
         // Construct by specifying the number of rotations.
         protected NonCircularDirection(Point startingPoint, int direction, float directionLength,
-        float directionDivisor, List<bool> canShootList, Dictionary<int,int> duration, int directionDimension, int numberOfRotations)
-        : base(startingPoint, direction, directionDivisor, canShootList, duration, directionDimension, numberOfRotations)
+        float directionDivisor, List<bool> canShootList, Dictionary<int, int> duration, int directionDimension, int numberOfRotations)
+        : base(startingPoint, direction, canShootList, duration, directionDimension, numberOfRotations)
         {
-            _divisor = directionDivisor;
-            _directionLength = directionLength;
+            sharedDirection = new SharedDirection(directionLength, directionDivisor);
         }
 
-        public float Divisor { get { return _divisor; } }
-        public float DirectioLength
+        public  SharedDirection SharedDirection
         {
-            get { return _directionLength; }
+            get
+            {
+                return sharedDirection;
+            }
+
+            set
+            {
+                if (value != null)
+                    sharedDirection = value;
+            }
         }
 
-        // Returns a positive integer representing this direction.
-        public int GetDirection() { return direction; }
-        // Returns a direction divisor.
-        public float GetDirectionDivisor() { return _divisor; }
+       
+        
+        public float GetDirectionDivisor() { return SharedDirection.Divisor; }
         // Returns a direction length;
-        public float GetDirectionLength() { return _directionLength; }
+        public float GetDirectionLength() { return SharedDirection.DirectionLength; }
         // Checks whether or not the direction is valid.
         public abstract bool IsDirectionValid(int direction);
         // Update the points in this direction that can shoot.
@@ -75,7 +80,7 @@ namespace BuildingBlocks
         // Sets the divisor of this direction.
         public void SetDirectionDivisor(float directionDivisor)
         {
-            _divisor = directionDivisor;
+            sharedDirection.Divisor = directionDivisor;
             doubleLinkedList.Clear();
             Fill();
 
@@ -83,21 +88,17 @@ namespace BuildingBlocks
         // Sets the length of this direction.
         public void SetDirectionLength(float directionLength)
         {
-            _directionLength = directionLength;
+            sharedDirection.DirectionLength = directionLength;
 
             doubleLinkedList.Clear();
             Fill();
         }
 
-        // Display whether or not each point can shoot.
-        public void DisplayCanShoot()
-        {
-            for (int i = 1; i <= canShootList.Count; i++)
-                Console.Write(canShootList[i - 1] + " ");
-            Console.WriteLine();
-        }
-        // Display the length of this direction.
-        
+       
+
+        public abstract PointIterator<U> RetrievePointIterator();
+       
+
 
     }
 }

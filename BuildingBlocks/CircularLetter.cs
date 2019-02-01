@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Game_Defination;
 using Pieces;
+using SharedResources;
+using CircularIteration;
 
 namespace BuildingBlocks
 {
-    public abstract class CircularLetter<T,U> : Circular<T,U>, Comparable<T>, ILetterDimension, ILetter
+    public abstract class CircularLetter<T,U> : Circular<T,U>, Comparable<T>, ILetterDimension, ILetter, IDirectionIterator<U>
     {
 
         protected CircularLetter()
@@ -30,6 +32,7 @@ namespace BuildingBlocks
         public abstract int GetDirection();
         public abstract Plane GetOnPlane();
         public abstract bool GetSmaller();
+
         public abstract bool IsC(List<int> directions);
         public abstract bool IsI(List<int> directions);
         public abstract bool IsL(List<int> directions);      
@@ -45,5 +48,8 @@ namespace BuildingBlocks
         
 
         public abstract void SetLetterDirection(int letterDirection);
+
+        public abstract DirectionIterator<U> RetrieveDirectionIterator();
+     
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BuildingBlocks;
+using CircularIteration;
 using Pieces;
 
 namespace Tertiary_Queen
@@ -16,7 +17,7 @@ namespace Tertiary_Queen
 
         }
 
-        public CircularTenthLetter(R3Point startingPoint, char letter, int letterDirection, R3Plane onPlane, bool smaller, int letterDuration)
+        public CircularTenthLetter(R3Point startingPoint, char letter, int letterDirection, R3Plane onPlane, bool smaller, Dictionary<int,int> duration)
         {
 
         }
@@ -867,6 +868,16 @@ namespace Tertiary_Queen
         }
 
         public override CircularTenthLetter translate(int coordinateSystemDirection, float amaunt)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DirectionIterator<CircularTenthDirection> RetrieveDirectionIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override LetterIterator<CircularTenthLetter> RetrieveLetterIterator()
         {
             throw new NotImplementedException();
         }

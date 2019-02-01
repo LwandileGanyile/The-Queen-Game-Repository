@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using BuildingBlocks;
 using Pieces;
+using CircularIteration;
 
 namespace Tertiary_Queen
 {
-    public class CircularSeventheenthDirection : CircularDirection<CircularSeventheenthDirection,R3Direction>, IDirectionStateBase
+    public class CircularSeventheenthDirection : CircularDirection<CircularSeventheenthDirection,R3Direction>, IDirectionStateBase, IPointIterator<R3Point>
     {
         public CircularSeventheenthDirection()
         {
@@ -185,6 +186,16 @@ namespace Tertiary_Queen
             throw new NotImplementedException();
         }
 
+        public override DirectionIterator<CircularSeventheenthDirection> RetrieveDirectionIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override PointIterator<R3Direction> RetrievePointIterator()
+        {
+            throw new NotImplementedException();
+        }
+
         public override CircularSeventheenthDirection RotateAroundAxis(int indexOfAxis, int numberOfTimes)
         {
             throw new NotImplementedException();
@@ -196,6 +207,11 @@ namespace Tertiary_Queen
         }
 
         public override CircularSeventheenthDirection translate(int coordinateSystemDirection, float amaunt)
+        {
+            throw new NotImplementedException();
+        }
+
+        PointIterator<R3Point> IPointIterator<R3Point>.RetrievePointIterator()
         {
             throw new NotImplementedException();
         }

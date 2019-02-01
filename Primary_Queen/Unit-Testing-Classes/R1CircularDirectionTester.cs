@@ -16,20 +16,33 @@ namespace Primary_Queen.Unit_Testing_Classes
             r1Direction = new R1CircularDirection();
             List<bool> canShoot = new List<bool>();
 
+            
+
             float directionLength = 5;
             float directionDivisor = 0.5f;
             int direction = 1;
 
+            int numberOfElements = (int)(directionLength / directionDivisor);
 
 
-            for (int i = 0; i < directionLength / directionDivisor; i++)
+
+            for (int i = 0; i < numberOfElements; i++)
                 if (i % 2 == 0)
                     canShoot.Add(true);
                 else
                     canShoot.Add(false);
 
 
-            r2Direction = new R1CircularDirection(new R1Point(0), direction, directionLength, directionDivisor, 1000);
+
+            Dictionary<int, int> duration = new Dictionary<int, int>();
+            
+
+            for (int i = 0; i < numberOfElements; i++)
+            {
+                duration.Add(i,1000/numberOfElements);
+            }
+
+            r2Direction = new R1CircularDirection(new R1Point(0), direction, directionLength, directionDivisor, duration);
         }
 
         public R1CircularDirectionTester(R1CircularDirection r1Direction, R1CircularDirection r2Direction)

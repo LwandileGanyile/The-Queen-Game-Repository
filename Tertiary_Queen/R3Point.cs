@@ -11,7 +11,7 @@ namespace Tertiary_Queen
 {
     public class R3Point:RetrievableDimension,ITranslate<R3Point>,IComparable<R3Point>,IDisplay,IReflect<R3Point>, IReflectable<R3Point>
     {
-        private Point point;
+        private Point _point;
 
         public R3Point()
         {
@@ -21,6 +21,19 @@ namespace Tertiary_Queen
         public R3Point(float xCoordinate, float yCoordinate, float zCoordinate)
         {
 
+        }
+
+        public Point Position
+        {
+            get;
+            set;
+        }
+
+        public float this[int index]
+        {
+            get { return _point.GetAxisAt(index); }
+
+            set { _point.SetAxisAt(index, value); }
         }
 
         public float GetXCoordinate()
@@ -85,7 +98,7 @@ namespace Tertiary_Queen
 
         public Point GetPoint()
         {
-            return point;
+            return _point;
         }
 
         public int GetDimension()

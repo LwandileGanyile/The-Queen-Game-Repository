@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using BuildingBlocks;
 using Pieces;
+using CircularIteration;
 
 namespace Tertiary_Queen
 {
-    public class CircularNintheenthLetter : CircularLetter<CircularNintheenthLetter,CircularNintheenthDirection>, ILetterStateBase
+    public class CircularNintheenthLetter : CircularLetter<CircularNintheenthLetter,CircularNintheenthDirection>, ILetterStateBase, IPointIterator<R3Point>
     {
 
         public CircularNintheenthLetter()
@@ -16,7 +17,7 @@ namespace Tertiary_Queen
 
         }
 
-        public CircularNintheenthLetter(R3Point startingPoint, char letter, int letterDirection, R3Plane onPlane, bool smaller, int letterDuration)
+        public CircularNintheenthLetter(R3Point startingPoint, char letter, int letterDirection, R3Plane onPlane, bool smaller, Dictionary<int,int> duration)
         {
 
         }
@@ -867,6 +868,21 @@ namespace Tertiary_Queen
         }
 
         public override CircularNintheenthLetter translate(int coordinateSystemDirection, float amaunt)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DirectionIterator<CircularNintheenthDirection> RetrieveDirectionIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override LetterIterator<CircularNintheenthLetter> RetrieveLetterIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public PointIterator<R3Point> RetrievePointIterator()
         {
             throw new NotImplementedException();
         }

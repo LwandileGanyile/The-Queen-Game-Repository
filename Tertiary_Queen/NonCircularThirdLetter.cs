@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BuildingBlocks;
+using NonCircularIteration;
 using Pieces;
 
 namespace Tertiary_Queen
@@ -15,7 +16,7 @@ namespace Tertiary_Queen
 
         }
 
-        public NonCircularThirdLetter(R3Point startingPoint, char letter, int letterDirection, R3Plane onPlane, bool smaller, int letterDuration)
+        public NonCircularThirdLetter(R3Point startingPoint, char letter, int letterDirection, R3Plane onPlane, bool smaller, Dictionary<int,int> duration)
         {
 
         }
@@ -856,6 +857,16 @@ namespace Tertiary_Queen
         }
 
         public override NonCircularThirdLetter translate(int coordinateSystemDirection, float amaunt)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DirectionIterator<NonCircularThirdDirection> RetrieveDirectionIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override LetterIterator<NonCircularThirdLetter> RetrieveLetterIterator()
         {
             throw new NotImplementedException();
         }

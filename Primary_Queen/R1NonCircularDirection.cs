@@ -5,16 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using BuildingBlocks;
 using Pieces;
+using NonCircularIteration;
+
 
 namespace Primary_Queen
 {
     public class R1NonCircularDirection:NonCircularDirection<R1NonCircularDirection,R1Point>
     {
+
+
         public R1NonCircularDirection()
         {
             StartingPoint = new R1Point().Position;
             Fill();
             FillCanShootList();
+           
         }
    
         // Construct without specifying the length property.
@@ -62,12 +67,12 @@ namespace Primary_Queen
 
             // Going left.
             if (Direction == 1)
-                for (int i = 1; i <= _directionLength / _divisor; i++)
-                    doubleLinkedList.Add(new R1Point(point.GetXCoordinate() - i * _divisor));
+                for (int i = 1; i <= SharedDirection.DirectionLength / SharedDirection.Divisor; i++)
+                    doubleLinkedList.Add(new R1Point(point.GetXCoordinate() - i * SharedDirection.Divisor));
             // Going right.
             else
-                for (int i = 1; i <= _directionLength / _divisor; i++)
-                    doubleLinkedList.Add(new R1Point(point.GetXCoordinate() + i * _divisor));
+                for (int i = 1; i <= SharedDirection.DirectionLength / SharedDirection.Divisor; i++)
+                    doubleLinkedList.Add(new R1Point(point.GetXCoordinate() + i * SharedDirection.Divisor));
         }
 
         // Will always return  true for a one dimensional direction.
@@ -97,36 +102,45 @@ namespace Primary_Queen
             }
 
 
-            return new R1NonCircularDirection(new R1Point(StartingPoint), direction,DirectioLength , Divisor, Duration, NumberOfRepeatations);
+            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, NumberOfRepeatations);
         }
 
         // The method is unsupported for a one dimensional direction. 
         // However the method will return a non reflection of this current object.
         public override R1NonCircularDirection ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
-            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, Direction, Divisor, Duration, numberOfTimes);
+            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, numberOfTimes);
         }
+
+       
+
+        public override PointIterator<R1Point> RetrievePointIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+
 
         /* The method is unsupported for a one dimensional direction. 
            However the method will return a non reflection of the current object.
            For the rotate method this R1CircularDirection instance will be returned because in R1 rotation isn't applicable.*/
         public override R1NonCircularDirection RotateAroundAxis(int indexOfAxis, int numberOfTimes)
         {
-            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, Direction, Divisor, Duration, numberOfTimes);
+            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, numberOfTimes);
         }
 
         // The method is unsupported for a one dimensional direction. 
         // However the method will return a non reflection of this current object.
         public override R1NonCircularDirection RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
         {
-            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, Direction, Divisor, Duration, numberOfTimes);
+            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, numberOfTimes);
         }
 
         // Move direction.
         // Change the starting position on a direction.
         public override R1NonCircularDirection translate(int coordinateSystemDirection, float amount)
         {
-            R1CircularDirection initialDirection = new R1CircularDirection(new R1Point(StartingPoint), Direction, _directionLength, Divisor, Duration,NumberOfRepeatations);
+            R1CircularDirection initialDirection = new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration,NumberOfRepeatations);
 
             float initialX = initialDirection.StartingPoint.GetAxisAt(0);
 
@@ -148,7 +162,7 @@ namespace Primary_Queen
 
 
             return new R1NonCircularDirection(new R1Point(finalX),
-                                            Direction, _directionLength, Divisor, Duration,NumberOfRepeatations);
+                                            Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration,NumberOfRepeatations);
         }
     }
 }

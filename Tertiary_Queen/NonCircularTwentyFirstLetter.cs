@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BuildingBlocks;
+using NonCircularIteration;
 using Pieces;
 
 namespace Tertiary_Queen
 {
-    public class NonCircularTwentyFirstLetter : NonCircularLetter<NonCircularTwentyFirstLetter, NonCircularTwentyFirstDirection>, ILetterStateBase
+    public class NonCircularTwentyFirstLetter : NonCircularLetter<NonCircularTwentyFirstLetter, NonCircularTwentyFirstDirection>, ILetterStateBase, IPointIterator<R3Point>
     {
         public NonCircularTwentyFirstLetter()
         {
 
         }
 
-        public NonCircularTwentyFirstLetter(R3Point startingPoint, char letter, int letterDirection, R3Plane onPlane, bool smaller, int letterDuration)
+        public NonCircularTwentyFirstLetter(R3Point startingPoint, char letter, int letterDirection, R3Plane onPlane, bool smaller, Dictionary<int,int> duration)
         {
 
         }
@@ -856,6 +857,21 @@ namespace Tertiary_Queen
         }
 
         public override NonCircularTwentyFirstLetter translate(int coordinateSystemDirection, float amaunt)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DirectionIterator<NonCircularTwentyFirstDirection> RetrieveDirectionIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override LetterIterator<NonCircularTwentyFirstLetter> RetrieveLetterIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public PointIterator<R3Point> RetrievePointIterator()
         {
             throw new NotImplementedException();
         }

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game_Defination;
+using SharedResources;
 
 namespace CircularIteration
 {
-    public abstract class Iterator<T> : IUnidirectionalIterator<T>
+    public abstract class Iterator<T> : IUniIDirectionalIterator<T>
     {
         protected MyNode<T> current;
 

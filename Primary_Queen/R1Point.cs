@@ -41,6 +41,15 @@ namespace Primary_Queen
             get { return _point; }
         }
 
+
+        public float this[int index]
+        {
+            get { return _point.GetAxisAt(index); }
+
+            set { _point.SetAxisAt(index, value); }
+        }
+
+
         // Retrieve x- value.
         public float GetXCoordinate()
         {

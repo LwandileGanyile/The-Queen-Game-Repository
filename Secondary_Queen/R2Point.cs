@@ -35,6 +35,13 @@ namespace Secondary_Queen
             _point = new Point(new List<float> { xCoordinate, yCoordinate }, canShoot);
         }
 
+        public float this[int index]
+        {
+            get { return _point.GetAxisAt(index); }
+
+            set { _point.SetAxisAt(index, value); }
+        }
+
         public Point Position
         {
             get { return _point; }

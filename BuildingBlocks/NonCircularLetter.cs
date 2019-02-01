@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Pieces;
-
+using SharedResources;
+using NonCircularIteration;
 
 namespace BuildingBlocks
 {
-    public abstract class NonCircularLetter<T,U>: NonCircular<T,U>,ILetter,IComparable<T>
+    public abstract class NonCircularLetter<T,U>: NonCircular<T,U>,ILetter,IComparable<T>, IDirectionIterator<U>
     {
         
         protected NonCircularLetter()
@@ -29,6 +30,7 @@ namespace BuildingBlocks
         public abstract int GetDirection();
         public abstract Plane GetOnPlane();
         public abstract bool GetSmaller();
+
         public abstract bool IsC(List<int> directions);
         public abstract bool IsI(List<int> directions);
         public abstract bool IsL(List<int> directions);
@@ -39,6 +41,9 @@ namespace BuildingBlocks
         public abstract bool IsS(List<int> directions);
         public abstract bool IsW(List<int> directions);
 
+        public abstract DirectionIterator<U> RetrieveDirectionIterator();
+        
+        
         public abstract void SetLetterDirection(int letterDirection);
     }
 }

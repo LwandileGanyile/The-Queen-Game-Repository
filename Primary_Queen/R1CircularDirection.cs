@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BuildingBlocks;
 using Pieces;
+using CircularIteration;
 
 namespace Primary_Queen
 {
@@ -45,6 +46,8 @@ namespace Primary_Queen
             FillCanShootList();
         }
 
+
+
         // Add points making up this direction.
         // Directio 1 --> Right +x.
         // Any direction value correspond to Direction 2 --> Left -x.
@@ -55,12 +58,12 @@ namespace Primary_Queen
 
             // Going left.
             if (Direction == 1)
-                for (int i = 1; i <= _directionLength / _divisor; i++)
-                    circularLinkedList.Add(new R1Point(point.GetXCoordinate() - i * _divisor));
+                for (int i = 1; i <= SharedDirection.DirectionLength / SharedDirection.Divisor; i++)
+                    circularLinkedList.Add(new R1Point(point.GetXCoordinate() - i * SharedDirection.Divisor));
             // Going right.
             else
-                for (int i = 1; i <= _directionLength / _divisor; i++)
-                    circularLinkedList.Add(new R1Point(point.GetXCoordinate() + i * _divisor));
+                for (int i = 1; i <= SharedDirection.DirectionLength / SharedDirection.Divisor; i++)
+                    circularLinkedList.Add(new R1Point(point.GetXCoordinate() + i * SharedDirection.Divisor));
         }
 
         // Will always return  true for a one dimensional direction.
@@ -91,14 +94,14 @@ namespace Primary_Queen
             }
 
 
-            return new R1CircularDirection(new R1Point(StartingPoint), direction, _directionLength, Divisor, Duration); 
+            return new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration); 
         }
 
         // The method is unsupported for a one dimensional direction. 
         // However the method will return a non reflection of this current object.
         public override R1CircularDirection ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
-            return new R1CircularDirection(new R1Point(StartingPoint),direction,Direction,Divisor,Duration);
+            return new R1CircularDirection(new R1Point(StartingPoint),Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
         }
 
         /* The method is unsupported for a one dimensional direction. 
@@ -106,14 +109,14 @@ namespace Primary_Queen
            For the rotate method this R1CircularDirection instance will be returned because in R1 rotation isn't applicable.*/
         public override R1CircularDirection RotateAroundAxis(int indexOfAxis, int numberOfTimes)
         {
-            return new R1CircularDirection(new R1Point(StartingPoint), direction, Direction, Divisor, Duration);
+            return new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
         }
 
         // The method is unsupported for a one dimensional direction. 
         // However the method will return a non reflection of this current object.
         public override R1CircularDirection RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
         {
-            return new R1CircularDirection(new R1Point(StartingPoint), direction, Direction, Divisor, Duration);
+            return new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
         }
 
         // Move direction.
@@ -121,7 +124,7 @@ namespace Primary_Queen
         public override R1CircularDirection translate(int coordinateSystemDirection, float amount)
         {
 
-            R1CircularDirection initialDirection = new R1CircularDirection(new R1Point(StartingPoint), Direction, _directionLength, Divisor, Duration);
+            R1CircularDirection initialDirection = new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
 
             float initialX = initialDirection.StartingPoint.GetAxisAt(0);
 
@@ -142,7 +145,7 @@ namespace Primary_Queen
             }
 
             return new R1CircularDirection(new R1Point(finalX),
-                                            Direction, _directionLength, Divisor, Duration);
+                                            Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
 
         }
 
@@ -157,5 +160,12 @@ namespace Primary_Queen
             }
 
         }
+
+        public override PointIterator<R1Point> RetrievePointIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }

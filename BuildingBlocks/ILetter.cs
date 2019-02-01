@@ -7,7 +7,7 @@ using Pieces;
 
 namespace BuildingBlocks
 {
-    public interface ILetter:Directional
+    public interface ILetter
     {
         void DisplayLetterInfo();
         void SetLetterDirection(int letterDirection);

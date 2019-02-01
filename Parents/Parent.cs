@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Pieces;
+using Game_Defination;
 
-namespace Parents
+namespace SharedResources
 {
-    public abstract class Parent: IFill
+    public abstract class Parent<T>: IFill, IRotate<T>, IReflect<T>, IReflectable<T>, IRotateable<T>,
+        ITranslate<T>, IDirectionDimension, IPointDimension, IDisplay
     {
 
         protected Point _startingPoint;
 
         protected int direction;
         protected List<bool> canShootList;
-        protected int duration;
+        protected  Dictionary<int,int> duration;
         // Letters are made up of directions having each piece equals to divisor.
         protected int dimension; // Dimenison.
 
@@ -22,25 +24,25 @@ namespace Parents
         {
             _startingPoint = null;
             direction = 2;
-            duration = 1000;
+            duration = new Dictionary<int, int>();
             dimension = -1;
-            canShootList = null;
+            canShootList = new List<bool>();
 
         }
 
 
         protected Parent(Point _startingPoint, int direction,
-        float divisor, int duration, int directionDimension, int numberOfRotations)
+        Dictionary<int,int> duration, int directionDimension)
         {
             this._startingPoint = _startingPoint;
             this.direction = direction;
             this.duration = duration;
-            canShootList = null;
+            canShootList = canShootList = new List<bool>(); ;
             dimension = _startingPoint.Dimension;
         }
 
         protected Parent(Point _startingPoint, int direction,
-        float divisor, List<bool> canShootList, int duration, int directionDimension, int numberOfRotations)
+        List<bool> canShootList, Dictionary<int,int> duration, int directionDimension)
         {
             this._startingPoint = _startingPoint;
             this.direction = direction;
@@ -65,14 +67,14 @@ namespace Parents
 
         }
         public int Dimension { get { return dimension; } }
-        public int Duration
+        public Dictionary<int,int> Duration
         {
             get
             {
                 return duration; }
             set
             {
-
+                // Need to be implemented.
             }
         }
         public List<bool> CanShoot
@@ -107,5 +109,23 @@ namespace Parents
         public abstract void Fill();
 
         public abstract void Clear();
+        public abstract T RotateAroundAxis(int indexOfAxis, int numberOfTimes);
+        public abstract bool IsPointDimensionCorrect();
+        public abstract T ReflectAboutAxis(int axisIndex);
+        public abstract bool IsDirectionDimensionCorrect();
+        public abstract T ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes);
+        public abstract T RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes);
+        public abstract T translate(int coordinateSystemDirection, float amaunt);
+
+        public abstract void Display();
+
+        // Display whether or not each point/direction/letter can do another strategy such as shooting.
+        public void DisplayCanShoot()
+        {
+            for (int i = 1; i <= canShootList.Count; i++)
+                Console.Write(canShootList[i - 1] + " ");
+            Console.WriteLine();
+        }
+
     }
 }

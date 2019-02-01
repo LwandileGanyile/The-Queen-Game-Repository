@@ -5,17 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using BuildingBlocks;
 using Pieces;
+using NonCircularIteration;
 
 namespace Secondary_Queen
 {
-    public class R2NonCircularLetter:NonCircularLetter<R2NonCircularLetter, R2NonCircularDirection>
+    public class R2NonCircularLetter:NonCircularLetter<R2NonCircularLetter, R2NonCircularDirection>, IPointIterator<R2Point>
     {
         public R2NonCircularLetter()
         {
 
         }
 
-        public R2NonCircularLetter(R2Point startingPoint, char letter, int letterDirection, bool smaller, int letterDuration)
+        public R2NonCircularLetter(R2Point startingPoint, char letter, int letterDirection, bool smaller, Dictionary<int,int> duration)
         {
 
         }
@@ -119,6 +120,21 @@ namespace Secondary_Queen
         }
 
         public override R2NonCircularLetter ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DirectionIterator<R2NonCircularDirection> RetrieveDirectionIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override LetterIterator<R2NonCircularLetter> RetrieveLetterIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public PointIterator<R2Point> RetrievePointIterator()
         {
             throw new NotImplementedException();
         }

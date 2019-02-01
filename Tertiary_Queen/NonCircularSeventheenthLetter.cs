@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BuildingBlocks;
+using NonCircularIteration;
 using Pieces;
 
 namespace Tertiary_Queen
 {
-    public class NonCircularSeventheenthLetter : NonCircularLetter<NonCircularSeventheenthLetter, NonCircularSeventheenthDirection>, ILetterStateBase
+    public class NonCircularSeventheenthLetter : NonCircularLetter<NonCircularSeventheenthLetter, NonCircularSeventheenthDirection>, ILetterStateBase, IPointIterator<R3Point>
     {
         public NonCircularSeventheenthLetter()
         {
 
         }
 
-        public NonCircularSeventheenthLetter(R3Point startingPoint, char letter, int letterDirection, R3Plane onPlane, bool smaller, int letterDuration)
+        public NonCircularSeventheenthLetter(R3Point startingPoint, char letter, int letterDirection, R3Plane onPlane, bool smaller, Dictionary<int,int> duration)
         {
 
         }
@@ -856,6 +857,21 @@ namespace Tertiary_Queen
         }
 
         public override NonCircularSeventheenthLetter translate(int coordinateSystemDirection, float amaunt)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DirectionIterator<NonCircularSeventheenthDirection> RetrieveDirectionIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override LetterIterator<NonCircularSeventheenthLetter> RetrieveLetterIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public PointIterator<R3Point> RetrievePointIterator()
         {
             throw new NotImplementedException();
         }

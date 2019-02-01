@@ -5,83 +5,81 @@ using System.Text;
 using System.Threading.Tasks;
 using Game_Defination;
 using Pieces;
+using SharedResources;
+using CircularIteration;
 
 namespace BuildingBlocks
 {
-    public abstract class CircularDirection<T,U>: Circular<T,U>,IDirection,ICanShoot
+    public abstract class CircularDirection<T,U>: Circular<T,U>,IPointIterator<U>
+
     {
-        
-        protected float _directionLength;
-        protected float _divisor;
+
+        protected SharedDirection sharedDirection;
 
         protected CircularDirection():base()
         {
-            _divisor = 1;
-            _directionLength = 10;
+            sharedDirection = new SharedDirection(10, 1);
 
         }
 
         // Construct without specifying the canshoot property.
         protected CircularDirection(Point startingPoint, int direction, float directionLength,
-        float divisor, Dictionary<int,int> duration, int directionDimension, int numberOfRotations)
-        : base(startingPoint, direction, divisor, duration, directionDimension, numberOfRotations)
+        float divisor,Dictionary<int,int> duration, int directionDimension, int numberOfRotations)
+        : base(startingPoint, direction, duration, directionDimension, numberOfRotations)
         {
-            _divisor = divisor;
-            _directionLength = directionLength;
+            sharedDirection = new SharedDirection(directionLength, divisor);
         }
 
         // Construct without specifying the  length property cause it doesnh't exist.
         protected CircularDirection(Point startingPoint, int direction,
         float directionDivisor, List<bool> canShootList, Dictionary<int,int> duration, int directionDimension)
-        : base(startingPoint, direction, directionDivisor, canShootList, duration, directionDimension, 1)
+        : base(startingPoint, direction, canShootList, duration, directionDimension, 1)
         {
-            _divisor = directionDivisor;
-            _directionLength = 10 * _divisor;
+            sharedDirection = new SharedDirection(10 * directionDivisor, directionDivisor);
         }
 
         // Construct without specifying the number of rotations.
         protected CircularDirection(Point startingPoint, int direction, float directionLength,
         float directionDivisor, List<bool> canShootList,Dictionary<int,int> duration, int directionDimension)
-        :base(startingPoint, direction, directionDivisor, canShootList,duration,directionDimension,1)
+        :base(startingPoint, direction, canShootList,duration,directionDimension,1)
         {
-            _divisor = directionDivisor;
-            _directionLength = directionLength;
+            sharedDirection = new SharedDirection(directionLength, directionDivisor);
         }
 
         // Construct by specifying the number of rotations.
         protected CircularDirection(Point startingPoint, int direction, float directionLength,
         float directionDivisor, List<bool> canShootList, Dictionary<int,int> duration, int directionDimension,int numberOfRotations)
-        : base(startingPoint, direction, directionDivisor, canShootList, duration, directionDimension, numberOfRotations)
+        : base(startingPoint, direction, canShootList, duration, directionDimension, numberOfRotations)
         {
-            _divisor = directionDivisor;
-            _directionLength = directionLength;
+            sharedDirection = new SharedDirection(directionLength, directionDivisor);
         }
 
-        
-
-        
-
-        public float Divisor { get { return _divisor; } }
-        public float DirectioLength
+     
+        public SharedDirection SharedDirection
         {
-            get { return _directionLength; }
+            get
+            {
+                return sharedDirection;
+            }
+
+            set
+            {
+                if (value != null)
+                    sharedDirection = value;
+            }
         }
 
 
-        // Returns a positive integer representing this direction.
-        public int GetDirection() { return direction; }
-        // Returns a direction divisor.
-        public float GetDirectionDivisor() { return _divisor; }
-        // Returns a direction length;
-        public float GetDirectionLength() { return _directionLength; }
+        
+        
         // Checks whether or not the direction is valid.
         public abstract bool IsDirectionValid(int direction);
         // Update the points in this direction that can shoot.
-        public void SetCanShootList(List<bool> canShootList) { this.canShootList = canShootList; }
+        //public void SetCanShootList(List<bool> canShootList) { this.canShootList = canShootList; }
         // Sets the divisor of this direction.
         public void SetDirectionDivisor(float directionDivisor)
         {
-            _divisor = directionDivisor;
+            sharedDirection.Divisor = directionDivisor;
             circularLinkedList.Clear();
             Fill();
 
@@ -89,22 +87,29 @@ namespace BuildingBlocks
         // Sets the length of this direction.
         public void SetDirectionLength(float directionLength)
         {
-            _directionLength = directionLength;
+            sharedDirection.DirectionLength = directionLength;
 
             circularLinkedList.Clear();
             Fill();
         }
-        
-        // Display whether or not each point can shoot.
-        public void DisplayCanShoot()
-        {
-            for (int i = 1; i <= canShootList.Count; i++)
-                Console.Write(canShootList[i - 1] + " ");
-            Console.WriteLine();
-        }
-       
-       
 
+        // Sets the divisor of this direction.
+        public float GetDirectionDivisor()
+        {
+            return sharedDirection.Divisor;
+
+        }
+        // Sets the length of this direction.
+        public float GetDirectionLength()
+        {
+            return sharedDirection.DirectionLength;
+
+            
+        }
+
+
+        public abstract PointIterator<U> RetrievePointIterator();
+        
     }
 
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BuildingBlocks;
+using CircularIteration;
 using Pieces;
 
 namespace Tertiary_Queen
@@ -181,6 +182,16 @@ namespace Tertiary_Queen
         }
 
         public override CircularSixtheenthDirection ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DirectionIterator<CircularSixtheenthDirection> RetrieveDirectionIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override PointIterator<R3Point> RetrievePointIterator()
         {
             throw new NotImplementedException();
         }

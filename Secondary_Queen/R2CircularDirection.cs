@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BuildingBlocks;
 using Pieces;
+using CircularIteration;
 
 namespace Secondary_Queen
 {
@@ -64,7 +65,9 @@ namespace Secondary_Queen
         public override void Fill()
         {
             R2Point point = new R2Point(StartingPoint);
-            
+            int numberOfElements = (int)(SharedDirection.DirectionLength / SharedDirection.Divisor);
+
+
             circularLinkedList.Add(point);
 
 
@@ -72,49 +75,49 @@ namespace Secondary_Queen
             switch (direction)
             {
                 case 1:
-                    for (int i = 1; i <= _directionLength / _divisor; i++)
-                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() - i * _divisor, point.GetYCoordinate()));
+                    for (int i = 1; i <= numberOfElements; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() - i * SharedDirection.Divisor, point.GetYCoordinate()));
                     break;
                 case 2:
 
-                    for (int i = 1; i <= _directionLength / _divisor; i++)
-                        circularLinkedList.Add(new R2Point(point.GetXCoordinate(), point.GetYCoordinate() + i * _divisor));
+                    for (int i = 1; i <= numberOfElements; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate(), point.GetYCoordinate() + i * SharedDirection.Divisor));
 
                     break;
                 case 3:
 
-                    for (int i = 1; i <= _directionLength / _divisor; i++)
-                        circularLinkedList.Add(new R2Point(point.GetXCoordinate(), point.GetYCoordinate() - i * _divisor));
+                    for (int i = 1; i <= numberOfElements; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate(), point.GetYCoordinate() - i * SharedDirection.Divisor));
 
                     break;
                 case 4:
 
-                    for (int i = 1; i <= _directionLength / _divisor; i++)
-                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() - i * _divisor, point.GetYCoordinate() + i * _divisor));
+                    for (int i = 1; i <= numberOfElements; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() - i * SharedDirection.Divisor, point.GetYCoordinate() + i * SharedDirection.Divisor));
 
                     break;
                 case 5:
 
-                    for (int i = 1; i <= _directionLength / _divisor; i++)
-                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() + i * _divisor, point.GetYCoordinate() - i * _divisor));
+                    for (int i = 1; i <= numberOfElements; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() + i * SharedDirection.Divisor, point.GetYCoordinate() - i * SharedDirection.Divisor));
 
                     break;
                 case 6:
 
-                    for (int i = 1; i <= _directionLength / _divisor; i++)
-                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() + i * _divisor, point.GetYCoordinate() + i * _divisor));
+                    for (int i = 1; i <= numberOfElements; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() + i * SharedDirection.Divisor, point.GetYCoordinate() + i * SharedDirection.Divisor));
                     
                     break;
                 case 7:
 
-                    for (int i = 1; i <= _directionLength / _divisor; i++)
-                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() - i * _divisor, point.GetYCoordinate() - i * _divisor));
+                    for (int i = 1; i <= numberOfElements; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate() - i * SharedDirection.Divisor, point.GetYCoordinate() - i * SharedDirection.Divisor));
 
                     break;
                 case 8:
 
-                    for (int i = 1; i <= _directionLength / _divisor; i++)
-                        circularLinkedList.Add(new R2Point(point.GetXCoordinate()+i*_divisor,point.GetYCoordinate()));
+                    for (int i = 1; i <= numberOfElements; i++)
+                        circularLinkedList.Add(new R2Point(point.GetXCoordinate()+i* SharedDirection.Divisor, point.GetYCoordinate()));
                     
                     break;
                     
@@ -207,7 +210,7 @@ namespace Secondary_Queen
             }
 
 
-            return new R2CircularDirection(new R2Point(StartingPoint), direction, _directionLength, Divisor, canShootList, Duration);
+            return new R2CircularDirection(new R2Point(StartingPoint), direction, SharedDirection.DirectionLength, SharedDirection.Divisor, canShootList, Duration);
     }
 
         // Reflect about the  line y = x or y = -x a certain number of times, and return the result.
@@ -281,7 +284,7 @@ namespace Secondary_Queen
                     }
                 }
 
-                r2Direction = new R2CircularDirection(new R2Point(StartingPoint), direction, _directionLength, Divisor, canShootList, Duration);
+                r2Direction = new R2CircularDirection(new R2Point(StartingPoint), direction, SharedDirection.DirectionLength, SharedDirection.Divisor, canShootList, Duration);
             }
             return r2Direction;
         }
@@ -314,7 +317,7 @@ namespace Secondary_Queen
         public override R2CircularDirection translate(int coordinateSystemDirection, float amount)
         {
 
-            R2CircularDirection initialDirection = new R2CircularDirection(new R2Point(StartingPoint),Direction,_directionLength,Divisor,canShootList,Duration);
+            R2CircularDirection initialDirection = new R2CircularDirection(new R2Point(StartingPoint),Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, canShootList,Duration);
 
             float initialX = initialDirection.StartingPoint.GetAxisAt(0);
             float initialY = initialDirection.StartingPoint.GetAxisAt(1);
@@ -363,7 +366,7 @@ namespace Secondary_Queen
             }
 
             return new R2CircularDirection(new R2Point(finalX,finalY,initialDirection.StartingPoint.CanShoot),
-                                            Direction,_directionLength,Divisor,CanShoot,Duration);
+                                            Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, CanShoot,Duration);
         }
 
         // Print the direction on a console.
@@ -376,6 +379,16 @@ namespace Secondary_Queen
                     Console.Write(" , ");
             }
 
+        }
+
+        public override PointIterator<R2Point> RetrievePointIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DirectionIterator<R2CircularDirection> RetrieveDirectionIterator()
+        {
+            throw new NotImplementedException();
         }
     }
 

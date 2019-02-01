@@ -10,6 +10,29 @@ namespace Primary_Queen
     {
 
 
+        // Construct without specifying the length property.
+        public R1Direction(R1Point startingPoint, int direction,
+        float directionDivisor, Dictionary<int, int> duration)
+       
+        {
+         
+        }
+
+        // Construct without specifying the number of rotations.
+        public R1Direction(R1Point startingPoint, int direction, float directionLength,
+        float directionDivisor, Dictionary<int, int> duration)
+        
+        {
+       
+        }
+
+        // Construct by specifying the number of rotations.
+        public R1Direction(R1Point startingPoint, int direction, float directionLength,
+        float divisor, Dictionary<int, int> duration, int numberOfRotations)
+       
+        {
+          
+        }
 
 
 
@@ -17,6 +40,29 @@ namespace Primary_Queen
         public bool IsDirectionValid(int direction)
         {
             return direction == 1 || direction == 2;
+        }
+
+        // The set the values for the translate method.
+        public float TranslatePartially(int coordinateSystemDirection, float amount, float initialX)
+        {
+
+            float finalX = initialX;
+
+
+
+            switch (coordinateSystemDirection)
+            {
+                case 1:
+                    finalX -= amount;
+
+                    break;
+                default:
+                    finalX += amount;
+                    break;
+            }
+
+            return finalX;
+  
         }
     }
 }

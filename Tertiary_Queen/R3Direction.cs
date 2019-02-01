@@ -13,12 +13,12 @@ namespace Tertiary_Queen
 
         public R3Direction()
         {
-
+            implementation = new CircularNinthDirection();
         }
 
         public R3Direction(IDirectionStateBase implementation)
         {
-
+            this.implementation = implementation;
         }
 
         public void ChangeDirectionState(IDirectionStateBase implementation)

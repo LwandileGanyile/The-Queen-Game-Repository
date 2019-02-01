@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game_Defination
 {
-    public interface IBidirectionalIterator<T> : IUnidirectionalIterator<T>
+    public interface IBiIDirectionalIterator<T> : IUniIDirectionalIterator<T>
     {
         T GetPrevious();
         bool HasPrevious();

@@ -8,6 +8,6 @@ namespace CircularIteration
 {
     public interface IDirectionIterator<T>
     {
-        DirectionIterator<T> retrieveDirectionIterator();
+        DirectionIterator<T> RetrieveDirectionIterator();
     }
 }

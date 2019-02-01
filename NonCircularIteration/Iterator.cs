@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game_Defination;
+using SharedResources;
 
 namespace NonCircularIteration
 {
-    public abstract class Iterator<T> : IBidirectionalIterator<T>
+    public abstract class Iterator<T> : IBiIDirectionalIterator<T>
     {
         protected Node<T> current;
 

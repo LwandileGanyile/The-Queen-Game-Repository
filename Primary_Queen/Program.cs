@@ -26,17 +26,27 @@ namespace ConsoleApp1
 
             float directionLength = 5;
             float directionDivisor = 0.5f;
+
+            int numberOfElements = (int)(directionLength / directionDivisor);
+            Dictionary<int, int> duration = new Dictionary<int, int>();
+
+
+
             int direction = 1;
 
 
 
-            for (int i = 1; i <= (int)(directionLength / directionDivisor); i++)
+            for (int i = 1; i <= numberOfElements; i++)
+            {
                 if (i % 2 == 0)
                     canShoot.Add(false);
                 else
                     canShoot.Add(true);
 
-            R1CircularDirection r2Direction = new R1CircularDirection(new R1Point(0),direction,directionLength,directionDivisor,1000);
+                duration.Add(i - 1, (int)(1000 / numberOfElements));
+            }
+
+            R1CircularDirection r2Direction = new R1CircularDirection(new R1Point(0),direction,directionLength,directionDivisor,duration);
 
 
             Console.Write("------------------------Before calling the translate(" + 1 + "," + 5 + ") method on ");

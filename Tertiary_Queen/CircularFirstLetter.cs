@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BuildingBlocks;
+using CircularIteration;
 using Pieces;
 
 namespace Tertiary_Queen
 {
-    public class CircularFirstLetter : CircularLetter<CircularFirstLetter,CircularFirstDirection>, ILetterStateBase
+    public class CircularFirstLetter : CircularLetter<CircularFirstLetter,CircularFirstDirection>, ILetterStateBase, IPointIterator<R3Point>
     {
 
         public CircularFirstLetter()
@@ -16,7 +17,7 @@ namespace Tertiary_Queen
 
         }
 
-        public CircularFirstLetter(R3Point startingPoint,char letter,int letterDirection,R3Plane onPlane,bool smaller,int letterDuration)
+        public CircularFirstLetter(R3Point startingPoint,char letter,int letterDirection,R3Plane onPlane,bool smaller,Dictionary<int,int> duration)
         {
 
         }
@@ -867,6 +868,21 @@ namespace Tertiary_Queen
         }
 
         public override CircularFirstLetter translate(int coordinateSystemDirection, float amaunt)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DirectionIterator<CircularFirstDirection> RetrieveDirectionIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override LetterIterator<CircularFirstLetter> RetrieveLetterIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public PointIterator<R3Point> RetrievePointIterator()
         {
             throw new NotImplementedException();
         }

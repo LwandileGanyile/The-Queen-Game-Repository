@@ -1,0 +1,10 @@
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Parents\bin\Debug\Parents.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Parents\bin\Debug\Parents.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Parents\bin\Debug\Game Defination.exe
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Parents\bin\Debug\Pieces.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Parents\bin\Debug\Game Defination.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Parents\bin\Debug\Game Defination.exe.config
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Parents\bin\Debug\Pieces.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Parents\obj\Debug\SharedResources.csprojResolveAssemblyReference.cache
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Parents\obj\Debug\Parents.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Parents\obj\Debug\Parents.pdb

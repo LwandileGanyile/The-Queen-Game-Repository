@@ -14,7 +14,7 @@ namespace Secondary_Queen.Unit_Testing_Classes
         protected internal R2CircularDirectionTester()
         {
             directions = new List<R2CircularDirection>();
-            createDirections();
+            CreateDirections();
         }
 
         protected internal R2CircularDirectionTester(List<R2CircularDirection> directions)
@@ -28,11 +28,22 @@ namespace Secondary_Queen.Unit_Testing_Classes
         }
 
         // Fill the list of R2Point elements.
-        private void createDirections()
+        private void CreateDirections()
         {
+
+
+            Dictionary<int, int> duration = new Dictionary<int, int>();
+           
+
+
+            for (int i = 0; i < 10; i++)
+            {
+                duration.Add(i, 1000 / 10);
+            }
+
             for (int direction = 1; direction <= 8; direction++)
             {
-                directions.Add(new R2CircularDirection(new R2Point(10.0f, 10.0f), direction, 10, 1, 1000, 1));
+                directions.Add(new R2CircularDirection(new R2Point(10.0f, 10.0f), direction, 10, 1, duration, 1));
             }
         }
 
@@ -58,11 +69,11 @@ namespace Secondary_Queen.Unit_Testing_Classes
                 
                 Console.Write("is direction "+(index+1)+" - ");
                 directions[index].Display();
-                Console.WriteLine(" made up of two dimensional points ? "+ directions[index].isPointDimensionCorrect()+".");
+                Console.WriteLine(" made up of two dimensional points ? "+ directions[index].IsPointDimensionCorrect()+".");
 
                 Console.Write("Do direction "+ (index + 1) +" ");
                 directions[index].Display();
-                Console.WriteLine(" have a correct direction value ? " + directions[index].isDirectionValid(directions[index].Direction) + ".");
+                Console.WriteLine(" have a correct direction value ? " + directions[index].IsDirectionValid(directions[index].Direction) + ".");
 
                 Console.WriteLine("--------------------------------------------------------------------------------");
             }
