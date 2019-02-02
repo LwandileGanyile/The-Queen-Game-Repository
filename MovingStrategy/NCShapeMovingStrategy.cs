@@ -82,12 +82,7 @@ namespace MovingStrategy
         
     }
 
-    public enum ShapeTraceType
-    {
-
-        Point_Trace,
-        Direction_Trace
-    }
+   
 
    
 

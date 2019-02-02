@@ -78,11 +78,5 @@ namespace MovingStrategy
        
     }
 
-    public enum LetterTraceType
-    {
-
-        Point_Trace,
-        Direction_Trace,
-        Letter_Trace
-    }
+    
 }
