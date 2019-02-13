@@ -47,7 +47,7 @@ namespace SharedResources
         public int Size
         {
             get { return size; }
-            //set { size = value; }
+            
         }
 
         public void Add(T element)
