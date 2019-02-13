@@ -91,6 +91,7 @@ namespace SharedResources
             }
 
             lastNode.next = new MyNode<T>(element);
+            
             size++;
         }
 
