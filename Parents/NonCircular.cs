@@ -42,6 +42,18 @@ namespace SharedResources
             
         }
 
+        protected NonCircular(Point _startingPoint, int direction,
+        List<bool> canShootList, Dictionary<int, int> duration, int directionDimension,
+        DoubleLinkedList<U> doubleLinkedList, int numberOfRepeatations)
+        : base(_startingPoint, direction,
+        canShootList, duration, directionDimension)
+        {
+
+            this.numberOfRepeatations = numberOfRepeatations;
+            this.doubleLinkedList = doubleLinkedList; ;
+
+        }
+
         public int NumberOfRepeatations
         {
             set;
@@ -58,6 +70,11 @@ namespace SharedResources
         public override void Clear()
         {
             doubleLinkedList.Clear();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + "\nRepeatations how many times? " + numberOfRepeatations + "\n" + doubleLinkedList.ToString();
         }
     }
 }

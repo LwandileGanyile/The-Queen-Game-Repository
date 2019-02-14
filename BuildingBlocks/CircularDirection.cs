@@ -16,6 +16,7 @@ namespace BuildingBlocks
 
         protected SharedDirection sharedDirection;
 
+        
         protected CircularDirection():base()
         {
             sharedDirection = new SharedDirection(10, 1);
@@ -75,7 +76,7 @@ namespace BuildingBlocks
         // Checks whether or not the direction is valid.
         public abstract bool IsDirectionValid(int direction);
         // Update the points in this direction that can shoot.
-        //public void SetCanShootList(List<bool> canShootList) { this.canShootList = canShootList; }
+    
         // Sets the divisor of this direction.
         public void SetDirectionDivisor(float directionDivisor)
         {
@@ -105,6 +106,23 @@ namespace BuildingBlocks
             return sharedDirection.DirectionLength;
 
             
+        }
+
+        protected void FillCanShootList()
+        {
+            for (int i = 0; i < sharedDirection.DirectionLength / sharedDirection.Divisor; i++)
+                canShootList.Add(false);
+        }
+
+        protected void FillDuration()
+        {
+            for (int i = 0; i < sharedDirection.DirectionLength/sharedDirection.Divisor; i++)
+                duration.Add(i, (int)(1000 / (sharedDirection.DirectionLength / sharedDirection.Divisor)));
+        }
+
+        public override string ToString()
+        {
+            return  sharedDirection.ToString()+ "\n"+base.ToString();
         }
 
 

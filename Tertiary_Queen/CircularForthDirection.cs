@@ -21,6 +21,11 @@ namespace Tertiary_Queen
 
         }
 
+        public override int CompareTo(CircularForthDirection comparableInstance)
+        {
+            throw new NotImplementedException();
+        }
+
         public void CreateDirectionEight()
         {
             throw new NotImplementedException();
@@ -186,10 +191,7 @@ namespace Tertiary_Queen
             throw new NotImplementedException();
         }
 
-        public override DirectionIterator<CircularForthDirection> RetrieveDirectionIterator()
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public override PointIterator<R3Point> RetrievePointIterator()
         {

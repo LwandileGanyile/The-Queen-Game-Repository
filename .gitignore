@@ -43,4 +43,6 @@
 /Parents/obj/Debug/Parents.csprojResolveAssemblyReference.cache
 /Parents/obj/Debug/Parents.dll
 /Parents/obj/Debug/Parents.pdb
-
+/MovingStrategy/obj/Debug/CoreCompileInputs.cache
+/ShootingStrategy/ShootingStrategy.csproj
+/ MovingStrategy/MovingStrategy.csproj

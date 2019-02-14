@@ -1,0 +1,12 @@
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\ShootingStrategy\bin\Debug\ShootingStrategy.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\ShootingStrategy\bin\Debug\ShootingStrategy.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\ShootingStrategy\bin\Debug\Parents.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\ShootingStrategy\bin\Debug\Pieces.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\ShootingStrategy\bin\Debug\Game Defination.exe
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\ShootingStrategy\bin\Debug\Parents.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\ShootingStrategy\bin\Debug\Pieces.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\ShootingStrategy\bin\Debug\Game Defination.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\ShootingStrategy\bin\Debug\Game Defination.exe.config
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\ShootingStrategy\obj\Debug\ShootingStrategy.csprojResolveAssemblyReference.cache
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\ShootingStrategy\obj\Debug\ShootingStrategy.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\ShootingStrategy\obj\Debug\ShootingStrategy.pdb

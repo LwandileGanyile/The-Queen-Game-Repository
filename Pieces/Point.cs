@@ -15,9 +15,20 @@ namespace Pieces
 
         public Point()
         {
-            _coordinate = new List<float> { 0, 0f };
+            _coordinate = new List<float> { 0 };
             
             _canShoot = false;
+        }
+
+        public override string ToString()
+        {
+            string output = "(";
+
+            for (int i = 0; i < Coordinate.Count-1; i++)
+                output += (_coordinate[i]+", ");
+            output += (_coordinate[Coordinate.Count - 1]+")");
+
+            return output;
         }
 
         public Point(List<float> _coordinate, bool _canShoot)

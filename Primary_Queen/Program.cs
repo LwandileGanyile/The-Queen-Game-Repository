@@ -14,9 +14,9 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 
-            //R1CircularDirectionTester tester = new R1CircularDirectionTester();
+            R1CircularDirectionTester tester = new R1CircularDirectionTester();
 
-            R1CircularDirection r1Direction = new R1CircularDirection();
+            /*R1CircularDirection r1Direction = new R1CircularDirection();
 
             R1CircularDirection translatedR1Direction;
             R1CircularDirection translatedR2Direction;
@@ -47,7 +47,7 @@ namespace ConsoleApp1
             }
 
             R1CircularDirection r2Direction = new R1CircularDirection(new R1Point(0),direction,directionLength,directionDivisor,duration);
-
+            
 
             Console.Write("------------------------Before calling the translate(" + 1 + "," + 5 + ") method on ");
             r1Direction.Display();
@@ -77,7 +77,7 @@ namespace ConsoleApp1
 
             translatedR2Direction = r2Direction.translate(1, 5);
             translatedR2Direction.Display();
-            Console.WriteLine();
+            Console.WriteLine();*/
 
 
             Console.WriteLine("Primary Queen Main" );

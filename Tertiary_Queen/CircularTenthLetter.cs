@@ -877,9 +877,6 @@ namespace Tertiary_Queen
             throw new NotImplementedException();
         }
 
-        public override LetterIterator<CircularTenthLetter> RetrieveLetterIterator()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

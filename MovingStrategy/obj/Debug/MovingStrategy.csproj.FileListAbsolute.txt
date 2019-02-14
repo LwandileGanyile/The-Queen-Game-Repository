@@ -1,0 +1,21 @@
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\MovingStrategy.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\MovingStrategy.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\BuildingBlocks.exe
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\CircularIteration.exe
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\NonCircularIteration.exe
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\Parents.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\Pieces.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\Game Defination.exe
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\BuildingBlocks.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\BuildingBlocks.exe.config
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\CircularIteration.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\CircularIteration.exe.config
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\NonCircularIteration.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\NonCircularIteration.exe.config
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\Parents.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\Pieces.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\Game Defination.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\bin\Debug\Game Defination.exe.config
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\obj\Debug\MovingStrategy.csprojResolveAssemblyReference.cache
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\obj\Debug\MovingStrategy.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\MovingStrategy\obj\Debug\MovingStrategy.pdb

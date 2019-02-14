@@ -1,0 +1,7 @@
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\The_Queen.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\The_Queen.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\Music.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\Music.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\obj\Debug\The_Queen.csprojResolveAssemblyReference.cache
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\obj\Debug\The_Queen.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\obj\Debug\The_Queen.pdb

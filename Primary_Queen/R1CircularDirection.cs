@@ -14,8 +14,11 @@ namespace Primary_Queen
         public R1CircularDirection()
         :base(){
             StartingPoint = new R1Point().Position;
+            dimension = 1;
+
             Fill();
             FillCanShootList();
+            FillDuration();
         }
 
         // Construct without specifying the  length property cause it doesnh't exist.
@@ -46,24 +49,27 @@ namespace Primary_Queen
             FillCanShootList();
         }
 
-
+        
 
         // Add points making up this direction.
         // Directio 1 --> Right +x.
         // Any direction value correspond to Direction 2 --> Left -x.
         public override void Fill()
         {
-            R1Point point = new R1Point(_startingPoint);
-            circularLinkedList.Add(point);
+            for (int numberOfTimes = 1; numberOfTimes <= numberOfRotations; numberOfTimes++)
+            {
+                R1Point point = new R1Point(_startingPoint);
+                circularLinkedList.Add(point);
 
-            // Going left.
-            if (Direction == 1)
-                for (int i = 1; i <= SharedDirection.DirectionLength / SharedDirection.Divisor; i++)
-                    circularLinkedList.Add(new R1Point(point.GetXCoordinate() - i * SharedDirection.Divisor));
-            // Going right.
-            else
-                for (int i = 1; i <= SharedDirection.DirectionLength / SharedDirection.Divisor; i++)
-                    circularLinkedList.Add(new R1Point(point.GetXCoordinate() + i * SharedDirection.Divisor));
+                // Going left.
+                if (Direction == 1)
+                    for (int i = 1; i <= SharedDirection.DirectionLength / SharedDirection.Divisor; i++)
+                        circularLinkedList.Add(new R1Point(point.GetXCoordinate() - i * SharedDirection.Divisor));
+                // Going right.
+                else
+                    for (int i = 1; i <= SharedDirection.DirectionLength / SharedDirection.Divisor; i++)
+                        circularLinkedList.Add(new R1Point(point.GetXCoordinate() + i * SharedDirection.Divisor));
+            }
         }
 
         // Will always return  true for a one dimensional direction.
@@ -90,7 +96,10 @@ namespace Primary_Queen
 
             if (axisIndex == 1)
             {
-                direction = (direction * -1);
+                if(direction == 1)
+                    direction = 2;
+                else if(direction == 2)
+                    direction = 1;
             }
 
 
@@ -130,7 +139,8 @@ namespace Primary_Queen
 
             float finalX = initialX;
 
-
+            if (amount < 0)
+                amount *= -1;
 
             switch (coordinateSystemDirection)
             {
@@ -164,6 +174,61 @@ namespace Primary_Queen
         public override PointIterator<R1Point> RetrievePointIterator()
         {
             throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            string output = base.ToString()+"\n";
+
+            return output+circularLinkedList.ToString()+"\nNumber Of rotations : "+numberOfRotations;
+        }
+
+        public override int CompareTo(R1CircularDirection comparableInstance)
+        {
+            int result = 0;
+
+            if (GetDirectionLength()<comparableInstance.GetDirectionLength())
+            {
+                result = -1;
+            }
+
+            else if (GetDirectionLength() > comparableInstance.GetDirectionLength())
+            {
+                result = 1;
+            }
+
+            else
+            {
+                if (GetDirectionDivisor() < comparableInstance.GetDirectionDivisor())
+                {
+                    result = -1;
+                }
+
+                else if (GetDirectionDivisor() > comparableInstance.GetDirectionDivisor())
+                {
+                    result = 1;
+                }
+
+                else
+                {
+                    if (Direction < comparableInstance.Direction)
+                    {
+                        result = -1;
+                    }
+
+                    else if (Direction > comparableInstance.Direction)
+                    {
+                        result = 1;
+                    }
+
+                    else
+                    {
+                        result = StartingPoint.CompareTo(comparableInstance.StartingPoint);
+                    }
+                }
+            }
+
+            return result;
         }
 
         

@@ -9,7 +9,7 @@ using NonCircularIteration;
 
 namespace BuildingBlocks
 {
-    public abstract class NonCircularLetter<T,U>: NonCircular<T,U>,ILetter,IComparable<T>, IDirectionIterator<U>
+    public abstract class NonCircularLetter<T,U>: NonCircular<T,U>,ILetter, IDirectionIterator<U>
     {
         
         protected NonCircularLetter()
@@ -23,7 +23,7 @@ namespace BuildingBlocks
 
         }
 
-        public abstract int CompareTo(T other);
+       
 
         public abstract void DisplayLetterInfo();
  

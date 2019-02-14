@@ -7,15 +7,17 @@ using BuildingBlocks.Unit_Testing_Classes;
 using Pieces.Unit_Testing_Classes;
 using Pieces;
 
-namespace ConsoleApp1
+
+namespace BuildingBlocks
 {
 
     class Program
     {
         static void Main(string[] args)
         {
-            
 
+            
+            
             Console.WriteLine("Building Blocks Main" );
             Console.ReadLine();
         }

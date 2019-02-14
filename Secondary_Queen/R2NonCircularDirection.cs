@@ -384,7 +384,7 @@ namespace Secondary_Queen
             throw new NotImplementedException();
         }
 
-        public override DirectionIterator<R2NonCircularDirection> RetrieveDirectionIterator()
+        public override int CompareTo(R2NonCircularDirection comparableInstance)
         {
             throw new NotImplementedException();
         }

@@ -14,6 +14,11 @@ namespace BuildingBlocks
         internal float _directionLength;
         internal float _divisor;
 
+        public override string ToString()
+        {
+            return "Direciton length : " + _directionLength + "\nDirection Divisor : " + _divisor;
+        }
+
         public SharedDirection()
         {
             _divisor = 1;

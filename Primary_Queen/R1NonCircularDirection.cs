@@ -48,6 +48,11 @@ namespace Primary_Queen
             FillCanShootList();
         }
 
+        public override int CompareTo(R1NonCircularDirection comparableInstance)
+        {
+            throw new NotImplementedException();
+        }
+
         // Displays an R1NonCircularDirection. However the method suppose to be on a super class "CircularDirection".
         public override void Display()
         {

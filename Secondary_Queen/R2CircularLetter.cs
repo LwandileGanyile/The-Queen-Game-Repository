@@ -138,10 +138,7 @@ namespace Secondary_Queen
             throw new NotImplementedException();
         }
 
-        public override LetterIterator<R2CircularLetter> RetrieveLetterIterator()
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public PointIterator<R2Point> RetrievePointIterator()
         {

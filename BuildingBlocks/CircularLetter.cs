@@ -10,7 +10,7 @@ using CircularIteration;
 
 namespace BuildingBlocks
 {
-    public abstract class CircularLetter<T,U> : Circular<T,U>, Comparable<T>, ILetterDimension, ILetter, IDirectionIterator<U>
+    public abstract class CircularLetter<T,U> : Circular<T,U>, ILetterDimension, ILetter, IDirectionIterator<U>
     {
 
         protected CircularLetter()
@@ -26,7 +26,7 @@ namespace BuildingBlocks
 
         }
 
-        public abstract int CompareTo(T comparableInstance);
+        
 
         public abstract void DisplayLetterInfo();
         public abstract int GetDirection();

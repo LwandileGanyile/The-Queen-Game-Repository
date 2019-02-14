@@ -94,7 +94,12 @@ namespace BuildingBlocks
             Fill();
         }
 
-       
+        public override string ToString()
+        {
+            return base.ToString() + "\n" + sharedDirection.ToString();
+        }
+
+
 
         public abstract PointIterator<U> RetrievePointIterator();
        

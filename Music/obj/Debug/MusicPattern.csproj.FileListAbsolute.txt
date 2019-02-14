@@ -1,0 +1,5 @@
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Music\bin\Debug\Music.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Music\bin\Debug\Music.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Music\obj\Debug\MusicPattern.csprojResolveAssemblyReference.cache
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Music\obj\Debug\Music.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Music\obj\Debug\Music.pdb

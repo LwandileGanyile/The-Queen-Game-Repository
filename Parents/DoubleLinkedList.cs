@@ -91,7 +91,7 @@ namespace SharedResources
             {
 
                 _tail.next = newNode;
-                _tail = _tail.next;
+                _tail = newNode;
             }
             size++;
         }
@@ -200,6 +200,26 @@ namespace SharedResources
                     current = current.next;
                 return current.element;
             }
+
+        }
+
+        public override string ToString()
+        {
+            Node<T> current = _head;
+
+            string output = "";
+
+            for (int i = 1; i <= size; i++)
+            {
+                if (current != null)
+                {
+                    output += (current.element + " ");
+                    current = current.next;
+                }
+
+            }
+
+            return output;
 
         }
     }

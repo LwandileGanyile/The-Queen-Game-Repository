@@ -65,6 +65,26 @@ namespace SharedResources
               
         }
 
+        public override string ToString()
+        {
+            MyNode<T> current = _head;
+
+            string output = "";
+
+            for (int i = 1; i <= size; i++)
+            {
+                if (current != null)
+                {
+                    output += (current.element + " ");
+                    current = current.next;
+                }
+
+            }
+
+            return output;
+
+        }
+
         public override void AddFirst(T element)
         {
             MyNode<T> newNode = new MyNode<T>(element);

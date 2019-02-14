@@ -15,6 +15,8 @@ namespace Primary_Queen
         dimensional point isn't allowed to directly access the Point class.*/
         private Point _point;
 
+       
+
         public R1Point()
         {
             _point = new Point();
@@ -125,6 +127,11 @@ namespace Primary_Queen
         {
           
             return _point.CompareTo(other.Position);
+        }
+
+        public override string ToString()
+        {
+            return _point.ToString();
         }
     }
 }

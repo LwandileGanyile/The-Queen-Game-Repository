@@ -44,6 +44,7 @@
     <Compile Include="CircularLinkedList.cs" />
     <Compile Include="MyNode.cs" />
     <Compile Include="Node.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Unit-Testing-Classes\CircularLinkedListTester.cs" />
     <Compile Include="DoubleLinkedList.cs" />
     <Compile Include="Unit-Testing-Classes\CircularTester.cs" />

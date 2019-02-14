@@ -9,7 +9,7 @@ using Game_Defination;
 namespace SharedResources
 {
     public abstract class Parent<T>: IFill, IRotate<T>, IReflect<T>, IReflectable<T>, IRotateable<T>,
-        ITranslate<T>, IDirectionDimension, IPointDimension, IDisplay
+        ITranslate<T>, IDirectionDimension, IPointDimension, IDisplay, ICompare<T>
     {
 
         protected Point _startingPoint;
@@ -30,6 +30,7 @@ namespace SharedResources
 
         }
 
+       
 
         protected Parent(Point _startingPoint, int direction,
         Dictionary<int,int> duration, int directionDimension)
@@ -106,6 +107,46 @@ namespace SharedResources
             }
         }
 
+        public override string ToString()
+        {
+            return "Facing direction : " + Direction + "\nStarting At : " + 
+            _startingPoint.ToString() +  "\nCanShooList : "+GetCanShootPresentation()+ 
+            "\nDimension : " + Dimension + "\nDuration directory : \n"+GetDurationPresentation();
+        }
+
+        private string GetCanShootPresentation()
+        {
+            string output = "[ ";
+
+
+            for (int i = 0; i < canShootList.Count - 1; i++)
+                if (canShootList[i])
+                    output += "True, ";
+                else
+                    output += "False, ";
+
+            if (canShootList[canShootList.Count - 1])
+                output += "True ]";
+            else
+                output += "False ]";
+
+
+            return output;
+        }
+
+        private string GetDurationPresentation()
+        {
+            string output = "";
+
+            foreach (KeyValuePair<int,int> keyValuePair in duration)
+            {
+                output += ("\t\tKey : "+keyValuePair.Key.ToString()+"\tTakes : " + keyValuePair.Value.ToString()+" milliseconds.");
+                output += "\n";
+            }
+
+            return output;
+        }
+
         public abstract void Fill();
 
         public abstract void Clear();
@@ -127,5 +168,6 @@ namespace SharedResources
             Console.WriteLine();
         }
 
+        public abstract int CompareTo(T comparableInstance);
     }
 }

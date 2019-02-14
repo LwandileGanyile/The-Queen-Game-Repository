@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game_Defination
 {
-    public interface Comparable<T>
+    public interface ICompare<T>
     {
         int CompareTo(T comparableInstance);
     }

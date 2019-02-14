@@ -14,6 +14,8 @@ namespace SharedResources
         protected int numberOfRotations;
         protected CircularLinkedList<U> circularLinkedList;
 
+       
+
 
         protected Circular()
         :base(){
@@ -44,12 +46,20 @@ namespace SharedResources
       
         }
 
-        protected void FillCanShootList()
+        protected Circular(Point _startingPoint, int direction,
+        List<bool> canShootList, Dictionary<int, int> duration, int directionDimension,
+        CircularLinkedList<U> circularLinkedList,int numberOfRotations)
+        : base(_startingPoint, direction,
+        canShootList, duration, directionDimension)
         {
-            for (int i = 0; i < circularLinkedList.Size; i++)
-                canShootList.Add(false);
+
+            this.numberOfRotations = numberOfRotations;
+            this.circularLinkedList = circularLinkedList; ;
+
         }
+
        
+
         public int NumberOfRotations
         {
             set;
@@ -64,7 +74,7 @@ namespace SharedResources
         }
 
        
-   
+        
         
     }
 }
