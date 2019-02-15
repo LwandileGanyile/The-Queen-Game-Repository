@@ -10,16 +10,19 @@ namespace CircularIteration
 {
     public abstract class Iterator<T> : IUniIDirectionalIterator<T>
     {
-        protected MyNode<T> current;
+        protected int currentIndex;
+        protected CircularLinkedList<T> circularLinkedList;
 
         protected Iterator()
         {
-
+            currentIndex = -1;
+            circularLinkedList = new CircularLinkedList<T>();
         }
 
-        protected Iterator(MyNode<T> current)
+        protected Iterator(int currentIndex, CircularLinkedList<T> circularLinkedList)
         {
-
+            this.circularLinkedList = circularLinkedList;
+            this.currentIndex = currentIndex;
         }
 
         public abstract T GetNext();
