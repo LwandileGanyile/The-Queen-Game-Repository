@@ -32,6 +32,16 @@ namespace Secondary_Queen
             FillCanShootList();
         }
 
+        // Construct without specifying the canshoot property.
+        public R2CircularDirection(R2Point startingPoint, int direction, float directionLength,
+        float divisor, Dictionary<int, int> duration)
+        : base(startingPoint.Position, direction, divisor, directionLength,duration,2,1)
+        {
+            Fill();
+            FillCanShootList();
+        }
+
+
         // Construct without specifying the  length property cause it doesn't exist.
         public R2CircularDirection(R2Point startingPoint, int direction,
         float directionDivisor, List<bool> canShootList, Dictionary<int,int> duration)
@@ -391,7 +401,7 @@ namespace Secondary_Queen
 
         public override PointIterator<R2Point> RetrievePointIterator()
         {
-            throw new NotImplementedException();
+            return new PointIterator<R2Point>(0, circularLinkedList);
         }
 
         public override string ToString()
