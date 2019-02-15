@@ -14,7 +14,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 
-           
+            R2CircularDirectionTester tester = new R2CircularDirectionTester();
 
             Console.WriteLine("\nSecondary Queen Main");
             Console.ReadLine();

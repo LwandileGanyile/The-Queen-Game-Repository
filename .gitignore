@@ -46,3 +46,29 @@
 /MovingStrategy/obj/Debug/CoreCompileInputs.cache
 /ShootingStrategy/ShootingStrategy.csproj
 / MovingStrategy/MovingStrategy.csproj
+/MovingStrategy/bin/Debug/BuildingBlocks.exe
+/ MovingStrategy/bin/Debug/BuildingBlocks.pdb
+/ MovingStrategy/bin/Debug/CircularIteration.exe
+/MovingStrategy/bin/Debug/CircularIteration.pdb
+/ MovingStrategy/bin/Debug/MovingStrategy.dll
+/  MovingStrategy/bin/Debug/MovingStrategy.pdb
+/MovingStrategy/bin/Debug/NonCircularIteration.exe
+/ MovingStrategy/bin/Debug/NonCircularIteration.pdb
+/MovingStrategy/bin/Debug/Parents.dll
+/ MovingStrategy/bin/Debug/Parents.pdb
+/MovingStrategy/bin/Debug/Pieces.dll
+/MovingStrategy/bin/Debug/Pieces.pdb
+/MovingStrategy/obj/Debug/MovingStrategy.csprojResolveAssemblyReference.cache
+/ShootingStrategy/obj/Debug/ShootingStrategy.pdb
+/ ShootingStrategy/obj/Debug/ShootingStrategy.dll
+/ ShootingStrategy/obj/Debug/ShootingStrategy.csprojResolveAssemblyReference.cache
+/ShootingStrategy/bin/Debug/ShootingStrategy.pdb
+/ ShootingStrategy/bin/Debug/ShootingStrategy.dll
+/ShootingStrategy/bin/Debug/Pieces.pdb
+/ShootingStrategy/bin/Debug/Pieces.dll
+/ ShootingStrategy/bin/Debug/Parents.pdb
+/ ShootingStrategy/bin/Debug/Parents.dll
+
+
+
+

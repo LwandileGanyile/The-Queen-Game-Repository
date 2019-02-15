@@ -10,29 +10,47 @@ namespace CircularIteration
 {
     public class PointIterator<T> : Iterator<T>
     {
+        
+
         public PointIterator()
         {
 
         }
 
-        public PointIterator(MyNode<T> current)
+        public PointIterator(int currentIndex,CircularLinkedList<T> circularLinkedList)
+        :base(currentIndex,circularLinkedList)
         {
 
         }
 
         public override T GetNext()
         {
-            throw new NotImplementedException();
+
+            if (currentIndex != -1)
+            {
+                
+                currentIndex = (currentIndex + 1) % circularLinkedList.Size;
+                return circularLinkedList.GetAt(currentIndex);
+            }
+
+            return default(T);
         }
 
         public override bool HasNext()
         {
-            throw new NotImplementedException();
+           
+            return currentIndex<circularLinkedList.Size;
         }
 
         public override T Remove()
         {
-            throw new NotImplementedException();
+
+            if (currentIndex != -1)
+            {
+                return circularLinkedList.Remove((currentIndex + 1) % circularLinkedList.Size);
+            }
+
+                return default(T);
         }
     }
 }
