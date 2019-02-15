@@ -12,18 +12,18 @@ namespace SharedResources
         private MyNode<T> _head;
         
 
-        protected internal CircularLinkedList()
+        public CircularLinkedList()
         {
             _head = null;
         }
 
-        protected internal CircularLinkedList(T[] objects) : base(objects)
+        public CircularLinkedList(T[] objects) : base(objects)
         {
             
 
         }
 
-        protected internal CircularLinkedList(List<T> objects): base(objects)
+        public CircularLinkedList(List<T> objects): base(objects)
         {
                 
 
