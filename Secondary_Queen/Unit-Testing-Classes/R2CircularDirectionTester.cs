@@ -8,136 +8,1285 @@ namespace Secondary_Queen.Unit_Testing_Classes
 {
     public class R2CircularDirectionTester
     {
-        protected internal List<R2CircularDirection> directions;
+        protected internal R2CircularDirection r1Direction;
+        protected internal R2CircularDirection r2Direction;
+        protected internal R2CircularDirection r3Direction;
+        protected internal R2CircularDirection r4Direction;
 
-
-        protected internal R2CircularDirectionTester()
+        public R2CircularDirectionTester()
         {
-            directions = new List<R2CircularDirection>();
-            CreateDirections();
-        }
+            r1Direction = new R2CircularDirection();
+            List<bool> canShoot = new List<bool>();
 
-        protected internal R2CircularDirectionTester(List<R2CircularDirection> directions)
-        {
-            this.directions = directions;
-        }
 
-        protected internal R2CircularDirectionTester(R2CircularDirection direction)
-        {
-            directions = new List<R2CircularDirection> { direction };
-        }
 
-        // Fill the list of R2Point elements.
-        private void CreateDirections()
-        {
+            float directionLength = 5;
+            float directionDivisor = 0.5f;
+            int direction = 1;
+
+            int numberOfElements = (int)(directionLength / directionDivisor);
+
+
+
+            for (int i = 0; i < numberOfElements; i++)
+                if (i % 2 == 0)
+                    canShoot.Add(true);
+                else
+                    canShoot.Add(false);
+
 
 
             Dictionary<int, int> duration = new Dictionary<int, int>();
-           
 
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < numberOfElements; i++)
             {
-                duration.Add(i, 1000 / 10);
+                duration.Add(i, 1000 / numberOfElements);
             }
 
-            for (int direction = 1; direction <= 8; direction++)
-            {
-                directions.Add(new R2CircularDirection(new R2Point(10.0f, 10.0f), direction, 10, 1, duration, 1));
-            }
+            r2Direction = new R2CircularDirection(new R2Point(0,5), direction, directionLength, directionDivisor, duration);
+
+
+            r3Direction = new R2CircularDirection(new R2Point(-1,2), direction, directionLength, directionDivisor, duration);
+
+            r4Direction = new R2CircularDirection(new R2Point(-1,10), direction, directionLength, directionDivisor, duration, 3);
+
+            /*CheckIsDirectionValid(-1);
+            CheckIsDirectionValid(0);
+            CheckIsDirectionValid(1);
+            CheckIsDirectionValid(2);
+            CheckIsDirectionValid(3);
+
+            CheckIsDimensionCorrect();
+            CheckIsPointCorrect();
+            CheckReflectAboutX();
+            CheckRotateAroundX();
+            CheckReflectEqualX();
+            CheckRotateAroundEqualX();
+            CheckTranslate();*/
+            CheckCompareTo();
         }
 
-        // Checking the Display method in R2CircularDirection.
-        public void DisplayDirections()
+        public R2CircularDirectionTester(R2CircularDirection r1Direction, R2CircularDirection r2Direction, R2CircularDirection r3Direction, R2CircularDirection r4Direction)
+        {
+            this.r1Direction = r1Direction;
+            this.r2Direction = r2Direction;
+            this.r3Direction = r3Direction;
+            this.r4Direction = r4Direction;
+        }
+
+        // Checks whether or not the direction is valid.
+        public void CheckIsDirectionValid(int direction)
+        {
+            Console.WriteLine("\n*********************Checking direction " + direction + " *******************************");
+            Console.WriteLine("Is the direction of list1 valid? : " + r1Direction.IsDirectionValid(direction));
+            Console.WriteLine("Is the direction of list2 valid? : " + r2Direction.IsDirectionValid(direction));
+            Console.WriteLine("Is the direction of list3 valid? : " + r3Direction.IsDirectionValid(direction));
+            Console.WriteLine("Is the direction of list4 valid? : " + r4Direction.IsDirectionValid(direction));
+            Console.WriteLine();
+        }
+
+        // Checks whether or not the direction is valid.
+        public void CheckIsDimensionCorrect()
+        {
+            Console.WriteLine("\n***************Checking the IsDirectionDimensionCorrect method *****************");
+            Console.WriteLine("Is the direction dimension of list1 correct? : " + r1Direction.IsDirectionDimensionCorrect());
+            Console.WriteLine("Is the direction dimension of list2 correct? : " + r2Direction.IsDirectionDimensionCorrect());
+            Console.WriteLine("Is the direction dimension of list3 correct? : " + r3Direction.IsDirectionDimensionCorrect());
+            Console.WriteLine("Is the direction dimension of list4 correct? : " + r4Direction.IsDirectionDimensionCorrect());
+            Console.WriteLine();
+        }
+
+        // Checks whether or not the direction is valid.
+        public void CheckIsPointCorrect()
+        {
+            Console.WriteLine("\n***************Checking the IsPointDimensionCorrect method *****************");
+            Console.WriteLine("Is the point dimension of list1 correct? : " + r1Direction.IsPointDimensionCorrect());
+            Console.WriteLine("Is the point dimension of list2 correct? : " + r2Direction.IsPointDimensionCorrect());
+            Console.WriteLine("Is the point dimension of list3 correct? : " + r3Direction.IsPointDimensionCorrect());
+            Console.WriteLine("Is the point dimension of list4 correct? : " + r4Direction.IsPointDimensionCorrect());
+            Console.WriteLine();
+        }
+
+        // Checks whether or not the one can reflect about axis.
+        public void CheckReflectAboutX()
         {
 
-            for (int direction = 1; direction <= 8; direction++)
-            {
-                Console.Write("Direction " + direction + " - \t");
-                Console.Write("[ ");
-                directions[direction - 1].Display();
-                Console.Write(" ]\n\n ");
+            Console.WriteLine("\n***************Checking the ReflectAboutAxis(-1) method *****************");
 
-            }
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(-1) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(-1) on : \n" +
+            r1Direction.ReflectAboutAxis(-1).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(-1) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(-1) on : \n" +
+            r2Direction.ReflectAboutAxis(-1).ToString());
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(-1) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(-1) on : \n" +
+            r3Direction.ReflectAboutAxis(-1).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(-1) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(-1) on : \n" +
+            r4Direction.ReflectAboutAxis(-1).ToString());
+
+            Console.WriteLine("\n***************Checking the ReflectAboutAxis(0) method *****************");
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(0) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("After calling ReflectAboutAxis(0) on : \n" +
+            r1Direction.ReflectAboutAxis(0).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(0) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(0) on : \n" +
+            r2Direction.ReflectAboutAxis(0).ToString());
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(0) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(0) on : \n" +
+            r3Direction.ReflectAboutAxis(0).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(0) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(0) on : \n" +
+            r4Direction.ReflectAboutAxis(0).ToString());
+
+            Console.WriteLine();
+
+            Console.WriteLine("\n***************Checking the ReflectAboutAxis(1) method *****************");
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(1) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(1) on : \n" +
+            r1Direction.ReflectAboutAxis(1).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(1) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(1) on : \n" +
+            r2Direction.ReflectAboutAxis(1).ToString());
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(1) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(1) on : \n" +
+            r3Direction.ReflectAboutAxis(1).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(1) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(1) on : \n" +
+            r4Direction.ReflectAboutAxis(1).ToString());
+
+
+            Console.WriteLine();
         }
 
-        // Checking isDimesnionCorrent, isPointDirectionCorrent, and isDirectionValid.
-        public void checkDimensionAndValidity()
+        // Checks whether or not the one can rotate about axis.
+        public void CheckRotateAroundEqualX()
         {
-            for (int index = 0; index < directions.Count;index++)
-            { 
-                
-                Console.Write("is direction "+(index+1)+" - ");
-                directions[index].Display();
-                Console.WriteLine(" made up of two dimensional points ? "+ directions[index].IsPointDimensionCorrect()+".");
 
-                Console.Write("Do direction "+ (index + 1) +" ");
-                directions[index].Display();
-                Console.WriteLine(" have a correct direction value ? " + directions[index].IsDirectionValid(directions[index].Direction) + ".");
+            Console.WriteLine("\n***************Checking the RotateAboutAxis((new List<int> { +-1,+-2}, index) method *****************");
 
-                Console.WriteLine("--------------------------------------------------------------------------------");
-            }
+            Console.WriteLine("\nBefore calling RotateAboutAxis((new List<int> { 1,2}, 2) on: \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling RotateAboutAxis((new List<int> { 1,2}, 2) on : \n" +
+            r1Direction.RotateAroundEqualAxis(new List<int> { 1, 2 }, 2).ToString());
+
+
+            Console.WriteLine("\nBefore calling RotateAboutAxis((new List<int> { 1,2}, 3) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling RotateAboutAxis((new List<int> { -1,2}, 3) on : \n" +
+            r2Direction.RotateAroundEqualAxis(new List<int> { -1, 2 }, 3).ToString());
+
+            Console.WriteLine("\nBefore calling RotateAboutAxis((new List<int> { 1,2}, 4) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling RotateAboutAxis((new List<int> { 1,-2}, 4) on : \n" +
+            r3Direction.RotateAroundEqualAxis(new List<int> { 1, -2 }, 4).ToString());
+
+
+            Console.WriteLine("\nBefore calling RotateAboutAxis((new List<int> { 1,2}, 5) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling RotateAboutAxis((new List<int> { -1,-2}, 5) on : \n" +
+            r4Direction.RotateAroundEqualAxis(new List<int> { -1, -2 }, 5).ToString());
+
+
         }
 
-        public void reflectAllAboutXAxis()
+
+        // Checks whether or not the one can reflect about axis.
+        public void CheckReflectEqualX()
         {
-            //List<R2CircularDirection> transformedDirections = new List<R2CircularDirection>();
 
-            for (int i = 0; i < directions.Count;i++)
-            {
-                directions[i] = directions[i].ReflectAboutAxis(0);
-                
-            }
-                
+            Console.WriteLine("\n***************Checking the ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes) method *****************");
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(new List<int> { 1,-2}, 2) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(new List<int> { 1,-2}, 2) on : \n" +
+            r1Direction.ReflectAroundEqualAxis(new List<int> { 1, -2 }, 2).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(new List<int> { 1, 2 }, 2) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(new List<int> { 1, 2 }, 2) on : \n" +
+            r2Direction.ReflectAroundEqualAxis(new List<int> { 1, 2 }, 2).ToString());
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(new List<int> { -1, -2 }, 3) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(new List<int> { -1, -2 }, 3) on : \n" +
+            r3Direction.ReflectAroundEqualAxis(new List<int> { -1, -2 }, 3).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(new List<int> { -1, 2 }, 3) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(new List<int> { -1, 2 }, 3) on : \n" +
+            r4Direction.ReflectAroundEqualAxis(new List<int> { -1, 2 }, 2).ToString());
+
+            Console.WriteLine();
+            Console.WriteLine("\n***************Checking the ReflectAboutAxis(0) method *****************");
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(0) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("After calling ReflectAboutAxis(0) on : \n" +
+            r1Direction.ReflectAboutAxis(0).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(0) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(0) on : \n" +
+            r2Direction.ReflectAboutAxis(0).ToString());
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(0) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(0) on : \n" +
+            r3Direction.ReflectAboutAxis(0).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(0) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(0) on : \n" +
+            r4Direction.ReflectAboutAxis(0).ToString());
+
+            Console.WriteLine();
+
+            Console.WriteLine("\n***************Checking the ReflectAboutAxis(-1) method *****************");
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(-1) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(-1) on : \n" +
+            r1Direction.ReflectAboutAxis(-1).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(-1) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(-1) on : \n" +
+            r2Direction.ReflectAboutAxis(-1).ToString());
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(-1) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(-1) on : \n" +
+            r3Direction.ReflectAboutAxis(-1).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(-1) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(-1) on : \n" +
+            r4Direction.ReflectAboutAxis(-1).ToString());
+
+
+            Console.WriteLine();
+
+            Console.WriteLine("\n***************Checking the ReflectAboutAxis(0) method *****************");
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(0) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("After calling ReflectAboutAxis(0) on : \n" +
+            r1Direction.ReflectAboutAxis(0).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(0) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(0) on : \n" +
+            r2Direction.ReflectAboutAxis(0).ToString());
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(0) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(0) on : \n" +
+            r3Direction.ReflectAboutAxis(0).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(0) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(0) on : \n" +
+            r4Direction.ReflectAboutAxis(0).ToString());
+
+            Console.WriteLine();
+
+            Console.WriteLine("\n***************Checking the ReflectAboutAxis(1) method *****************");
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(1) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(1) on : \n" +
+            r1Direction.ReflectAboutAxis(1).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(1) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(1) on : \n" +
+            r2Direction.ReflectAboutAxis(1).ToString());
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(1) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(1) on : \n" +
+            r3Direction.ReflectAboutAxis(1).ToString());
+
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(1) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(1) on : \n" +
+            r4Direction.ReflectAboutAxis(1).ToString());
+
+
+            Console.WriteLine();
         }
 
-        public void reflectAllAboutYAxis()
+        // Checks whether or not the one can rotate about axis.
+        public void CheckRotateAroundX()
         {
-            
 
-            for (int i = 0; i < directions.Count; i++)
-            {
-                directions[i] = directions[i].ReflectAboutAxis(1);
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(-1) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(-1) on : \n" +
+            r3Direction.RotateAroundAxis(-1, 4).ToString());
 
-            }
+
+            Console.WriteLine("\nBefore calling ReflectAboutAxis(2) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling ReflectAboutAxis(2) on : \n" +
+            r4Direction.RotateAroundAxis(2, 3).ToString());
+
+
+            Console.WriteLine();
+
+            Console.WriteLine("\n***************Checking the RotateAroundAxis(axis,times) method *****************");
+
+            Console.WriteLine("\nBefore calling RotateAroundAxis(1,1) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("After calling ReflectAboutAxis(1,1) on : \n" +
+            r1Direction.RotateAroundAxis(1, 1).ToString());
+
+
+            Console.WriteLine("\nBefore calling RotateAroundAxis(1,2) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling RotateAroundAxis(1,2) on : \n" +
+            r2Direction.RotateAroundAxis(1, 2).ToString());
+
+            Console.WriteLine("\nBefore calling RotateAroundAxis(2,1) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling RotateAroundAxis(2,1) on : \n" +
+            r3Direction.RotateAroundAxis(2, 1).ToString());
+
+
+            Console.WriteLine("\nBefore calling RotateAroundAxis(2,2) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling RotateAroundAxis(2,2) on : \n" +
+            r4Direction.RotateAroundAxis(2, 2).ToString());
+
+            Console.WriteLine();
 
         }
 
-        public void reflectAllAroundEqualAxis()
+        // Checks the translate method.
+        public void CheckTranslate()
         {
-            for (int i = 0; i < directions.Count; i++)
-            {
-                directions[i] = directions[i].ReflectAroundEqualAxis(new List<int> { -1,1},3);
 
-            }
+
+            Console.WriteLine("\n***************Checking the translate(direction,10) method *****************");
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\nBefore calling translate(-1,10) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(-1,10) on : \n" +
+            r1Direction.translate(-1, 10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(0,10) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(0,10) on : \n" +
+            r1Direction.translate(0, 10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(1,10) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(1,10) on : \n" +
+            r1Direction.translate(1, 10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(2,10) on : \n" +
+             r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(2,10) on : \n" +
+            r1Direction.translate(2, 10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(3,10) on : \n" +
+             r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(3,10) on : \n" +
+            r1Direction.translate(3, 10).ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+            Console.WriteLine("\nBefore calling translate(-1,10) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(-1,10) on : \n" +
+            r2Direction.translate(-1, 10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(0,10) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(0,10) on : \n" +
+            r2Direction.translate(0, 10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(1,10) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(1,10) on : \n" +
+            r2Direction.translate(1, 10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(2,10) on : \n" +
+             r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(2,10) on : \n" +
+            r1Direction.translate(2, 10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(3,10) on : \n" +
+             r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(3,10) on : \n" +
+            r2Direction.translate(3, 10).ToString());
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+            Console.WriteLine("\nBefore calling translate(-1,10) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(-1,10) on : \n" +
+            r3Direction.translate(-1, 10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(0,10) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(0,10) on : \n" +
+            r3Direction.translate(0, 10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(1,10) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(1,10) on : \n" +
+            r3Direction.translate(1, 10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(2,10) on : \n" +
+             r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(2,10) on : \n" +
+            r3Direction.translate(2, 10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(3,10) on : \n" +
+             r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(3,10) on : \n" +
+            r3Direction.translate(3, 10).ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+            Console.WriteLine("\nBefore calling translate(-1,10) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(-1,10) on : \n" +
+            r4Direction.translate(-1, 10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(0,10) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(0,10) on : \n" +
+            r4Direction.translate(0, 10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(1,10) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(1,10) on : \n" +
+            r4Direction.translate(1, 10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(2,10) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(2,10) on : \n" +
+            r4Direction.translate(2, 10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(3,10) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(3,10) on : \n" +
+            r4Direction.translate(3, 10).ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+            Console.WriteLine("\n***************Checking the translate(direction,-10) method *****************");
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\nBefore calling translate(-1,-10) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(-1,-10) on : \n" +
+            r1Direction.translate(-1, -10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(0,-10) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(0,-10) on : \n" +
+            r1Direction.translate(0, -10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(1,-10) on : \n" +
+            r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(1,-10) on : \n" +
+            r1Direction.translate(1, -10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(2,-10) on : \n" +
+             r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(2,-10) on : \n" +
+            r1Direction.translate(2, 10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(3,-10) on : \n" +
+             r1Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(3,-10) on : \n" +
+            r1Direction.translate(3, -10).ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+            Console.WriteLine("\nBefore calling translate(-1,-10) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(-1,-10) on : \n" +
+            r2Direction.translate(-1, -10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(0,-10) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(0,-10) on : \n" +
+            r2Direction.translate(0, -10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(1,-10) on : \n" +
+            r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(1,-10) on : \n" +
+            r2Direction.translate(1, -10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(2,-10) on : \n" +
+             r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(2,-10) on : \n" +
+            r1Direction.translate(2, -10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(3,-10) on : \n" +
+             r2Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(3,-10) on : \n" +
+            r2Direction.translate(3, -10).ToString());
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+            Console.WriteLine("\nBefore calling translate(-1,-10) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(-1,-10) on : \n" +
+            r3Direction.translate(-1, -10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(0,-10) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(0,-10) on : \n" +
+            r3Direction.translate(0, -10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(1,-10) on : \n" +
+            r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(1,-10) on : \n" +
+            r3Direction.translate(1, -10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(2,-10) on : \n" +
+             r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(2,-10) on : \n" +
+            r3Direction.translate(2, -10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(3,-10) on : \n" +
+             r3Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(3,-10) on : \n" +
+            r3Direction.translate(3, -10).ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+            Console.WriteLine("\nBefore calling translate(-1,-10) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(-1,-10) on : \n" +
+            r4Direction.translate(-1, 10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(0,-10) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(0,-10) on : \n" +
+            r4Direction.translate(0, 10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(1,-10) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(1,-10) on : \n" +
+            r4Direction.translate(1, 10).ToString());
+
+
+            Console.WriteLine("\nBefore calling translate(2,-10) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(2,-10) on : \n" +
+            r4Direction.translate(2, 10).ToString());
+
+            Console.WriteLine("\nBefore calling translate(3,-10) on : \n" +
+            r4Direction.ToString());
+            Console.WriteLine();
+            Console.WriteLine("\nAfter calling translate(3,-10) on : \n" +
+            r4Direction.translate(3, -10).ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            Console.WriteLine();
         }
 
-        public void rotateAllAroundAxis()
+        public void CheckCompareTo()
         {
-            for (int i = 0; i < directions.Count; i++)
-            {
-                directions[i] = directions[i].RotateAroundEqualAxis(new List<int> { 1, 1 }, 2);
+            Dictionary<int, int> duration = new Dictionary<int, int>();
 
-            }
+            duration.Add(0, 1500);
+            duration.Add(1, 3000);
+            duration.Add(2, 4500);
+            duration.Add(3, 6000);
+            duration.Add(4, 1500);
+            duration.Add(5, 3000);
+            duration.Add(6, 4500);
+            duration.Add(7, 6000);
+            duration.Add(8, 1500);
+            duration.Add(9, 3000);
+            duration.Add(10, 4500);
+            duration.Add(11, 6000);
+
+            R2CircularDirection direction1 = new R2CircularDirection(new R2Point(10,10), 1, 25, 5, duration);
+            R2CircularDirection direction2 = new R2CircularDirection(new R2Point(-50,50), 2, 45, 5, duration);
+            R2CircularDirection direction3 = new R2CircularDirection(new R2Point(10,20), 3, 10, 2.5f, duration);
+            R2CircularDirection direction4 = new R2CircularDirection(new R2Point(-10,-10), 4, 30, 3, duration);
+
+            R2CircularDirection direction5 = new R2CircularDirection(new R2Point(5,15), 5, 100, 20, duration, 1);
+            R2CircularDirection direction6 = new R2CircularDirection(new R2Point(-5,15), 6, 200, 20, duration, 2);
+            R2CircularDirection direction7 = new R2CircularDirection(new R2Point(25,10), 7, 300, 15, duration, 1);
+            R2CircularDirection direction8 = new R2CircularDirection(new R2Point(-10,40), 8, 500, 15, duration, 2);
+
+            R2CircularDirection direction11 = new R2CircularDirection(new R2Point(15,10), 1, 10, 2, new List<bool> {true, false, true, false, true },duration);
+            R2CircularDirection direction22 = new R2CircularDirection(new R2Point(-15,50), 2, 100, 20, new List<bool> { false, false, false, false, true }, duration);
+            R2CircularDirection direction33 = new R2CircularDirection(new R2Point(100,30), 3, 15, 2.5f, new List<bool> { false, false, false, false, true }, duration);
+            R2CircularDirection direction44 = new R2CircularDirection(new R2Point(-10,50), 4, 28, 3.5f, new List<bool> { true, true, true, false, true }, duration);
+
+            R2CircularDirection direction55 = new R2CircularDirection(new R2Point(15, 10), 5, 10, new List<bool> { true, false, true, false, true }, duration);
+            R2CircularDirection direction66 = new R2CircularDirection(new R2Point(-15, 50), 6, 20, new List<bool> { false, false, false, false, true }, duration);
+            R2CircularDirection direction77 = new R2CircularDirection(new R2Point(100, 30), 7, 2.5f, new List<bool> { false, false, false, false, true }, duration);
+            R2CircularDirection direction88 = new R2CircularDirection(new R2Point(-10, 50), 8, 3.5f, new List<bool> { true, true, true, false, true }, duration);
+
+            R2CircularDirection direction111 = new R2CircularDirection(new R2Point(15, 10), 1, 10, 2, new List<bool> { true, false, true, false, true }, duration, 1);
+            R2CircularDirection direction222 = new R2CircularDirection(new R2Point(-15, 50), 2, 100, 20, new List<bool> { false, false, false, false, true }, duration, 2);
+            R2CircularDirection direction333 = new R2CircularDirection(new R2Point(100, 30), 3, 15, 2.5f, new List<bool> { false, false, false, false, true }, duration, 1);
+            R2CircularDirection direction444 = new R2CircularDirection(new R2Point(-10, 50), 4, 28, 3.5f, new List<bool> { true, true, true, false, true }, duration, 2);
+
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + r1Direction.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction1.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (r1Direction.CompareTo(direction1) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r1Direction.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction1.ToString());
+            else if (r1Direction.CompareTo(direction1) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r1Direction.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction1.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + r1Direction.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction1.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + r1Direction.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + r2Direction.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (r1Direction.CompareTo(r2Direction) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r1Direction.ToString() + " \n\t\t---is less than ---direction : \n\n" + r2Direction.ToString());
+            else if (r1Direction.CompareTo(r2Direction) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r1Direction.ToString() + " \n\t\t---is greater ---than direction : \n\n" + r2Direction.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + r1Direction.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + r2Direction.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + r1Direction.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + r3Direction.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (r1Direction.CompareTo(r3Direction) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r1Direction.ToString() + " \n\t\t---is less than ---direction : \n\n" + r3Direction.ToString());
+            else if (r1Direction.CompareTo(r3Direction) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r1Direction.ToString() + " \n\t\t---is greater ---than direction : \n\n" + r3Direction.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + r1Direction.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + r3Direction.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + r1Direction.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + r4Direction.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (r1Direction.CompareTo(r4Direction) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r1Direction.ToString() + " \n\t\t---is less than ---direction : \n\n" + r4Direction.ToString());
+            else if (r1Direction.CompareTo(r4Direction) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r1Direction.ToString() + " \n\t\t---is greater ---than direction : \n\n" + r4Direction.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + r1Direction.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + r4Direction.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + r2Direction.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + r3Direction.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (r2Direction.CompareTo(r3Direction) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r2Direction.ToString() + " \n\t\t---is less than ---direction : \n\n" + r3Direction.ToString());
+            else if (r2Direction.CompareTo(r3Direction) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r2Direction.ToString() + " \n\t\t---is greater ---than direction : \n\n" + r3Direction.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + r2Direction.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + r3Direction.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + r2Direction.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + r4Direction.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (r2Direction.CompareTo(r4Direction) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r2Direction.ToString() + " \n\t\t---is less than ---direction : \n\n" + r4Direction.ToString());
+            else if (r2Direction.CompareTo(r4Direction) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r2Direction.ToString() + " \n\t\t---is greater ---than direction : \n\n" + r4Direction.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + r2Direction.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + r4Direction.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + r3Direction.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + r4Direction.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (r3Direction.CompareTo(r4Direction) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r3Direction.ToString() + " \n\t\t---is less than ---direction : \n\n" + r4Direction.ToString());
+            else if (r3Direction.CompareTo(r4Direction) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + r3Direction.ToString() + " \n\t\t---is greater ---than direction : \n\n" + r4Direction.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + r3Direction.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + r4Direction.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            /*************************************************************************************************************/
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction11.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction22.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction11.CompareTo(direction22) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction22.ToString());
+            else if (direction11.CompareTo(direction1) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction22.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction22.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction11.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction33.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction11.CompareTo(direction33) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction33.ToString());
+            else if (direction11.CompareTo(direction1) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction33.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction33.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction11.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction44.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction11.CompareTo(direction44) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction44.ToString());
+            else if (direction11.CompareTo(direction44) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction44.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction44.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction11.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction55.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction11.CompareTo(direction55) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction55.ToString());
+            else if (direction11.CompareTo(direction55) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction55.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction55.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction11.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction66.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction11.CompareTo(direction66) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction66.ToString());
+            else if (direction11.CompareTo(direction66) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction66.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction66.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction11.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction77.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction11.CompareTo(direction77) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction77.ToString());
+            else if (direction11.CompareTo(direction77) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction77.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction77.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction11.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction88.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction11.CompareTo(direction88) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction88.ToString());
+            else if (direction11.CompareTo(direction88) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction88.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction11.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction88.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction22.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction33.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction22.CompareTo(direction33) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction33.ToString());
+            else if (direction22.CompareTo(direction33) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction33.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction33.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction22.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction44.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction22.CompareTo(direction44) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction44.ToString());
+            else if (direction22.CompareTo(direction44) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction44.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction44.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction11.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction55.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction22.CompareTo(direction55) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction55.ToString());
+            else if (direction22.CompareTo(direction55) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction55.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction55.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction22.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction66.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction22.CompareTo(direction66) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction66.ToString());
+            else if (direction22.CompareTo(direction66) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction66.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction66.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction22.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction77.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction22.CompareTo(direction77) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction77.ToString());
+            else if (direction22.CompareTo(direction77) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction77.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction77.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction22.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction88.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction22.CompareTo(direction88) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction88.ToString());
+            else if (direction22.CompareTo(direction88) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction88.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction22.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction88.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction33.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction44.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction33.CompareTo(direction44) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction44.ToString());
+            else if (direction33.CompareTo(direction44) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction44.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction44.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction33.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction55.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction33.CompareTo(direction55) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction55.ToString());
+            else if (direction33.CompareTo(direction55) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction55.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction55.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction22.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction66.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction33.CompareTo(direction66) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction66.ToString());
+            else if (direction33.CompareTo(direction66) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction66.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction66.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction33.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction77.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction33.CompareTo(direction77) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction77.ToString());
+            else if (direction33.CompareTo(direction77) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction77.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction77.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction33.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction88.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction33.CompareTo(direction88) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction88.ToString());
+            else if (direction33.CompareTo(direction88) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction88.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction88.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction33.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction55.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction33.CompareTo(direction55) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction55.ToString());
+            else if (direction33.CompareTo(direction55) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction55.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction55.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction22.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction66.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction33.CompareTo(direction66) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction66.ToString());
+            else if (direction33.CompareTo(direction66) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction66.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction66.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction33.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction77.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction33.CompareTo(direction77) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction77.ToString());
+            else if (direction33.CompareTo(direction77) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction77.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction33.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction77.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction111.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction222.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction111.CompareTo(direction222) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction111.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction222.ToString());
+            else if (direction111.CompareTo(direction222) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction111.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction222.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction111.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction222.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction111.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction333.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction111.CompareTo(direction333) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction111.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction333.ToString());
+            else if (direction111.CompareTo(direction333) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction111.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction333.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction111.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction333.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction111.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction444.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction111.CompareTo(direction444) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction111.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction444.ToString());
+            else if (direction111.CompareTo(direction44) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction111.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction444.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction111.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction444.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction222.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction333.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction222.CompareTo(direction333) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction222.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction333.ToString());
+            else if (direction222.CompareTo(direction333) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction222.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction333.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction222.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction333.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction222.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction444.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction222.CompareTo(direction444) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction222.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction444.ToString());
+            else if (direction222.CompareTo(direction44) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction222.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction444.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction222.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction444.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            Console.WriteLine("\t\tComparing direction : \n\n" + direction333.ToString());
+            Console.WriteLine("\n\n\n\t\twith direction : \n\n" + direction444.ToString());
+
+            Console.WriteLine("\n************************************************************************************\n");
+
+            if (direction333.CompareTo(direction444) < 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction333.ToString() + " \n\t\t---is less than ---direction : \n\n" + direction444.ToString());
+            else if (direction333.CompareTo(direction44) > 0)
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction333.ToString() + " \n\t\t---is greater ---than direction : \n\n" + direction444.ToString());
+            else
+                Console.WriteLine("\nWe find that Direction : \n\n" + direction333.ToString() + " \n\t\t---is equals tot-- direction : \n\n" + direction444.ToString());
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
-
-        public void translateAll()
-        {
-            for (int j = 10; j <=50;j+= 10)
-            {
-                Console.WriteLine("Display NEW DIRECTION TRANSLATED "+j+" UNITS FROM INITIAL POSITION.");
-                for (int i = 0; i < directions.Count; i++)
-                {
-                    directions[i] = directions[i].translate(i+1,j);
-
-                }
-
-                DisplayDirections();
-                Console.WriteLine();
-            }
-        }
-
-        
-
     }
 }
