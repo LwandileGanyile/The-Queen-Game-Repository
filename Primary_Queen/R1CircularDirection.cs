@@ -41,9 +41,8 @@ namespace Primary_Queen
 
         // Construct by specifying the number of rotations.
         public R1CircularDirection(R1Point startingPoint, int direction, float directionLength,
-                                  float directionDivisor, Dictionary<int,int> duration
-                                  , int numberOfRotations)
-        : base(startingPoint.Position, direction, directionDivisor, new List<bool>(), duration, numberOfRotations)
+        float directionDivisor, Dictionary<int,int> duration, int numberOfRotations)
+        : base(startingPoint.Position, direction, directionLength, directionDivisor, new List<bool>(), duration, numberOfRotations)
         {
             Fill();
             FillCanShootList();
@@ -173,7 +172,8 @@ namespace Primary_Queen
 
         public override PointIterator<R1Point> RetrievePointIterator()
         {
-            throw new NotImplementedException();
+            
+            return new PointIterator<R1Point>(0,circularLinkedList);
         }
 
         public override string ToString()
