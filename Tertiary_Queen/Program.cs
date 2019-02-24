@@ -11,7 +11,8 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-           
+            Random random = new Random();
+            int i = random.Next(1, 10);
 
             Console.WriteLine("Tertiary Queen Main" );
             Console.ReadLine();

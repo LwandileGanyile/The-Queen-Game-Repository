@@ -7,27 +7,28 @@ using MusicPattern;
 
 namespace The_Queen
 {
-    public class Game
+    public abstract class Game
     {
-        private Dictionary<int, float> _markAllocation;
-        private List<Player> _players;
-        private TraceType _traceType;
-        private Dictionary<int, int> _switchingTimes;
-        private Music currentMusic;
+        protected Dictionary<int, float> _markAllocation;
+        protected List<Player> _players;
+        protected TraceType _traceType;
+        protected Dictionary<int, int> _switchingTimes;
+        protected Music currentMusic;
+        protected CoordinateSystem coordinateSystem;
 
-        public Game()
+        protected Game()
         {
 
         }
 
-        public Game(Dictionary<int, float> _markAllocation, List<Player> _players, TraceType _traceType, 
-        Dictionary<int, int> _switchingTimes)
+        protected Game(Dictionary<int, float> _markAllocation, List<Player> _players, TraceType _traceType, 
+        Dictionary<int, int> _switchingTimes, CoordinateSystem coordinateSystem)
         {
 
         }
 
-        public Game(Dictionary<int, float> _markAllocation, List<Player> _players, TraceType _traceType,
-        Dictionary<int, int> _switchingTimes, Music currentMusic)
+        protected Game(Dictionary<int, float> _markAllocation, List<Player> _players, TraceType _traceType,
+        Dictionary<int, int> _switchingTimes, Music currentMusic, CoordinateSystem coordinateSystem)
         {
 
         }

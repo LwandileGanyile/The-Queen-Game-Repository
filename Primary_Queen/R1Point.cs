@@ -51,6 +51,35 @@ namespace Primary_Queen
             set { _point.SetAxisAt(index, value); }
         }
 
+        public float this[char axisValue]
+        {
+            get {
+                float returnValue ;
+                if (axisValue == 'x' || axisValue == 'X')
+                    returnValue = _point.GetAxisAt(0);
+                else if(axisValue == 'y' || axisValue == 'Y')
+                    returnValue = _point.GetAxisAt(1);
+                else if(axisValue == 'z' || axisValue == 'Z')
+                    returnValue = _point.GetAxisAt(2);
+                else
+                    returnValue = _point.GetAxisAt(3);
+                return returnValue;
+            }
+
+            set {
+                float returnValue;
+                if (value == 'x' || value == 'X')
+                    _point.SetAxisAt(0, value);
+                else if (value == 'y' || value == 'Y')
+                    _point.SetAxisAt(1, value);
+                else if (value == 'z' || value == 'Z')
+                    _point.SetAxisAt(2,value);
+                else
+                    returnValue = _point.GetAxisAt(3);
+                _point.SetAxisAt(3, value);
+            }
+        }
+
 
         // Retrieve x- value.
         public float GetXCoordinate()
@@ -132,6 +161,11 @@ namespace Primary_Queen
         public override string ToString()
         {
             return _point.ToString();
+        }
+
+        public R1Point ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -10,9 +10,6 @@ namespace BuildingBlocks
     public interface ILetter
     {
         void DisplayLetterInfo();
-        void SetLetterDirection(int letterDirection);
-        Plane GetOnPlane();
-        bool GetSmaller();
 
         bool IsC(List<int> directions);
         bool IsI(List<int> directions);

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using BuildingBlocks;
 using Pieces;
 using CircularIteration;
+using SharedResources;
 
 namespace Secondary_Queen
 {
-    public class R2CircularDirection : CircularDirection<R2CircularDirection,R2Point>
+    public class R2CircularDirection : CircularDirection<R2CircularDirection,R2Point>,IFill
     {
       
         public R2CircularDirection():base()
@@ -73,7 +74,7 @@ namespace Secondary_Queen
         // Add points making up this direction.
         // Directio 1-7.
         // Any direction value correspond to Direction 8.
-        public override void Fill()
+        public void Fill()
         {
 
             for (int numberOfTimes = 1; numberOfTimes <= numberOfRotations; numberOfTimes++)
@@ -455,6 +456,11 @@ namespace Secondary_Queen
             }
 
             return result;
+        }
+
+        public override R2CircularDirection ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
+        {
+            throw new NotImplementedException();
         }
     }
 

@@ -82,7 +82,7 @@ namespace BuildingBlocks
         {
             sharedDirection.Divisor = directionDivisor;
             circularLinkedList.Clear();
-            Fill();
+           
 
         }
         // Sets the length of this direction.
@@ -91,7 +91,7 @@ namespace BuildingBlocks
             sharedDirection.DirectionLength = directionLength;
 
             circularLinkedList.Clear();
-            Fill();
+            
         }
 
         // Sets the divisor of this direction.

@@ -757,31 +757,6 @@ namespace Tertiary_Queen
             throw new NotImplementedException();
         }
 
-        public override void Fill()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override int GetDirection()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void GetLetterDirection(int letterDirection)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Plane GetOnPlane()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool GetSmaller()
-        {
-            throw new NotImplementedException();
-        }
-
         public override bool IsC(List<int> directions)
         {
             throw new NotImplementedException();
@@ -862,11 +837,6 @@ namespace Tertiary_Queen
             throw new NotImplementedException();
         }
 
-        public override void SetLetterDirection(int letterDirection)
-        {
-            throw new NotImplementedException();
-        }
-
         public override CircularTwentyFifthLetter translate(int coordinateSystemDirection, float amaunt)
         {
             throw new NotImplementedException();
@@ -880,6 +850,11 @@ namespace Tertiary_Queen
         
 
         public PointIterator<R3Point> RetrievePointIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override CircularTwentyFifthLetter ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();
         }

@@ -36,14 +36,45 @@ namespace Tertiary_Queen
             set { _point.SetAxisAt(index, value); }
         }
 
+        public float this[char axisValue]
+        {
+            get
+            {
+                float returnValue;
+                if (axisValue == 'x' || axisValue == 'X')
+                    returnValue = _point.GetAxisAt(0);
+                else if (axisValue == 'y' || axisValue == 'Y')
+                    returnValue = _point.GetAxisAt(1);
+                else if (axisValue == 'z' || axisValue == 'Z')
+                    returnValue = _point.GetAxisAt(2);
+                else
+                    returnValue = _point.GetAxisAt(3);
+                return returnValue;
+            }
+
+            set
+            {
+                float returnValue;
+                if (value == 'x' || value == 'X')
+                    _point.SetAxisAt(0, value);
+                else if (value == 'y' || value == 'Y')
+                    _point.SetAxisAt(1, value);
+                else if (value == 'z' || value == 'Z')
+                    _point.SetAxisAt(2, value);
+                else
+                    returnValue = _point.GetAxisAt(3);
+                _point.SetAxisAt(3, value);
+            }
+        }
+
         public float GetXCoordinate()
         {
-            return 0.0f;
+            return this['x'];
         }
 
         public void SetXCoordinate(float xCoordinate)
         {
-
+            this['X'] = xCoordinate;
         }
 
         public void IncreaseXCoordinate(float amount)
@@ -58,12 +89,12 @@ namespace Tertiary_Queen
 
         public float GetYCoordinate()
         {
-            return 0.0f;
+            return _point.GetAxisAt(1);
         }
 
         public void SetYCoordinate(float yCoordinate)
         {
-
+            _point.SetAxisAt(1,yCoordinate);
         }
 
         public void IncreaseYCoordinate(float amount)
@@ -78,12 +109,12 @@ namespace Tertiary_Queen
 
         public float GetZCoordinate()
         {
-            return 0.0f;
+            return this[2];
         }
 
-        public void SetZCoordinate(float yCoordinate)
+        public void SetZCoordinate(float zCoordinate)
         {
-
+            this[2] = zCoordinate;
         }
 
         public void IncreaseZCoordinate(float amount)
@@ -127,6 +158,11 @@ namespace Tertiary_Queen
         }
 
         public R3Point ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public R3Point ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();
         }

@@ -15,34 +15,12 @@ namespace NonCircularIteration
 
         }
 
-        public LetterIterator(Node<T> current)
+        public LetterIterator(int currentIndex, DoubleLinkedList<T> doubleLinkedList)
+        : base(currentIndex, doubleLinkedList)
         {
 
         }
 
-        public override T GetNext()
-        {
-            throw new NotImplementedException();
-        }
 
-        public override T GetPrevious()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool HasNext()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool HasPrevious()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override T Remove()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

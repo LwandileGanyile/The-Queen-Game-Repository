@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using BuildingBlocks;
 using Pieces;
 using NonCircularIteration;
-
+using SharedResources;
 
 namespace Primary_Queen
 {
-    public class R1NonCircularDirection:NonCircularDirection<R1NonCircularDirection,R1Point>
+    public class R1NonCircularDirection:NonCircularDirection<R1NonCircularDirection,R1Point>, IFill
     {
 
 
@@ -48,11 +48,6 @@ namespace Primary_Queen
             FillCanShootList();
         }
 
-        public override int CompareTo(R1NonCircularDirection comparableInstance)
-        {
-            throw new NotImplementedException();
-        }
-
         // Displays an R1NonCircularDirection. However the method suppose to be on a super class "CircularDirection".
         public override void Display()
         {
@@ -63,9 +58,8 @@ namespace Primary_Queen
                     Console.Write(" , ");
             }
         }
-
-       
-        public override void Fill()
+      
+        public void Fill()
         {
             R1Point point = new R1Point(_startingPoint);
             doubleLinkedList.Add(point);
@@ -117,15 +111,6 @@ namespace Primary_Queen
             return new R1NonCircularDirection(new R1Point(StartingPoint), direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, numberOfTimes);
         }
 
-       
-
-        public override PointIterator<R1Point> RetrievePointIterator()
-        {
-            throw new NotImplementedException();
-        }
-
-
-
         /* The method is unsupported for a one dimensional direction. 
            However the method will return a non reflection of the current object.
            For the rotate method this R1CircularDirection instance will be returned because in R1 rotation isn't applicable.*/
@@ -168,6 +153,21 @@ namespace Primary_Queen
 
             return new R1NonCircularDirection(new R1Point(finalX),
                                             Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration,NumberOfRepeatations);
+        }
+
+        public override int CompareTo(R1NonCircularDirection comparableInstance)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override PointIterator<R1Point> RetrievePointIterator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override R1NonCircularDirection ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
+        {
+            throw new NotImplementedException();
         }
     }
 }

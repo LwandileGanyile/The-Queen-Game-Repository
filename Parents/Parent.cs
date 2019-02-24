@@ -8,7 +8,7 @@ using Game_Defination;
 
 namespace SharedResources
 {
-    public abstract class Parent<T>: IFill, IRotate<T>, IReflect<T>, IReflectable<T>, IRotateable<T>,
+    public abstract class Parent<T>:IRotate<T>, IReflect<T>, IReflectable<T>,
         ITranslate<T>, IDirectionDimension, IPointDimension, IDisplay, ICompare<T>
     {
 
@@ -63,7 +63,7 @@ namespace SharedResources
             {
                 Clear();
                 direction = value;
-                Fill();
+               
             }
 
         }
@@ -75,7 +75,7 @@ namespace SharedResources
                 return duration; }
             set
             {
-                // Need to be implemented.
+                
             }
         }
         public List<bool> CanShoot
@@ -103,7 +103,7 @@ namespace SharedResources
             {
                 Clear();
                 _startingPoint = value;
-                Fill();
+               
             }
         }
 
@@ -147,8 +147,6 @@ namespace SharedResources
             return output;
         }
 
-        public abstract void Fill();
-
         public abstract void Clear();
         public abstract T RotateAroundAxis(int indexOfAxis, int numberOfTimes);
         public abstract bool IsPointDimensionCorrect();
@@ -169,5 +167,6 @@ namespace SharedResources
         }
 
         public abstract int CompareTo(T comparableInstance);
+        public abstract T ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes);
     }
 }

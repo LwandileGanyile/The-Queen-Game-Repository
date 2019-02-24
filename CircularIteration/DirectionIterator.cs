@@ -16,24 +16,12 @@ namespace CircularIteration
 
         }
 
-        public DirectionIterator(MyNode<T> current)
+        public DirectionIterator(int currentIndex, CircularLinkedList<T> circularLinkedList)
+        :base(currentIndex,circularLinkedList)
         {
 
         }
 
-        public override T GetNext()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool HasNext()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override T Remove()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

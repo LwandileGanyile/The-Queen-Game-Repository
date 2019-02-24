@@ -8,6 +8,6 @@ namespace Game_Defination
 {
     public interface IReflectable<T>
     {
-        T ReflectAroundEqualAxis(List<int> axisIndeces,int numberOfTimes);
+        T ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes);
     }
 }

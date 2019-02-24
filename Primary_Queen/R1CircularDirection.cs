@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using BuildingBlocks;
 using Pieces;
 using CircularIteration;
+using SharedResources;
 
 namespace Primary_Queen
 {
-    public class R1CircularDirection : CircularDirection<R1CircularDirection, R1Point>
+    public class R1CircularDirection : CircularDirection<R1CircularDirection, R1Point>,IFill
     {
         public R1CircularDirection()
         :base(){
@@ -53,7 +54,7 @@ namespace Primary_Queen
         // Add points making up this direction.
         // Directio 1 --> Right +x.
         // Any direction value correspond to Direction 2 --> Left -x.
-        public override void Fill()
+        public void Fill()
         {
             for (int numberOfTimes = 1; numberOfTimes <= numberOfRotations; numberOfTimes++)
             {
@@ -231,6 +232,9 @@ namespace Primary_Queen
             return result;
         }
 
-        
+        public override R1CircularDirection ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

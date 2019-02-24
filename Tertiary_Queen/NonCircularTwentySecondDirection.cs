@@ -162,10 +162,7 @@ namespace Tertiary_Queen
             throw new NotImplementedException();
         }
 
-        public override void Fill()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public override bool IsDirectionDimensionCorrect()
         {
@@ -183,6 +180,11 @@ namespace Tertiary_Queen
         }
 
         public override NonCircularTwentySecondDirection ReflectAboutAxis(int axisIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override NonCircularTwentySecondDirection ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();
         }

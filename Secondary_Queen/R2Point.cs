@@ -8,7 +8,7 @@ using Pieces;
 
 namespace Secondary_Queen
 {
-    public class R2Point : RetrievableDimension, ITranslate<R2Point>, IComparable<R2Point>, IDisplay, IReflect<R2Point>, IReflectable<R2Point>
+    public class R2Point : RetrievableDimension, ITranslate<R2Point>, IComparable<R2Point>, IDisplay, IRotate<R2Point>, IReflect<R2Point>, IReflectable<R2Point>
     {
 
         /* Used to access methods and attributes by this class because any n 
@@ -40,6 +40,34 @@ namespace Secondary_Queen
             get { return _point.GetAxisAt(index); }
 
             set { _point.SetAxisAt(index, value); }
+        }
+
+        public float this[char axisValue]
+        {
+            get
+            {
+                float returnValue;
+                if (axisValue == 'x' || axisValue == 'X')
+                    returnValue = _point.GetAxisAt(0);
+                else if (axisValue == 'y' || axisValue == 'Y')
+                    returnValue = _point.GetAxisAt(1);
+               
+                else
+                    returnValue = _point.GetAxisAt(3);
+                return returnValue;
+            }
+
+            set
+            {
+                float returnValue;
+                if (value == 'x' || value == 'X')
+                    _point.SetAxisAt(0, value);
+                else if (value == 'y' || value == 'Y')
+                    _point.SetAxisAt(1, value);
+                else
+                    returnValue = _point.GetAxisAt(3);
+                _point.SetAxisAt(3, value);
+            }
         }
 
         public Point Position
@@ -196,13 +224,13 @@ namespace Secondary_Queen
         // Set x-coordinate to a new value.
         public void SetXCoordinate(float xCoordinate)
         {
-            _point.SetAxisAt(0,xCoordinate);
+            this[0] = xCoordinate ;
         }
 
         // Set y-coordinate to a new value.
         public void SetYCoordinate(float yCoordinate)
         {
-            _point.SetAxisAt(1, yCoordinate);
+            this['Y'] = yCoordinate;
         }
 
         // Retrieve x-coordinate.
@@ -215,6 +243,16 @@ namespace Secondary_Queen
         public float GetYCoordinate()
         {
             return _point.GetAxisAt(1);
+        }
+
+        public R2Point ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public R2Point RotateAroundAxis(int indexOfAxis, int numberOfTimes)
+        {
+            throw new NotImplementedException();
         }
     }
 }

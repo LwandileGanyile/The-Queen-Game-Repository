@@ -7,102 +7,216 @@ using Game_Defination;
 
 namespace Pieces
 {
-    public abstract class Plane : IReflectable<Plane>, IRotateable<Plane>, IReflect<Plane>, IRotate<Plane>
+    public abstract class Plane : IReflect<Plane>, IRotate<Plane>, IReflectable<Plane>, IFillPlane
     {
         protected int planeDimension;
         protected int planeNumber;
         protected Point planeCentre;
-        protected List<int> directions;
+        protected static List<int> directions;
+
+        protected bool isR2Plane;
 
         protected Plane()
         {
-
+            
+            directions = new List<int>();
         }
 
         protected Plane(Point planeCentre, int planeDimension, int planeNumber)
         {
-
+            this.planeCentre = planeCentre;
+            this.planeDimension = planeDimension;
+            this.planeNumber = planeNumber;
+            directions = new List<int>();
+            FillDirections();
         }
+
+        public Point PlaneCentre
+        {
+            get
+            {
+                return planeCentre;
+            }
+
+            set
+            {
+                if (!isR2Plane)
+                {
+
+                }
+            }
+        }
+        
+
+        public int PlaneNumber
+        {
+            get
+            {
+                return planeNumber;
+            }
+
+            set
+            {
+                if (!isR2Plane)
+                {
+
+                }
+            }
+        }
+
+        public int PlaneDimension { get;}
+
+        public List<int> PlaneDirections{ get; }
 
         public bool AreDirectionsOnPlane(List<int> directions)
         {
-            return false;
+           
+            for (int i = 0; i < directions.Count; i++) 
+                if (!Plane.directions.Contains(directions[i]))
+                    return false;
+            return true;
+ 
         }
 
         public bool AreNFarAway(int direction1, int direction2, int howFar)
         {
+            int indexOfDirection1 = -1;
+            int indexOfDirection2 = -1;
+
+            if (direction1 > 0 && direction1 < 9 && direction2 > 0 && direction2 < 9)
+            {
+                for (int i = 0; i < directions.Count; i++)
+                {
+                    if (direction1 == directions[i])
+                        indexOfDirection1 = i;
+
+                    if (direction2 == directions[i])
+                        indexOfDirection2 = i;
+                }
+
+                return Math.Abs((indexOfDirection2 - indexOfDirection1)) == howFar;
+            }
+
             return false;
-        }
-
-        public static List<int> RetrieveAllNeighborDirections(int direction)
-        {
-            return null;
-        }
-
-        public static List<int> RetrieveAllPerpendicularDirections(int direction)
-        {
-            return null;
         }
 
         public int[] RetrieveNeighborDirections(int direction)
         {
-            int[] array = new int[2];
-            return array;
+            int[] neighbors = new int[2];
+
+
+            int indexOfDirection = -1;
+
+            for (int i = 0; i < directions.Count; i++)
+            {
+                if (direction == directions[i])
+                    indexOfDirection = i;
+            }
+
+            if (indexOfDirection == 0)
+            {
+                neighbors[0] = (directions[directions.Count - 1]);
+                neighbors[1] = (directions[1]);
+            }
+
+            else if (indexOfDirection == directions.Count - 1)
+            {
+                neighbors[0] = (directions[directions.Count - 2]);
+                neighbors[1] = (directions[0]);
+            }
+
+            else if (indexOfDirection < (directions.Count - 1) && indexOfDirection > 0)
+            {
+                neighbors[0] = (directions[indexOfDirection - 1]);
+                neighbors[1] = (directions[indexOfDirection + 1]);
+            }
+
+
+
+            return neighbors;
         }
 
         public int[] RetrievePerpendicularDirections(int direction)
         {
-            int[] array = new int[2];
-            return array;
-        }
+            int[] perpendicularDirections = new int[2];
 
-        public bool RreDirectionsNeighbors(int direction1, int direction2)
-        {
-            return false;
-        }
 
-        public bool RreDirectionsPerpendicular(int direction1, int direction2)
-        {
-            return false;
-        }
+            int indexOfDirection = -1;
 
-        protected void RillDirections()
-        {
-
-        }
-
-        public Plane ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Plane RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Plane ReflectAboutAxis(int axisIndex)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Plane RotateAroundAxis(int indexOfAxis, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<int> planeDirections
-        {
-            get
+            for (int i = 0; i < directions.Count; i++)
             {
-                return null;
+                if (direction == directions[i])
+                    indexOfDirection = i;
             }
+
+            if (indexOfDirection == 0)
+            {
+                perpendicularDirections[0] = (directions[directions.Count - 2]);
+                perpendicularDirections[1] = (directions[2]);
+            }
+
+            else if (indexOfDirection == directions.Count - 1)
+            {
+                perpendicularDirections[0] = (directions[directions.Count - 3]);
+                perpendicularDirections[1] = (directions[1]);
+            }
+
+            else if (indexOfDirection < (directions.Count - 2) && indexOfDirection > 1)
+            {
+                perpendicularDirections[0] = (directions[indexOfDirection - 2]);
+                perpendicularDirections[1] = (directions[indexOfDirection + 2]);
+            }
+
+
+
+            return perpendicularDirections;
         }
 
-        public Point PlaneCentre { get; set; }
+        public bool AreDirectionsNeighbors(int direction1, int direction2)
+        {
+            return AreNFarAway(direction1, direction2, 1);
+        }
 
-        public int PlaneNumber { get; }
+        public bool AreDirectionsPerpendicular(int direction1, int direction2)
+        {
+            return AreNFarAway(direction1, direction2, 2);
+        }
 
-        public int PlaneDimension { get { return 1; } }
+        public void RetrieveDistancedDirections(int direction, int howFar, int[] distancedDirections)
+        {
+            if (howFar == 0)
+            {
+
+            }
+
+            else if (howFar == 1)
+            {
+
+            }
+
+            else if (howFar == 2)
+            {
+
+            }
+
+            else if (howFar == 3)
+            {
+
+            }
+
+            else if (howFar == 4)
+            {
+
+            }
+
+
+        }
+
+        public abstract void FillDirections();
+
+        public abstract Plane ReflectAboutAxis(int axisIndex);
+
+        public abstract Plane RotateAroundAxis(int indexOfAxis, int numberOfTimes);
+        public abstract Plane ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes);
     }
 }

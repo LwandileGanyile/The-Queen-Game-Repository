@@ -13,14 +13,491 @@ namespace Secondary_Queen
     {
         public R2NonCircularLetter()
         {
+            onPlane = R2Plane.GetR2Plane();
+
+            letter = 'C';
+            direction = 8;
+
+            _startingPoint = new R2Point().Position;
+            smaller = true;
+            duration = new Dictionary<int, int>();
+            canShootList = new List<bool>();
+            numberOfRepeatations = 1;
+
+
+            AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+            AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRepeatations);
+            AddDirection(new R2Point(), 8, 10, 1, canShootList, duration, numberOfRepeatations);
 
         }
 
-        public R2NonCircularLetter(R2Point startingPoint, char letter, int letterDirection, bool smaller, Dictionary<int,int> duration)
+        public R2NonCircularLetter(R2Point startingPoint, char letter, int letterDirection, bool smaller, Dictionary<int, int> duration)
+        :base(startingPoint.Position,letter,letterDirection,R2Plane.GetR2Plane(),smaller,duration,2)
         {
+            switch (letter)
+            {
+                case 'C':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRepeatations);
+
+
+                    break;
+                case 'L':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+
+                    break;
+                case 'M':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRepeatations);
+
+
+                    break;
+                case 'N':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRepeatations);
+
+
+
+                    break;
+                case 'O':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRepeatations);
+
+                    break;
+                case 'R':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRepeatations);
+
+
+
+                    break;
+                case 'S':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRepeatations);
+
+
+
+                    break;
+                case 'W':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRepeatations);
+
+                    break;
+
+            }
+            AddDirection(new R2Point(), letterDirection, 10, 1, canShootList, duration, numberOfRepeatations);
+        }
+
+        public R2NonCircularLetter(R2Point startingPoint, char letter,
+        int letterDirection, bool smaller, Dictionary<int, int> duration,
+        int numberOfRotations)
+        : base(startingPoint.Position, letter, letterDirection, R2Plane.GetR2Plane(), 
+          smaller, duration, 2, numberOfRotations)
+        {
+            switch (letter)
+            {
+                case 'C':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+
+                    break;
+                case 'L':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+
+                    break;
+                case 'M':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+
+                    break;
+                case 'N':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+
+
+                    break;
+                case 'O':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+                    break;
+                case 'R':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+
+
+                    break;
+                case 'S':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+
+
+                    break;
+                case 'W':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+                    break;
+
+            }
+            AddDirection(new R2Point(), letterDirection, 10, 1, canShootList, duration, numberOfRotations);
+        }
+
+        protected R2NonCircularLetter(Point _startingPoint, char letter, Plane onPlane, bool smaller, int letterDirection,
+        List<bool> canShootList, Dictionary<int, int> duration, int letterDimension, int numberOfRotations)
+        :base(_startingPoint, letter, onPlane, smaller, letterDirection,
+        canShootList, duration, letterDimension, numberOfRotations)
+        {
+            switch (letter)
+            {
+                case 'C':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+
+                    break;
+                case 'L':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+
+                    break;
+                case 'M':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+
+                    break;
+                case 'N':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+
+
+                    break;
+                case 'O':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+                    break;
+                case 'R':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+
+
+                    break;
+                case 'S':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+
+
+                    break;
+                case 'W':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, 10, 1, canShootList, duration, numberOfRotations);
+
+                    break;
+
+            }
+            AddDirection(new R2Point(), letterDirection, 10, 1, canShootList, duration, numberOfRotations);
+        }
+
+        public R2NonCircularLetter(SharedDirection shareDirection)
+        {
+            onPlane = R2Plane.GetR2Plane();
+
+            letter = 'C';
+            direction = 8;
+
+            _startingPoint = new R2Point().Position;
+            smaller = true;
+            duration = new Dictionary<int, int>();
+            canShootList = new List<bool>();
+            numberOfRepeatations = 1;
+
+
+            AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+            AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+            AddDirection(new R2Point(), 8, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
 
         }
 
+        public R2NonCircularLetter(R2Point startingPoint, char letter, int letterDirection, bool smaller, Dictionary<int, int> duration,
+        SharedDirection shareDirection): base(startingPoint.Position, letter, letterDirection, R2Plane.GetR2Plane(), smaller, duration, 2)
+        {
+            switch (letter)
+            {
+                case 'C':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+
+
+                    break;
+                case 'L':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRepeatations);
+
+                    break;
+                case 'M':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+
+
+                    break;
+                case 'N':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+
+
+
+                    break;
+                case 'O':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+
+                    break;
+                case 'R':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+
+
+
+                    break;
+                case 'S':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+
+
+
+                    break;
+                case 'W':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+
+                    break;
+
+            }
+            AddDirection(new R2Point(), letterDirection, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRepeatations);
+        }
+
+        public R2NonCircularLetter(R2Point startingPoint, char letter,
+        int letterDirection, bool smaller, Dictionary<int, int> duration,
+        int numberOfRotations, SharedDirection shareDirection)
+        : base(startingPoint.Position, letter, letterDirection, R2Plane.GetR2Plane(),
+          smaller, duration, 2, numberOfRotations)
+        {
+            switch (letter)
+            {
+                case 'C':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+
+                    break;
+                case 'L':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+
+                    break;
+                case 'M':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+
+                    break;
+                case 'N':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+
+
+                    break;
+                case 'O':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+                    break;
+                case 'R':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+
+
+                    break;
+                case 'S':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+
+
+                    break;
+                case 'W':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+                    break;
+
+            }
+            AddDirection(new R2Point(), letterDirection, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+        }
+
+        protected R2NonCircularLetter(Point _startingPoint, char letter, Plane onPlane, bool smaller, int letterDirection,
+        List<bool> canShootList, Dictionary<int, int> duration, int letterDimension, int numberOfRotations, SharedDirection shareDirection)
+        : base(_startingPoint, letter, onPlane, smaller, letterDirection,
+        canShootList, duration, letterDimension, numberOfRotations)
+        {
+            switch (letter)
+            {
+                case 'C':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+
+                    break;
+                case 'L':
+
+                    AddDirection(new R2Point(), 1, 10, 1, canShootList, duration, numberOfRotations);
+
+                    break;
+                case 'M':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+
+                    break;
+                case 'N':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+
+
+                    break;
+                case 'O':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+                    break;
+                case 'R':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+
+
+                    break;
+                case 'S':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+
+
+                    break;
+                case 'W':
+
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 1, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+                    AddDirection(new R2Point(), 2, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+
+                    break;
+
+            }
+            AddDirection(new R2Point(), letterDirection, shareDirection.DirectionLength, shareDirection.Divisor, canShootList, duration, numberOfRotations);
+        }
         public override int CompareTo(R2NonCircularLetter other)
         {
             throw new NotImplementedException();
@@ -36,29 +513,7 @@ namespace Secondary_Queen
             throw new NotImplementedException();
         }
 
-        public override void Fill()
-        {
-            throw new NotImplementedException();
-        }
 
-       
-        public override int GetDirection()
-        {
-            throw new NotImplementedException();
-        }
-
-        
-        public override Plane GetOnPlane()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool GetSmaller()
-        {
-            throw new NotImplementedException();
-        }
-
-        
         public override bool IsC(List<int> directions)
         {
             throw new NotImplementedException();
@@ -119,6 +574,11 @@ namespace Secondary_Queen
             throw new NotImplementedException();
         }
 
+        public override R2NonCircularLetter ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
+        {
+            throw new NotImplementedException();
+        }
+
         public override R2NonCircularLetter ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();
@@ -128,8 +588,6 @@ namespace Secondary_Queen
         {
             throw new NotImplementedException();
         }
-
-        
 
         public PointIterator<R2Point> RetrievePointIterator()
         {
@@ -146,18 +604,37 @@ namespace Secondary_Queen
             throw new NotImplementedException();
         }
 
-       
-
-        public override void SetLetterDirection(int letterDirection)
+        public override R2NonCircularLetter translate(int coordinateSystemDirection, float amaunt)
         {
             throw new NotImplementedException();
         }
 
-       
-
-        public override R2NonCircularLetter translate(int coordinateSystemDirection, float amaunt)
+        private void AddDirection(R2Point startingPoint, int direction, float directionLength,
+        float directionDivisor, List<bool> canShoot, Dictionary<int, int> duration)
         {
-            throw new NotImplementedException();
+
+            doubleLinkedList.Add(new R2NonCircularDirection(startingPoint, direction, directionLength, directionDivisor, canShoot, duration));
+        }
+
+        private void AddDirection(R2Point startingPoint, int direction, float directionLength,
+        float directionDivisor, Dictionary<int, int> duration)
+        {
+
+            doubleLinkedList.Add(new R2NonCircularDirection(startingPoint, direction, directionLength, directionDivisor, duration));
+        }
+
+        private void AddDirection(R2Point startingPoint, int direction, float directionLength,
+        float divisor, Dictionary<int, int> duration, int numberOfRotations)
+
+        {
+            doubleLinkedList.Add(new R2NonCircularDirection(startingPoint, direction, directionLength, divisor, duration, numberOfRotations));
+        }
+
+        private void AddDirection(R2Point startingPoint, int direction, float directionLength,
+        float directionDivisor, List<bool> canShootList, Dictionary<int, int> duration, int numberOfRotations)
+
+        {
+            doubleLinkedList.Add(new R2NonCircularDirection(startingPoint, direction, directionLength, directionDivisor, canShootList, duration, numberOfRotations));
         }
     }
 }

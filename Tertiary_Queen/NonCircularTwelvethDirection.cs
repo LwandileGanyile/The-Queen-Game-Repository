@@ -162,7 +162,7 @@ namespace Tertiary_Queen
             throw new NotImplementedException();
         }
 
-        public override void Fill()
+        public void Fill()
         {
             throw new NotImplementedException();
         }
@@ -183,6 +183,11 @@ namespace Tertiary_Queen
         }
 
         public override NonCircularTwelvethDirection ReflectAboutAxis(int axisIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override NonCircularTwelvethDirection ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();
         }

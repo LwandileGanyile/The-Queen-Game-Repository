@@ -10,22 +10,61 @@ namespace NonCircularIteration
 {
     public abstract class Iterator<T> : IBiIDirectionalIterator<T>
     {
-        protected Node<T> current;
+        protected int currentIndex;
+        protected DoubleLinkedList<T> doubleLinkedList;
 
         protected Iterator()
         {
 
         }
 
-        protected Iterator(Node<T> current)
+        protected Iterator(int currentIndex, DoubleLinkedList<T> doubleLinkedList)
         {
+            this.doubleLinkedList = doubleLinkedList;
+            this.currentIndex = currentIndex;
+        }
+
+        public T GetNext()
+        {
+
+            if (currentIndex != -1)
+            {
+
+                currentIndex = (currentIndex + 1) % doubleLinkedList.Size;
+                return doubleLinkedList.GetAt(currentIndex);
+            }
+
+            return default(T);
+        }
+
+        public bool HasNext()
+        {
+
+            return currentIndex < doubleLinkedList.Size;
+        }
+
+        public T Remove()
+        {
+
+            if (currentIndex != -1)
+            {
+                return doubleLinkedList.Remove((currentIndex + 1) % doubleLinkedList.Size);
+            }
+
+            return default(T);
+        }
+
+        public bool HasPrevious()
+        {
+            return currentIndex > 0;
 
         }
 
-        public abstract T GetNext();
-        public abstract T GetPrevious();
-        public abstract bool HasNext();
-        public abstract bool HasPrevious();
-        public abstract T Remove();
+        public T GetPrevious()
+        {
+            if(currentIndex>0)
+                return doubleLinkedList.GetAt(currentIndex-1);
+            return default(T);
+        }
     }
 }

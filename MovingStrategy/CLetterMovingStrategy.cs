@@ -38,7 +38,7 @@ namespace MovingStrategy
 
         
 
-        public override void Fill()
+        public void Fill()
         {
             throw new NotImplementedException();
         }

@@ -15,34 +15,12 @@ namespace NonCircularIteration
 
         }
 
-        public PointIterator(Node<T> current)
+        public PointIterator(int currentIndex, DoubleLinkedList<T> circularLinkedList)
+        : base(currentIndex, circularLinkedList)
         {
 
         }
 
-        public override T GetNext()
-        {
-            throw new NotImplementedException();
-        }
 
-        public override T GetPrevious()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool HasNext()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool HasPrevious()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override T Remove()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

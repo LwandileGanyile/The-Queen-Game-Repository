@@ -26,9 +26,9 @@ namespace SharedResources
         }
 
         protected Circular(Point _startingPoint, int direction,
-        Dictionary<int,int> duration, int directionDimension,int numberOfRotations)
+        Dictionary<int,int> duration, int dimension,int numberOfRotations)
         :base(_startingPoint,direction,
-        duration,directionDimension)
+        duration,dimension)
         {
             
             this.numberOfRotations = numberOfRotations;
@@ -54,7 +54,7 @@ namespace SharedResources
         {
 
             this.numberOfRotations = numberOfRotations;
-            this.circularLinkedList = circularLinkedList; ;
+            this.circularLinkedList = circularLinkedList; 
 
         }
 

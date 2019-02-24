@@ -11,7 +11,7 @@ namespace The_Queen
         private string _playerName;
         private string _playerSurname;
         private int _playerId;
-        private float _playerMark;
+       
 
         public Player()
         {
@@ -23,7 +23,7 @@ namespace The_Queen
             this._playerId = _playerId;
             this._playerName = _playerName;
             this._playerSurname = _playerSurname;
-            _playerMark = 0;
+            
 
         }
 
@@ -32,7 +32,7 @@ namespace The_Queen
             this._playerId = _playerId;
             this._playerName = _playerName;
             this._playerSurname = _playerSurname;
-            this._playerMark = _playerMark;
+            
 
         }
 
@@ -42,17 +42,22 @@ namespace The_Queen
 
         public int PlayerId { get; set; }
 
-        public float PlayerMark { get; set; }
 
-        public void DecreaseMark(float amount)
+        public void ChooseRhythm()
         {
 
         }
 
-        public void IncreaseMark(float amount)
+        public void ChooseDance()
         {
 
         }
+
+        public void ChooseMultiple()
+        {
+
+        }
+
 
     }
 }

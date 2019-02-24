@@ -16,52 +16,64 @@ namespace Secondary_Queen
 
             _startingPoint = new R2Point().Position;
             dimension = 2;
+
             Fill();
             FillCanShootList();
+            
         }
 
         // Construct without specifying the canshoot property.
         public R2NonCircularDirection(R2Point startingPoint, int direction, float directionLength,
-        float divisor, Dictionary<int,int> duration, int numberOfRotations)
+        float divisor, Dictionary<int, int> duration, int numberOfRotations)
         : base(startingPoint.Position, direction, divisor,directionLength,duration,2,numberOfRotations)
         {
             Fill();
             FillCanShootList();
         }
 
+        // Construct without specifying the canshoot property.
+        public R2NonCircularDirection(R2Point startingPoint, int direction, float directionLength,
+        float divisor, Dictionary<int, int> duration)
+        : base(startingPoint.Position, direction, divisor, directionLength,duration,2,1)
+        {
+            Fill();
+            FillCanShootList();
+        }
+
+
         // Construct without specifying the  length property cause it doesn't exist.
         public R2NonCircularDirection(R2Point startingPoint, int direction,
-        float directionDivisor, List<bool> canShootList, Dictionary<int,int> duration)
+        float directionDivisor, List<bool> canShootList, Dictionary<int, int> duration)
         : base(startingPoint.Position, direction, directionDivisor, canShootList, duration, 2)
         {
 
             Fill();
-            
+
         }
 
         // Construct without specifying the number of rotations.
-        public R2NonCircularDirection(R2Point startingPoint, int direction, float directionLength, float directionDivisor, List<bool> canShootList, Dictionary<int,int> duration)
+        public R2NonCircularDirection(R2Point startingPoint, int direction, float directionLength, float directionDivisor, List<bool> canShootList, Dictionary<int, int> duration)
         : base(startingPoint.Position, direction, directionLength, directionDivisor, canShootList, duration, 2)
         {
 
             Fill();
-            
+
         }
 
         // Construct by specifying the number of rotations.
-        public R2NonCircularDirection(R2Point startingPoint, int direction, float directionLength, float divisor, List<bool> canShootList, Dictionary<int,int> duration, int numberOfRotations)
+        public R2NonCircularDirection(R2Point startingPoint, int direction, float directionLength, float divisor, List<bool> canShootList, Dictionary<int, int> duration, int numberOfRotations)
         : base(startingPoint.Position, direction, directionLength,divisor, canShootList,duration, 2, numberOfRotations)
         {
 
             Fill();
-            
+
         }
 
 
         // Add points making up this direction.
         // Directio 1-7.
         // Any direction value correspond to Direction 8.
-        public override void Fill()
+        public void Fill()
         {
             R2Point point = new R2Point(StartingPoint);
             int numberOfElements = (int)(SharedDirection.DirectionLength / SharedDirection.Divisor);
@@ -385,6 +397,11 @@ namespace Secondary_Queen
         }
 
         public override int CompareTo(R2NonCircularDirection comparableInstance)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override R2NonCircularDirection ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();
         }
