@@ -27,6 +27,28 @@
 /Secondary_Queen/App.config
 /Secondary_Queen/Secondary_Queen.csproj
 /Tertiary_Queen/bin
+/ShootingStrategy/obj/Debug/ShootingStrategy.dll
+/ShootingStrategy/obj/Debug/ShootingStrategy.pdb
+/The_Queen/The_Queen.csproj
+/The_Queen/bin/Debug/The_Queen.dll
+/The_Queen/bin/Debug/The_Queen.pdb
+ / The_Queen/obj/Debug/CoreCompileInputs.cache
+/ The_Queen/obj/Debug/The_Queen.dll
+/ The_Queen/obj/Debug/The_Queen.pdb
+/ Pattern/Pattern.csproj
+/ Pattern/obj/Debug/CoreCompileInputs.cache
+/ Pattern/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/ ShootingStrategy/obj/Debug/ShootingStrategy.dll
+/ ShootingStrategy/obj/Debug/ShootingStrategy.pdb
+/ The_Queen/The_Queen.csproj
+/ The_Queen/bin/Debug/The_Queen.dll
+/ The_Queen/bin/Debug/The_Queen.pdb
+ / The_Queen/obj/Debug/CoreCompileInputs.cache
+ / The_Queen/obj/Debug/The_Queen.dll
+ /The_Queen/obj/Debug/The_Queen.pdb
+
+
+
 /Tertiary_Queen/obj
 /Tertiary_Queen/App.config
 /Tertiary_Queen/Tertiary_Queen.csproj
