@@ -48,7 +48,7 @@ namespace The_Queen
 
         }
 
-        public void ChooseDance()
+        public void ChooseKingStep()
         {
 
         }
@@ -58,6 +58,10 @@ namespace The_Queen
 
         }
 
+        public void ChooseMusic()
+        {
+
+        }
 
     }
 }

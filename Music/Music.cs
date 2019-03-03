@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game_Defination;
 
 namespace MusicPattern
 {
-    public class Music
+    public class Music : IUpdate
     {
         private HashSet<MusicMood> _moods;
         private HashSet<MusicDance> _dances;
@@ -96,6 +97,21 @@ namespace MusicPattern
         public void StopMusic()
         {
 
+        }
+
+        public void Stop()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Resume()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
         }
     }
 }

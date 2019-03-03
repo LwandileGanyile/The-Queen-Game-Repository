@@ -3,3 +3,6 @@ C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Music\bin\Debug\Musi
 C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Music\obj\Debug\MusicPattern.csprojResolveAssemblyReference.cache
 C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Music\obj\Debug\Music.dll
 C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Music\obj\Debug\Music.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Music\bin\Debug\Game Defination.exe
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Music\bin\Debug\Game Defination.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Music\bin\Debug\Game Defination.exe.config

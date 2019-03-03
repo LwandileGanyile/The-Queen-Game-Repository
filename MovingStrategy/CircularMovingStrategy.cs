@@ -9,7 +9,7 @@ using CircularIteration;
 
 namespace MovingStrategy
 {
-    public abstract class CircularMovingStrategy<T,U>: Circular<T, U>
+    public abstract class CircularMovingStrategy<T,U>: Circular<T, U>, IMovingStrategy
     {
         protected CircularMovingStrategy()
         {

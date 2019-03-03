@@ -10,7 +10,7 @@ using CircularIteration;
 
 namespace BuildingBlocks
 {
-    public abstract class CircularDirection<T,U>: Circular<T,U>,IPointIterator<U>
+    public abstract class CircularDirection<T,U>: Circular<T,U>,IPointIterator<U>, IDirection
 
     {
 

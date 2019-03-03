@@ -12,6 +12,21 @@ namespace ShootingStrategy
         private List<Plane> planes;
         private PlaneShootType shootType;
 
+        public PlaneShootingStrategy()
+        {
+
+        }
+
+        public PlaneShootingStrategy(List<Plane> planes, PlaneShootType shootType)
+        {
+
+        }
+
+        public PlaneShootingStrategy(Shoot shoot, PlaneShootType shootType)
+        {
+
+        }
+
         public List<Plane> Planes
         {
             get
@@ -21,7 +36,7 @@ namespace ShootingStrategy
 
             set
             {
-                
+
             }
         }
 
@@ -36,21 +51,6 @@ namespace ShootingStrategy
             {
 
             }
-        }
-
-        public PlaneShootingStrategy()
-        {
-
-        }
-
-        public PlaneShootingStrategy(List<Plane> planes, PlaneShootType shootType)
-        {
-
-        }
-
-        public PlaneShootingStrategy(Shoot shoot, PlaneShootType shootType)
-        {
-
         }
     }
 }

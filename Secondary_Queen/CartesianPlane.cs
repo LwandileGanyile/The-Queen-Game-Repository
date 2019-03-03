@@ -25,16 +25,5 @@ namespace Secondary_Queen
 
         }
 
-        public CartesianPlane(float delta, float minimumBoundary, float maximumBoundary,
-        int indexOfCurrentKing, List<King> kings)
-        {
-
-        }
-
-        public CartesianPlane(float delta, float minimumBoundary, float maximumBoundary,
-        int indexOfCurrentQueen, List<SecondaryQueen> queens, int indexOfCurrentKing, List<King> kings)
-        {
-
-        }
     }
 }

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MusicPattern;
+using Game_Defination;
 
 namespace The_Queen
 {
-    public abstract class Agent : IAgent
+    public abstract class Agent : IUpdate, IAgent
     {
         private Rhythm rhythm;
 

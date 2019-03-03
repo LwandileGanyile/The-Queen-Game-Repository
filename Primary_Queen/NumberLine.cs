@@ -24,17 +24,5 @@ namespace Primary_Queen
         {
 
         }
-
-        public NumberLine(float delta, float minimumBoundary, float maximumBoundary,
-        int indexOfCurrentKing, List<King> kings)
-        {
-
-        }
-
-        public NumberLine(float delta, float minimumBoundary, float maximumBoundary,
-        int indexOfCurrentQueen, List<PrimaryQueen> queens, int indexOfCurrentKing, List<King> kings)
-        {
-
-        }
     }
 }

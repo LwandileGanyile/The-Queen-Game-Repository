@@ -10,7 +10,9 @@ namespace The_Queen
     public class King : Agent
     {
         private KingDirection _kingDirection;
-        private KingStep _kingStep;
+        private int currentStep;
+        private HashSet<KingStep> steps;
+
 
         public King()
         {

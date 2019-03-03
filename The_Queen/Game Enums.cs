@@ -8,7 +8,7 @@
         QUEEN_VECTOR,
         QUEEN_PLANE,
         QUEEN_FUNCTION,
-        KING_FACES
+        KING_FACE
     }
 
     public enum KingDirection

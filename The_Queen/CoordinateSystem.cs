@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game_Defination;
 
 namespace The_Queen
 {
-    public abstract class CoordinateSystem
+    public abstract class CoordinateSystem : IUpdate
     {
         protected float _delta;
         protected float _minimumBoundary;
         protected float _maximumBoundary;
         protected int indexOfCurrentQueen;
-        protected int indexOfCurrentKing;
+        
         protected List<Queen> queens;
-        protected List<King> kings;
+        
 
         protected CoordinateSystem()
         {
@@ -31,19 +32,6 @@ namespace The_Queen
         {
 
         }
-
-        protected CoordinateSystem(float delta, float minimumBoundary, float maximumBoundary,
-        int indexOfCurrentKing, List<King> kings)
-        {
-
-        }
-
-        protected CoordinateSystem(float delta, float minimumBoundary, float maximumBoundary,
-        int indexOfCurrentQueen, List<Queen> queens, int indexOfCurrentKing, List<King> kings)
-        {
-
-        }
-
 
         public void AddQueen(Queen queen)
         {

@@ -1,0 +1,10 @@
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Pattern\bin\Debug\Pattern.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Pattern\bin\Debug\Pattern.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Pattern\bin\Debug\Music.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Pattern\bin\Debug\Music.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Pattern\obj\Debug\Pattern.csprojResolveAssemblyReference.cache
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Pattern\obj\Debug\Pattern.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Pattern\obj\Debug\Pattern.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Pattern\bin\Debug\Game Defination.exe
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Pattern\bin\Debug\Game Defination.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\Pattern\bin\Debug\Game Defination.exe.config

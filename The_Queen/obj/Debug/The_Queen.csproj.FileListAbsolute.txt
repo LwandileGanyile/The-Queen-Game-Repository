@@ -5,3 +5,20 @@ C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\
 C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\obj\Debug\The_Queen.csprojResolveAssemblyReference.cache
 C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\obj\Debug\The_Queen.dll
 C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\obj\Debug\The_Queen.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\MovingStrategy.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\ShootingStrategy.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\Parents.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\Pieces.dll
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\CircularIteration.exe
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\NonCircularIteration.exe
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\Game Defination.exe
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\MovingStrategy.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\ShootingStrategy.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\Parents.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\Pieces.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\CircularIteration.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\CircularIteration.exe.config
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\NonCircularIteration.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\NonCircularIteration.exe.config
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\Game Defination.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\Game Defination.exe.config

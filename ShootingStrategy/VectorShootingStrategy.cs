@@ -11,9 +11,23 @@ namespace ShootingStrategy
     {
         private Plane onPlane;
         private VectorShootType shootType;
-        private List<int> currentVectors;
+        private HashSet<int> currentVectors;
 
 
+        public VectorShootingStrategy()
+        {
+
+        }
+
+        public VectorShootingStrategy(Plane onPlane, VectorShootType shootType, HashSet<int> currentVectors)
+        {
+
+        }
+
+        public VectorShootingStrategy(Plane onPlane, VectorShootType shootType, Shoot shootingStrategy)
+        {
+
+        }
 
         public Plane OnPlane
         {
@@ -41,7 +55,7 @@ namespace ShootingStrategy
             }
         }
 
-        public List<int> CurrentVectors
+        public HashSet<int> CurrentVectors
         {
             get
             {
@@ -52,23 +66,6 @@ namespace ShootingStrategy
             {
 
             }
-        }
-
-        
-
-        public VectorShootingStrategy()
-        {
-
-        }
-
-        public VectorShootingStrategy(Plane onPlane, VectorShootType shootType, List<int> currentVectors)
-        {
-
-        }
-
-        public VectorShootingStrategy(Plane onPlane, VectorShootType shootType, Shoot shootingStrategy)
-        {
-
         }
     }
 }

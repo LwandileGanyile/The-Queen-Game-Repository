@@ -9,10 +9,10 @@ namespace Primary_Queen
 {
     public class PrimaryPlayer : Player
     {
-        private PrimaryMovingStrategyIntelligence playerIntelligence;
+        private Intelligence playerIntelligence;
 
 
-        public PrimaryMovingStrategyIntelligence PlayerIntelligence
+        public Intelligence PlayerIntelligence
         {
             get;set;
         }
@@ -24,7 +24,7 @@ namespace Primary_Queen
 
         }
 
-        public PrimaryPlayer(PrimaryMovingStrategyIntelligence intelligence)
+        public PrimaryPlayer(Intelligence playerIntelligence)
         {
 
         }
@@ -34,17 +34,17 @@ namespace Primary_Queen
 
         }
 
-        public PrimaryPlayer(PrimaryMovingStrategyIntelligence intelligence, string playerId, string playerName, string playerSurname)
+        public PrimaryPlayer(Intelligence intelligence, string playerId, string playerName, string playerSurname)
         {
 
         }
 
-        public void ChooseCPrimaryMovingStrategy()
+        public void ChooseCircularR1MovingStrategy()
         {
 
         }
 
-        public void ChooseNCPrimaryMovingStrategy()
+        public void ChooseNonCircularR1MovingStrategy()
         {
 
         }

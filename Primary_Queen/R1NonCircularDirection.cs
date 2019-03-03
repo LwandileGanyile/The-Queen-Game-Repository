@@ -155,16 +155,19 @@ namespace Primary_Queen
                                             Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration,NumberOfRepeatations);
         }
 
+        // Comparing two objects of this class.
         public override int CompareTo(R1NonCircularDirection comparableInstance)
         {
             throw new NotImplementedException();
         }
 
+        // Return an itertator for points.
         public override PointIterator<R1Point> RetrievePointIterator()
         {
             throw new NotImplementedException();
         }
 
+        // Can't be implemented.
         public override R1NonCircularDirection ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();

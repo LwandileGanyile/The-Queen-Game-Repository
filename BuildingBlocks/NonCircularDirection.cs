@@ -10,7 +10,7 @@ using NonCircularIteration;
 
 namespace BuildingBlocks
 {
-    public abstract class NonCircularDirection<T,U>: NonCircular<T,U>, IPointIterator<U>
+    public abstract class NonCircularDirection<T,U>: NonCircular<T,U>, IPointIterator<U>, IDirection
     {
 
         protected SharedDirection sharedDirection;

@@ -10,7 +10,8 @@ namespace Secondary_Queen
 {
     public class SecondaryQueen : Queen
     {
-        private ISecondaryMovingStrategy primaryMovingStrategy;
+        private ISecondaryMovingStrategy secondaryMovingStrategy;
+        private ISecondaryShootingStrategy secondaryShootingStrategy;
 
 
         public SecondaryQueen()
@@ -18,12 +19,27 @@ namespace Secondary_Queen
 
         }
 
-        public SecondaryQueen(ISecondaryMovingStrategy primaryMovingStrategy)
+        public SecondaryQueen(ISecondaryMovingStrategy secondaryMovingStrategy)
         {
 
         }
 
-        public SecondaryQueen(ISecondaryMovingStrategy primaryMovingStrategy, Rhythm rhythm)
+        public SecondaryQueen(ISecondaryShootingStrategy secondaryShootingStrategy)
+        {
+
+        }
+
+        public SecondaryQueen(ISecondaryMovingStrategy secondaryMovingStrategy, ISecondaryShootingStrategy secondaryShootingStrategy)
+        {
+
+        }
+
+        public SecondaryQueen(ISecondaryMovingStrategy secondaryMovingStrategy, Rhythm rhythm)
+        {
+
+        }
+
+        public SecondaryQueen(ISecondaryMovingStrategy secondaryMovingStrategy, Rhythm rhythm, ISecondaryShootingStrategy secondaryShootingStrategy)
         {
 
         }

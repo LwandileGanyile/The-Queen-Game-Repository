@@ -43,6 +43,7 @@
     <Compile Include="CircularMovingStrategy.cs" />
     <Compile Include="CLetterMovingStrategy.cs" />
     <Compile Include="CShapeMovingStrategy.cs" />
+    <Compile Include="IMovingStrategy.cs" />
     <Compile Include="NCLetterMovingStrategy.cs" />
     <Compile Include="NCShapeMovingStrategy.cs" />
     <Compile Include="NonCircularMovingStrategy.cs" />

@@ -9,7 +9,7 @@ using NonCircularIteration;
 
 namespace MovingStrategy
 {
-    public abstract class NonCircularMovingStrategy<T,U>: NonCircular<T,U>
+    public abstract class NonCircularMovingStrategy<T,U>: NonCircular<T,U>, IMovingStrategy
     {
         protected NonCircularMovingStrategy()
         {

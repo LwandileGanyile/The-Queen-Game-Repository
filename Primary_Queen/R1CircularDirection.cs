@@ -171,12 +171,14 @@ namespace Primary_Queen
 
         }
 
+        // Return an itertator for points.
         public override PointIterator<R1Point> RetrievePointIterator()
         {
             
             return new PointIterator<R1Point>(0,circularLinkedList);
         }
 
+        // String representation of this circular direction.
         public override string ToString()
         {
             string output = base.ToString()+"\n";
@@ -184,6 +186,7 @@ namespace Primary_Queen
             return output+circularLinkedList.ToString()+"\nNumber Of rotations : "+numberOfRotations;
         }
 
+        // Comparing two objects of this class.
         public override int CompareTo(R1CircularDirection comparableInstance)
         {
             int result = 0;
@@ -232,6 +235,7 @@ namespace Primary_Queen
             return result;
         }
 
+        // Can't be implemented.
         public override R1CircularDirection ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();

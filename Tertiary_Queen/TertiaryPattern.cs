@@ -13,7 +13,7 @@ namespace Tertiary_Queen
     {
         protected ITertiaryMovingStrategy move;
         protected ITertiaryShootingStrategy shoot;
-        protected KingStep kingDance;
+        protected KingStep kingStep;
 
         protected TertiaryPattern()
         {
@@ -30,7 +30,7 @@ namespace Tertiary_Queen
 
         }
 
-        protected TertiaryPattern(KingStep kingDance)
+        protected TertiaryPattern(KingStep kingStep)
         {
 
         }
@@ -40,12 +40,12 @@ namespace Tertiary_Queen
 
         }
 
-        protected TertiaryPattern(ITertiaryMovingStrategy move, KingStep kingDance)
+        protected TertiaryPattern(ITertiaryMovingStrategy move, KingStep kingStep)
         {
 
         }
 
-        protected TertiaryPattern(ITertiaryMovingStrategy move,ITertiaryShootingStrategy shoot, KingStep kingDance)
+        protected TertiaryPattern(ITertiaryMovingStrategy move,ITertiaryShootingStrategy shoot, KingStep kingStep)
         {
 
         }

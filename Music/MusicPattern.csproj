@@ -45,5 +45,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rhythm.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Game Defination\GameDefination.csproj">
+      <Project>{81f7f6f8-6c98-4248-b118-77ec7908e78b}</Project>
+      <Name>GameDefination</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

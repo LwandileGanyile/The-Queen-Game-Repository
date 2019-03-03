@@ -38,6 +38,7 @@ namespace Primary_Queen
             _point.SetAxisAt(0, _xCoordinate);
         }
 
+        // Retrieve x value.
         public Point Position
         {
             get { return _point; }
@@ -158,11 +159,13 @@ namespace Primary_Queen
             return _point.CompareTo(other.Position);
         }
 
+        // String representation of a one dimensional point.
         public override string ToString()
         {
             return _point.ToString();
         }
 
+        // The method is undefined for this class.
         public R1Point ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
         {
             throw new NotImplementedException();
