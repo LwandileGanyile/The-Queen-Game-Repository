@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BuildingBlocks;
 using Pieces;
 using NonCircularIteration;
+using SharedResources;
 
 namespace Secondary_Queen
 {
@@ -137,19 +138,22 @@ namespace Secondary_Queen
         // Will always return true for a two dimensional direction.
         public override bool IsDirectionDimensionCorrect()
         {
-            return 2 == Dimension;
+            return R2Direction<R2NonCircularDirection, DoubleLinkedList<R2Point>, 
+            NonCircularDirection<R2NonCircularDirection, R2Point>>.IsDirectionDimensionCorrect(dimension);
         }
 
         // Determines whether or not a direction is within the boundaries..
         public override bool IsDirectionValid(int direction)
         {
-            return direction >= 1 && direction <= 8;
+            return R2Direction<R2NonCircularDirection, DoubleLinkedList<R2Point>,
+            NonCircularDirection<R2NonCircularDirection, R2Point>>.IsDirectionValid(direction);
         }
 
         // Checkes whether or not points making up a direction have a correct dimension.
         public override bool IsPointDimensionCorrect()
         {
-            return StartingPoint.Dimension == 2;
+            return R2Direction<R2NonCircularDirection, DoubleLinkedList<R2Point>,
+            NonCircularDirection<R2NonCircularDirection, R2Point>>.IsPointDimensionCorrect(StartingPoint);
         }
 
         // Reflect about the  x-axis or y-axis, and return the result.
@@ -158,69 +162,10 @@ namespace Secondary_Queen
         {
 
 
-            if (axisIndex == 0)
-            {
-                switch (direction)
-                {
-                    case 1:
-                        direction = 1;
-                        break;
-                    case 2:
-                        direction = 3;
-                        break;
-                    case 3:
-                        direction = 2;
-                        break;
-                    case 4:
-                        direction = 7;
-                        break;
-                    case 5:
-                        direction = 6;
-                        break;
-                    case 6:
-                        direction = 5;
-                        break;
-                    case 7:
-                        direction = 4;
-                        break;
-                    case 8:
-                        direction = 8;
-                        break;
-                }
-            }
-            else if (axisIndex == 1)
-            {
-                switch (direction)
-                {
-                    case 1:
-                        direction = 8;
-                        break;
-                    case 2:
-                        direction = 2;
-                        break;
-                    case 3:
-                        direction = 3;
-                        break;
-                    case 4:
-                        direction = 6;
-                        break;
-                    case 5:
-                        direction = 7;
-                        break;
-                    case 6:
-                        direction = 4;
-                        break;
-                    case 7:
-                        direction = 5;
-                        break;
-                    case 8:
-                        direction = 8;
-                        break;
-                }
-            }
+            R2Direction<R2NonCircularDirection, DoubleLinkedList<R2Point>, NonCircularDirection<R2NonCircularDirection, R2Point>>.ReflectAboutAxis(axisIndex, ref direction);
 
 
-            return new R2NonCircularDirection(new R2Point(StartingPoint), direction, SharedDirection.DirectionLength, SharedDirection.Divisor, canShootList, Duration);
+            return new R2NonCircularDirection(new R2Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, canShootList, Duration);
         }
 
         // Reflect about the  line y = x or y = -x a certain number of times, and return the result.
@@ -228,75 +173,13 @@ namespace Secondary_Queen
         public override R2NonCircularDirection ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
 
-            R2NonCircularDirection r2Direction = null;
 
-            for (int i = 0; i < numberOfTimes; i++)
-            {
-                if ((axisIndeces[0] == 1 && axisIndeces[1] == 1) || (axisIndeces[0] == -1 && axisIndeces[1] == -1))
-                {
-                    switch (direction)
-                    {
-                        case 1:
-                            direction = 3;
-                            break;
-                        case 2:
-                            direction = 8;
-                            break;
-                        case 3:
-                            direction = 1;
-                            break;
-                        case 4:
-                            direction = 5;
-                            break;
-                        case 5:
-                            direction = 4;
-                            break;
-                        case 6:
-                            direction = 6;
-                            break;
-                        case 7:
-                            direction = 7;
-                            break;
-                        case 8:
-                            direction = 2;
-                            break;
-                    }
-                }
+            R2Direction<R2NonCircularDirection, DoubleLinkedList<R2Point>, NonCircularDirection<R2NonCircularDirection, R2Point>>.ReflectAroundEqualAxis(axisIndeces, numberOfTimes, ref direction);
 
-                else if ((axisIndeces[0] == -1 && axisIndeces[1] == 1) || (axisIndeces[0] == 1 && axisIndeces[1] == -1))
-                {
-                    switch (direction)
-                    {
-                        case 1:
-                            direction = 2;
-                            break;
-                        case 2:
-                            direction = 1;
-                            break;
-                        case 3:
-                            direction = 8;
-                            break;
-                        case 4:
-                            direction = 4;
-                            break;
-                        case 5:
-                            direction = 5;
-                            break;
-                        case 6:
-                            direction = 7;
-                            break;
-                        case 7:
-                            direction = 6;
-                            break;
-                        case 8:
-                            direction = 3;
-                            break;
-                    }
-                }
+            return new R2NonCircularDirection(new R2Point(StartingPoint.GetAxisAt(0), StartingPoint.GetAxisAt(1),StartingPoint.CanShoot),
+                                            Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, CanShoot, Duration);
 
-                r2Direction = new R2NonCircularDirection(new R2Point(StartingPoint), direction, SharedDirection.DirectionLength, SharedDirection.Divisor, canShootList, Duration);
-            }
-            return r2Direction;
+           
         }
 
         // Rotate about the  x-axis or y-axis a certatin number of times, and return the result.
@@ -306,13 +189,12 @@ namespace Secondary_Queen
 
             R2NonCircularDirection direction = this;
 
-            for (int index = 1; index <= numberOfTimes; index++)
-            {
 
-                direction = ReflectAboutAxis(indexOfAxis);
-            }
 
-            return direction;
+            R2Direction<R2NonCircularDirection, DoubleLinkedList<R2Point>, NonCircularDirection<R2NonCircularDirection, R2Point>>.RotateAroundAxis(indexOfAxis, numberOfTimes, direction);
+
+            return new R2NonCircularDirection(new R2Point(StartingPoint.GetAxisAt(0), StartingPoint.GetAxisAt(1), StartingPoint.CanShoot),
+                                            Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, CanShoot, Duration);
         }
 
         // Rotate about the  line y = x or y = -x a certain number of times, and return the result.
@@ -329,51 +211,11 @@ namespace Secondary_Queen
 
             R2NonCircularDirection initialDirection = new R2NonCircularDirection(new R2Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, canShootList, Duration);
 
-            float initialX = initialDirection.StartingPoint.GetAxisAt(0);
-            float initialY = initialDirection.StartingPoint.GetAxisAt(1);
-            float finalX = initialX;
-            float finalY = initialY;
+            float finalX = initialDirection.StartingPoint.GetAxisAt(0);
+            float finalY = initialDirection.StartingPoint.GetAxisAt(1);
 
 
-            switch (coordinateSystemDirection)
-            {
-                case 1:
-                    finalX -= amount;
-
-                    break;
-                case 2:
-                    finalY += amount;
-
-                    break;
-                case 3:
-                    finalY -= amount;
-
-                    break;
-                case 4:
-                    finalX -= amount;
-                    finalY += amount;
-
-                    break;
-                case 5:
-                    finalX += amount;
-                    finalY -= amount;
-
-                    break;
-                case 6:
-                    finalX += amount;
-                    finalY += amount;
-
-                    break;
-                case 7:
-                    finalX -= amount;
-                    finalY -= amount;
-
-                    break;
-                case 8:
-                    finalX += amount;
-
-                    break;
-            }
+            R2Direction<R2NonCircularDirection, DoubleLinkedList<R2Point>, NonCircularDirection<R2NonCircularDirection, R2Point>>.Translate(coordinateSystemDirection, amount, finalX, finalY);
 
             return new R2NonCircularDirection(new R2Point(finalX, finalY, initialDirection.StartingPoint.CanShoot),
                                             Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, CanShoot, Duration);
@@ -393,17 +235,63 @@ namespace Secondary_Queen
 
         public override PointIterator<R2Point> RetrievePointIterator()
         {
-            throw new NotImplementedException();
+            return new PointIterator<R2Point>(0,doubleLinkedList);
         }
 
         public override int CompareTo(R2NonCircularDirection comparableInstance)
         {
-            throw new NotImplementedException();
+            int result = 0;
+
+            if (GetDirectionLength() < comparableInstance.GetDirectionLength())
+            {
+                result = -1;
+            }
+
+            else if (GetDirectionLength() > comparableInstance.GetDirectionLength())
+            {
+                result = 1;
+            }
+
+            else
+            {
+                if (GetDirectionDivisor() < comparableInstance.GetDirectionDivisor())
+                {
+                    result = -1;
+                }
+
+                else if (GetDirectionDivisor() > comparableInstance.GetDirectionDivisor())
+                {
+                    result = 1;
+                }
+
+                else
+                {
+                    if (Direction < comparableInstance.Direction)
+                    {
+                        result = -1;
+                    }
+
+                    else if (Direction > comparableInstance.Direction)
+                    {
+                        result = 1;
+                    }
+
+                    else
+                    {
+                        result = StartingPoint.CompareTo(comparableInstance.StartingPoint);
+                    }
+                }
+            }
+
+            return result;
         }
 
         public override R2NonCircularDirection ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
         {
-            throw new NotImplementedException();
+            R2Direction<R2NonCircularDirection, DoubleLinkedList<R2Point>, NonCircularDirection<R2NonCircularDirection, R2Point>>.ReflectAroundEqualAxis(new List<int>(axisIndeces), numberOfTimes, ref direction);
+
+            return new R2NonCircularDirection(new R2Point(StartingPoint.GetAxisAt(0), StartingPoint.GetAxisAt(1),StartingPoint.CanShoot),
+                                            Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, CanShoot, Duration);
         }
     }
 }

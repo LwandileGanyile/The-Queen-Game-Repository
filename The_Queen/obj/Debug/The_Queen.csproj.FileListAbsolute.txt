@@ -22,3 +22,6 @@ C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\
 C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\NonCircularIteration.exe.config
 C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\Game Defination.pdb
 C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\Game Defination.exe.config
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\BuildingBlocks.exe
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\BuildingBlocks.pdb
+C:\Users\Test\OneDrive\Documents\The_Company\The Queen Code\The_Queen\bin\Debug\BuildingBlocks.exe.config

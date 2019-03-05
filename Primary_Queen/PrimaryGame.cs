@@ -15,19 +15,19 @@ namespace Primary_Queen
 
         }
 
-        protected PrimaryGame(Dictionary<int, float> _markAllocation, List<Player> _players, TraceType _traceType,
+        protected PrimaryGame(Dictionary<int, float> _markAllocation, List<PrimaryPlayer> _players, TraceType _traceType,
         Dictionary<int, int> _switchingTimes, NumberLine numberLine, Rhythm currentRhythm)
         {
 
         }
 
-        protected PrimaryGame(Dictionary<int, float> _markAllocation, List<Player> _players, TraceType _traceType,
+        protected PrimaryGame(Dictionary<int, float> _markAllocation, List<PrimaryPlayer> _players, TraceType _traceType,
         Dictionary<int, int> _switchingTimes, NumberLine numberLine, Music currentMusic)
         {
 
         }
 
-        protected PrimaryGame(Dictionary<int, float> _markAllocation, List<Player> _players, TraceType _traceType,
+        protected PrimaryGame(Dictionary<int, float> _markAllocation, List<PrimaryPlayer> _players, TraceType _traceType,
         Dictionary<int, int> _switchingTimes,  NumberLine numberLine, Rhythm currentRhythm, Music currentMusic)
         {
 

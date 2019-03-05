@@ -10,7 +10,7 @@ using SharedResources;
 
 namespace Primary_Queen
 {
-    public class R1NonCircularDirection:NonCircularDirection<R1NonCircularDirection,R1Point>, IFill
+    public class R1NonCircularDirection : NonCircularDirection<R1NonCircularDirection, R1Point>, IFill
     {
 
 
@@ -41,43 +41,42 @@ namespace Primary_Queen
 
         // Construct by specifying the number of rotations.
         public R1NonCircularDirection(R1Point startingPoint, int direction, float directionLength,
-        float divisor, Dictionary<int,int> duration, int numberOfRotations)
-        : base(startingPoint.Position, direction, directionLength, divisor, new List<bool>(), duration, 1, numberOfRotations)
+        float divisor, Dictionary<int,int> duration, int numberOfRepeatations)
+        : base(startingPoint.Position, direction, directionLength, divisor, new List<bool>(), duration, 1, numberOfRepeatations)
         {
             Fill();
             FillCanShootList();
         }
 
-        // Displays an R1NonCircularDirection. However the method suppose to be on a super class "CircularDirection".
-        public override void Display()
-        {
-            for (int i = 0; i < doubleLinkedList.Size; i++)
-            {
-                doubleLinkedList.GetAt(i).Display();
-                if (i !=doubleLinkedList.Size - 1)
-                    Console.Write(" , ");
-            }
-        }
-      
+        // Add points making up this direction.
+        // Directio 1 --> Right +x.
+        // Any direction value correspond to Direction 2 --> Left -x.
+
+        /* The method suppose to be on the static R1Direction class. However i can't because
+        I don't understand whether or not wildcard generics are supported in C#, if they are,
+        how to use them.*/
         public void Fill()
         {
-            R1Point point = new R1Point(_startingPoint);
-            doubleLinkedList.Add(point);
+            for (int numberOfTimes = 1; numberOfTimes <= numberOfRepeatations; numberOfTimes++)
+            {
+                R1Point point = new R1Point(_startingPoint);
+                doubleLinkedList.Add(point);
 
-            // Going left.
-            if (Direction == 1)
-                for (int i = 1; i <= SharedDirection.DirectionLength / SharedDirection.Divisor; i++)
-                    doubleLinkedList.Add(new R1Point(point.GetXCoordinate() - i * SharedDirection.Divisor));
-            // Going right.
-            else
-                for (int i = 1; i <= SharedDirection.DirectionLength / SharedDirection.Divisor; i++)
-                    doubleLinkedList.Add(new R1Point(point.GetXCoordinate() + i * SharedDirection.Divisor));
+                // Going left.
+                if (Direction == 1)
+                    for (int i = 1; i <= SharedDirection.DirectionLength / SharedDirection.Divisor; i++)
+                        doubleLinkedList.Add(new R1Point(point.GetXCoordinate() - i * SharedDirection.Divisor));
+                // Going right.
+                else
+                    for (int i = 1; i <= SharedDirection.DirectionLength / SharedDirection.Divisor; i++)
+                        doubleLinkedList.Add(new R1Point(point.GetXCoordinate() + i * SharedDirection.Divisor));
+            }
         }
 
         // Will always return  true for a one dimensional direction.
         public override bool IsDirectionDimensionCorrect()
         {
-            return Dimension == 1;
+            return R1Direction<R1NonCircularDirection, DoubleLinkedList<R1Point>, NonCircularDirection<R1NonCircularDirection, R1Point>>.IsDirectionDimensionCorrect(Dimension); 
         }
 
         // Determines whether or not a direction is within the boundaries.
@@ -89,82 +88,133 @@ namespace Primary_Queen
         // Checkes whether or not points making up a direction have a correct dimension.
         public override bool IsPointDimensionCorrect()
         {
-            return StartingPoint.Dimension == 1;
+
+            return R1Direction<R1NonCircularDirection, DoubleLinkedList<R1Point>, NonCircularDirection<R1NonCircularDirection, R1Point>>.IsPointDimensionCorrect(StartingPoint);
         }
 
         // Only reflect about the origin. That is axisIndex 1.
         public override R1NonCircularDirection ReflectAboutAxis(int axisIndex)
         {
-            if (axisIndex == 1)
-            {
-                direction = (direction * -1);
-            }
 
+            R1Direction<R1NonCircularDirection, DoubleLinkedList<R1Point>, NonCircularDirection<R1NonCircularDirection, R1Point>>.ReflectAboutAxis(axisIndex, ref direction);
 
-            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, NumberOfRepeatations);
+            return new R1NonCircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
         }
 
         // The method is unsupported for a one dimensional direction. 
         // However the method will return a non reflection of this current object.
         public override R1NonCircularDirection ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
-            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, numberOfTimes);
+            return new R1NonCircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
         }
 
         /* The method is unsupported for a one dimensional direction. 
            However the method will return a non reflection of the current object.
-           For the rotate method this R1CircularDirection instance will be returned because in R1 rotation isn't applicable.*/
+           For the rotate method this R1doubleDirection instance will be returned because in R1 rotation isn't applicable.*/
         public override R1NonCircularDirection RotateAroundAxis(int indexOfAxis, int numberOfTimes)
         {
-            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, numberOfTimes);
+            return new R1NonCircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
         }
 
         // The method is unsupported for a one dimensional direction. 
         // However the method will return a non reflection of this current object.
         public override R1NonCircularDirection RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
         {
-            return new R1NonCircularDirection(new R1Point(StartingPoint), direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, numberOfTimes);
+            return new R1NonCircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
         }
 
         // Move direction.
         // Change the starting position on a direction.
         public override R1NonCircularDirection translate(int coordinateSystemDirection, float amount)
         {
-            R1CircularDirection initialDirection = new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration,NumberOfRepeatations);
 
-            float initialX = initialDirection.StartingPoint.GetAxisAt(0);
+            float finalX = StartingPoint.GetAxisAt(0);
 
-            float finalX = initialX;
-
-
-
-            switch (coordinateSystemDirection)
-            {
-                case 1:
-                    finalX -= amount;
-
-                    break;
-                default:
-                    finalX += amount;
-                    break;
-            }
-
-
+            R1Direction<R1NonCircularDirection, DoubleLinkedList<R1Point>, NonCircularDirection<R1NonCircularDirection, R1Point>>.Translate(coordinateSystemDirection, amount, ref finalX);
 
             return new R1NonCircularDirection(new R1Point(finalX),
-                                            Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration,NumberOfRepeatations);
+                                            Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
+
         }
 
-        // Comparing two objects of this class.
-        public override int CompareTo(R1NonCircularDirection comparableInstance)
+        // Displays an R1doubleDirection. However the method suppose to be on a super class "doubleDirection".
+
+        /* The method suppose to be on the static R1Direction class. However i can't because
+        I don't understand whether or not wildcard generics are supported in C#, if they are,
+        how to use them.*/
+        public override void Display()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < doubleLinkedList.Size; i++)
+            {
+                doubleLinkedList.GetAt(i).Display();
+                if (i != doubleLinkedList.Size - 1)
+                    Console.Write(" , ");
+            }
+
         }
 
         // Return an itertator for points.
         public override PointIterator<R1Point> RetrievePointIterator()
         {
-            throw new NotImplementedException();
+
+            return new PointIterator<R1Point>(0, doubleLinkedList);
+        }
+
+        // String representation of this double direction.
+        public override string ToString()
+        {
+            string output = base.ToString() + "\n";
+
+            return output + doubleLinkedList.ToString() + "\nNumber Of repeatations : " + numberOfRepeatations;
+        }
+
+        // Comparing two objects of this class.
+        public override int CompareTo(R1NonCircularDirection comparableInstance)
+        {
+            int result = 0;
+
+            if (GetDirectionLength() < comparableInstance.GetDirectionLength())
+            {
+                result = -1;
+            }
+
+            else if (GetDirectionLength() > comparableInstance.GetDirectionLength())
+            {
+                result = 1;
+            }
+
+            else
+            {
+                if (GetDirectionDivisor() < comparableInstance.GetDirectionDivisor())
+                {
+                    result = -1;
+                }
+
+                else if (GetDirectionDivisor() > comparableInstance.GetDirectionDivisor())
+                {
+                    result = 1;
+                }
+
+                else
+                {
+                    if (Direction < comparableInstance.Direction)
+                    {
+                        result = -1;
+                    }
+
+                    else if (Direction > comparableInstance.Direction)
+                    {
+                        result = 1;
+                    }
+
+                    else
+                    {
+                        result = StartingPoint.CompareTo(comparableInstance.StartingPoint);
+                    }
+                }
+            }
+
+            return result;
         }
 
         // Can't be implemented.

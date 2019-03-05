@@ -12,6 +12,8 @@ namespace Primary_Queen
 {
     public class R1CircularDirection : CircularDirection<R1CircularDirection, R1Point>,IFill
     {
+       
+
         public R1CircularDirection()
         :base(){
             StartingPoint = new R1Point().Position;
@@ -20,6 +22,7 @@ namespace Primary_Queen
             Fill();
             FillCanShootList();
             FillDuration();
+            
         }
 
         // Construct without specifying the  length property cause it doesnh't exist.
@@ -54,6 +57,10 @@ namespace Primary_Queen
         // Add points making up this direction.
         // Directio 1 --> Right +x.
         // Any direction value correspond to Direction 2 --> Left -x.
+        
+        /* The method suppose to be on the static R1Direction class. However i can't because
+        I don't understand whether or not wildcard generics are supported in C#, if they are,
+        how to use them.*/
         public void Fill()
         {
             for (int numberOfTimes = 1; numberOfTimes <= numberOfRotations; numberOfTimes++)
@@ -75,7 +82,7 @@ namespace Primary_Queen
         // Will always return  true for a one dimensional direction.
         public override bool IsDirectionDimensionCorrect()
         {
-            return Dimension == 1;
+            return R1Direction<R1CircularDirection, CircularLinkedList<R1Point>, CircularDirection<R1CircularDirection, R1Point>>.IsDirectionDimensionCorrect(Dimension); ;
         }
 
         // Determines whether or not a direction is within the boundaries.
@@ -87,21 +94,15 @@ namespace Primary_Queen
         // Checkes whether or not points making up a direction have a correct dimension.
         public override bool IsPointDimensionCorrect()
         {
-            return StartingPoint.Dimension == 1;
+
+            return R1Direction<R1CircularDirection, CircularLinkedList<R1Point>, CircularDirection<R1CircularDirection, R1Point>>.IsPointDimensionCorrect(StartingPoint);
         }
 
         // Only reflect about the origin. That is axisIndex 1.
         public override R1CircularDirection ReflectAboutAxis(int axisIndex)
         {
 
-            if (axisIndex == 1)
-            {
-                if(direction == 1)
-                    direction = 2;
-                else if(direction == 2)
-                    direction = 1;
-            }
-
+            R1Direction<R1CircularDirection, CircularLinkedList<R1Point>, CircularDirection<R1CircularDirection, R1Point>>.ReflectAboutAxis(axisIndex, ref direction);
 
             return new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration); 
         }
@@ -133,26 +134,9 @@ namespace Primary_Queen
         public override R1CircularDirection translate(int coordinateSystemDirection, float amount)
         {
 
-            R1CircularDirection initialDirection = new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
+            float finalX = StartingPoint.GetAxisAt(0);
 
-            float initialX = initialDirection.StartingPoint.GetAxisAt(0);
-
-            float finalX = initialX;
-
-            if (amount < 0)
-                amount *= -1;
-
-            switch (coordinateSystemDirection)
-            {
-                case 1:
-                    finalX -= amount;
-
-                    break;
-                default:
-                    finalX += amount;
-                    break;
-
-            }
+            R1Direction<R1CircularDirection,CircularLinkedList<R1Point>, CircularDirection<R1CircularDirection, R1Point>>.Translate(coordinateSystemDirection, amount, ref finalX);
 
             return new R1CircularDirection(new R1Point(finalX),
                                             Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
@@ -160,6 +144,10 @@ namespace Primary_Queen
         }
 
         // Displays an R1CircularDirection. However the method suppose to be on a super class "CircularDirection".
+
+        /* The method suppose to be on the static R1Direction class. However i can't because
+        I don't understand whether or not wildcard generics are supported in C#, if they are,
+        how to use them.*/
         public override void Display()
         {
             for (int i = 0; i < circularLinkedList.Size; i++)

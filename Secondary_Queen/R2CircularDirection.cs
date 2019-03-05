@@ -144,19 +144,22 @@ namespace Secondary_Queen
         // Will always return true for a two dimensional direction.
         public override bool IsDirectionDimensionCorrect()
         {
-            return 2==Dimension;
+            return R2Direction<R2CircularDirection, CircularLinkedList<R2Point>,
+            CircularDirection<R2CircularDirection, R2Point>>.IsDirectionDimensionCorrect(Dimension);
         }
 
         // Determines whether or not a direction is within the boundaries..
         public override bool IsDirectionValid(int direction)
         {
-            return direction >= 1 && direction <= 8;
+            return R2Direction<R2CircularDirection, CircularLinkedList<R2Point>,
+            CircularDirection<R2CircularDirection, R2Point>>.IsDirectionValid(direction);
         }
 
         // Checkes whether or not points making up a direction have a correct dimension.
         public override bool IsPointDimensionCorrect()
         {
-            return StartingPoint.Dimension == 2;
+            return R2Direction<R2CircularDirection, CircularLinkedList<R2Point>,
+            CircularDirection<R2CircularDirection, R2Point>>.IsPointDimensionCorrect(StartingPoint);
         }
 
         // Reflect about the  x-axis or y-axis, and return the result.
@@ -313,13 +316,11 @@ namespace Secondary_Queen
 
             R2CircularDirection direction = this;
 
-            for (int index = 1; index <= numberOfTimes; index++)
-            {
-                
-                direction = ReflectAboutAxis(indexOfAxis);
-            }
 
-            return direction;
+            R2Direction<R2CircularDirection, CircularLinkedList<R2Point>, CircularDirection<R2CircularDirection, R2Point>>.RotateAroundAxis(indexOfAxis, numberOfTimes, this);
+
+            return new R2CircularDirection(new R2Point(StartingPoint.GetAxisAt(0), StartingPoint.GetAxisAt(1), StartingPoint.CanShoot),
+                                            Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, CanShoot, Duration);
         }
 
         // Rotate about the  line y = x or y = -x a certain number of times, and return the result.
@@ -334,58 +335,16 @@ namespace Secondary_Queen
         public override R2CircularDirection translate(int coordinateSystemDirection, float amount)
         {
 
-            R2CircularDirection initialDirection = new R2CircularDirection(new R2Point(StartingPoint),Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, canShootList,Duration);
+            R2CircularDirection initialDirection = new R2CircularDirection(new R2Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, canShootList, Duration);
 
-            float initialX = initialDirection.StartingPoint.GetAxisAt(0);
-            float initialY = initialDirection.StartingPoint.GetAxisAt(1);
-            float finalX = initialX;
-            float finalY = initialY;
+            float finalX = initialDirection.StartingPoint.GetAxisAt(0);
+            float finalY = initialDirection.StartingPoint.GetAxisAt(1);
 
-            if (amount < 0)
-                amount *= -1;
 
-            switch (coordinateSystemDirection)
-            {
-                case 1:
-                    finalX -= amount ;
-                   
-                    break;
-                case 2:
-                    finalY += amount;
-                    
-                    break;
-                case 3:
-                    finalY -= amount;
-                    
-                    break;
-                case 4:
-                    finalX -= amount;
-                    finalY += amount;
-                    
-                    break;
-                case 5:
-                    finalX += amount;
-                    finalY -= amount;
-                    
-                    break;
-                case 6:
-                    finalX += amount;
-                    finalY += amount;
-                    
-                    break;
-                case 7:
-                    finalX -= amount;
-                    finalY -= amount;
-                    
-                    break;
-                case 8:
-                    finalX += amount;
-                    
-                    break;
-            }
+            R2Direction<R2CircularDirection, CircularLinkedList<R2Point>, CircularDirection<R2CircularDirection, R2Point>>.Translate(coordinateSystemDirection, amount, finalX, finalY);
 
-            return new R2CircularDirection(new R2Point(finalX,finalY,initialDirection.StartingPoint.CanShoot),
-                                            Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, CanShoot,Duration);
+            return new R2CircularDirection(new R2Point(finalX, finalY, initialDirection.StartingPoint.CanShoot),
+                                            Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, CanShoot, Duration);
         }
 
         // Print the direction on a console.
