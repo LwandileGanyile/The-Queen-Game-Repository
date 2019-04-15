@@ -16,69 +16,37 @@ namespace MovingStrategy
 
 
         public CShapeMovingStrategy()
+        :base()
         {
-
+            traceType = ShapeTraceType.Direction_Trace;
+            Fill();
         }
 
-        protected CShapeMovingStrategy(List<T> movingStrategy, ShapeTraceType traceType)
+        protected CShapeMovingStrategy(Point _startingPoint, int direction,
+        Dictionary<int, int> duration, int dimension, int numberOfRotations, ShapeTraceType traceType)
+        :base(_startingPoint, direction, duration, dimension, numberOfRotations)
         {
-
+            this.traceType = traceType;
+            Fill();
         }
 
-        protected CShapeMovingStrategy(List<int> movingStrategy, ShapeTraceType traceType)
+        protected CShapeMovingStrategy(Point _startingPoint, int direction,
+        List<bool> canShootList, Dictionary<int, int> duration, int directionDimension, 
+        int numberOfRotations, ShapeTraceType traceType)
+        : base(_startingPoint, direction,
+        canShootList, duration, directionDimension, numberOfRotations)
         {
-
+            this.traceType = traceType;
+            Fill();
         }
 
-        protected CShapeMovingStrategy(Point startingPoint, int movingStrategyNumber, ShapeTraceType traceType)
+        protected CShapeMovingStrategy(List<U> movingStrategy, ShapeTraceType traceType)
         {
+            this.traceType = traceType;
 
-        }
-
-       
-        public void Fill()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override T RotateAroundAxis(int indexOfAxis, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool IsPointDimensionCorrect()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override T ReflectAboutAxis(int axisIndex)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool IsDirectionDimensionCorrect()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override T ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override T RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override T translate(int coordinateSystemDirection, float amaunt)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Display()
-        {
-            throw new NotImplementedException();
+            for (int i = 0; i < movingStrategy.Count; i++)
+                circularLinkedList.Add(movingStrategy[i]);
+            initializeAttributes();
         }
 
         public abstract DirectionIterator<U> RetrieveDirectionIterator();

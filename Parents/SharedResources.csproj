@@ -42,14 +42,13 @@
   <ItemGroup>
     <Compile Include="Circular.cs" />
     <Compile Include="CircularLinkedList.cs" />
+    <Compile Include="IFill.cs" />
     <Compile Include="MyNode.cs" />
     <Compile Include="Node.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Unit-Testing-Classes\CircularLinkedListTester.cs" />
     <Compile Include="DoubleLinkedList.cs" />
     <Compile Include="Unit-Testing-Classes\CircularTester.cs" />
     <Compile Include="Unit-Testing-Classes\DoubleLinkedListTester.cs" />
-    <Compile Include="IFill.cs" />
     <Compile Include="IMyLinkedList.cs" />
     <Compile Include="MyLinkedList.cs" />
     <Compile Include="NonCircular.cs" />

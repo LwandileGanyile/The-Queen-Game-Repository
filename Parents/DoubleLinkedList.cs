@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SharedResources
 {
-    // The class don't work at all.
+
     public class DoubleLinkedList<T> : MyLinkedList<T>
     {
         private Node<T> _head;
@@ -19,12 +19,12 @@ namespace SharedResources
             _tail = null;
         }
 
-        protected internal DoubleLinkedList(T[] objects): base(objects)
+        public DoubleLinkedList(T[] objects): base(objects)
         {
             
         }
 
-        protected internal DoubleLinkedList(List<T> objects) : base(objects)
+        public DoubleLinkedList(List<T> objects) : base(objects)
         {
 
         }

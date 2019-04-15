@@ -11,21 +11,31 @@ namespace MovingStrategy
 {
     public abstract class CircularMovingStrategy<T,U>: Circular<T, U>, IMovingStrategy
     {
-        protected CircularMovingStrategy()
-        {
-
-        }
-
-        protected CircularMovingStrategy(List<T> movingStrategy)
-        {
-
-        }
-
-        protected CircularMovingStrategy(Point startingPoint, int movingStrategyNumber)
-        {
-
-        }
-
         
+
+        protected CircularMovingStrategy()
+        :base()
+        {
+           
+        }
+
+        protected CircularMovingStrategy(Point _startingPoint, int direction,
+        Dictionary<int, int> duration, int directionDimension, int numberOfRotations)
+        : base(_startingPoint, direction,
+        duration, directionDimension, numberOfRotations)
+        {
+            
+        }
+
+        protected CircularMovingStrategy(Point _startingPoint, int direction,
+        List<bool> canShootList, Dictionary<int, int> duration, int directionDimension, int numberOfRotations)
+        : base(_startingPoint, direction,
+        canShootList, duration, directionDimension, numberOfRotations)
+        {
+            
+        }
+
+
+
     }
 }

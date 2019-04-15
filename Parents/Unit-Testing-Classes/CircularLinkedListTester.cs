@@ -11,19 +11,19 @@ namespace SharedResources.Unit_Testing_Classes
         private CircularLinkedList<int> list1;
         private CircularLinkedList<string> list2;
         private CircularLinkedList<char> list3;
-        private CircularLinkedList<int[]> list4;
+        
 
         public CircularLinkedListTester()
         {
             list1 = new CircularLinkedList<int>();
             list2 = new CircularLinkedList<string>();
             list3 = new CircularLinkedList<char>();
-            list4 = new CircularLinkedList<int[]>();
+            
 
             AddNumbers(list1);
             AddWords(list2);
             AddAlphabets(list3);
-            AddLists(list4);
+            
 
             Console.Write("Display initial list of numbers :");
             DisplayNumbers(list1);
@@ -31,8 +31,7 @@ namespace SharedResources.Unit_Testing_Classes
             DisplayWords(list2);
             Console.Write("\nDisplay initial list of alphabets :");
             DisplayAlphabets(list3);
-            Console.Write("\nDisplay initial list of lists :");
-            DisplayLists(list4);
+
 
 
             
@@ -40,7 +39,7 @@ namespace SharedResources.Unit_Testing_Classes
             TestRemoveFirst(list1);
             TestRemoveFirst(list2);
             TestRemoveFirst(list3);
-            TestRemoveFirst(list4);
+           
 
             Console.WriteLine();
             Console.WriteLine("***********************RemoveFirst***********************");
@@ -52,14 +51,11 @@ namespace SharedResources.Unit_Testing_Classes
             DisplayWords(list2);
             Console.Write("\nTest the Remove First method on alphabets :");
             DisplayAlphabets(list3);
-            Console.Write("\nTest the Remove First method on lists :");
-            DisplayLists(list4);
 
             // Test RemoveFirst
             TestRemoveLast(list1);
             TestRemoveLast(list2);
             TestRemoveLast(list3);
-            TestRemoveLast(list4);
 
             Console.WriteLine();
             Console.WriteLine("***********************RemoveLast***********************");
@@ -71,14 +67,12 @@ namespace SharedResources.Unit_Testing_Classes
             DisplayWords(list2);
             Console.Write("\nTest the Remove Last method on alphabets :");
             DisplayAlphabets(list3);
-            Console.Write("\nTest the Remove Last method on lists :");
-            DisplayLists(list4);
+
 
             // Test RemoveFirst
             TestRemoveAt(list1, 1);
             //TestRemoveAt(list2, 2);
             TestRemoveAt(list3, 3);
-            TestRemoveAt(list4, 4);
 
             Console.WriteLine();
             Console.WriteLine("***********************RemoveAt***********************");
@@ -90,14 +84,13 @@ namespace SharedResources.Unit_Testing_Classes
             DisplayWords(list2);
             Console.Write("\nTest the Remove At 3  method on alphabets :");
             DisplayAlphabets(list3);
-            Console.Write("\nTest the Remove At 4 method on lists :");
-            DisplayLists(list4);
+
 
             // Test AddLast
             AddLast(list1);
             AddLast(list2);
             AddLast(list3);
-            AddLast(list4);
+
 
             Console.WriteLine();
             Console.WriteLine("***********************AddLast***********************");
@@ -109,14 +102,13 @@ namespace SharedResources.Unit_Testing_Classes
             DisplayWords(list2);
             Console.Write("\nTest the Add Last method on alphabets :");
             DisplayAlphabets(list3);
-            Console.Write("\nTest the Add Last method on lists :");
-            DisplayLists(list4);
+           
 
             // Test AddFirst
             AddFirst(list1);
             AddFirst(list2);
             AddFirst(list3);
-            AddFirst(list4);
+          
 
             Console.WriteLine();
             Console.WriteLine("***********************AddFirst***********************");
@@ -128,8 +120,7 @@ namespace SharedResources.Unit_Testing_Classes
             DisplayWords(list2);
             Console.Write("\nTest the Add First method on alphabets :");
             DisplayAlphabets(list3);
-            Console.Write("\nTest the Add First method on lists :");
-            DisplayLists(list4);
+           
         }
 
         // Testing the Add method.
@@ -159,13 +150,7 @@ namespace SharedResources.Unit_Testing_Classes
             list.Add('/');
         }
 
-        private void AddLists(CircularLinkedList<int[]> list)
-        {
-            list.Add(new int[] { 1, 2, 3, 4, 5 });
-            list.Add(new int[] { 2, 4, 6, 8, 10 });
-            list.Add(new int[] { 3, 6, 9, 12, 15 });
-            list.Add(new int[] { 10, 20, 30, 40, 50 });
-        }
+       
 
 
         // Testing the DispalyList method.
@@ -202,23 +187,11 @@ namespace SharedResources.Unit_Testing_Classes
             list.DisplayList();
         }
 
-        private void DisplayLists(CircularLinkedList<int[]> list)
-        {
-            /*for (int i = 0; i < list.Size; i++)
-            {
-                Console.WriteLine("------------------List number " + i + 1 + "-------------------");
-                list.GetAt(i).ToString();
-                Console.WriteLine();
-            }*/
-            list.DisplayList();
-        }
+        
 
 
         // Testing the RemoveFirst method.
-        private void TestRemoveFirst(CircularLinkedList<int[]> list)
-        {
-            list.RemoveFirst();
-        }
+        
 
         private void TestRemoveFirst(CircularLinkedList<int> list)
         {

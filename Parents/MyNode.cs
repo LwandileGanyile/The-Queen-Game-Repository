@@ -20,6 +20,7 @@ namespace SharedResources
         public MyNode(T element)
         {
             this.element = element;
+            next = null;
         }
         
     }

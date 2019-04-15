@@ -21,7 +21,9 @@ namespace SharedResources
 
         public Node(T element)
         {
-
+            this.element = element;
+            next = null;
+            previous = null;
         }
 
     }

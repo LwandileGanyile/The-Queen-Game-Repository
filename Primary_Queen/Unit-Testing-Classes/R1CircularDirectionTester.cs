@@ -44,27 +44,27 @@ namespace Primary_Queen.Unit_Testing_Classes
                 duration.Add(i,1000/numberOfElements);
             }
 
-            r2Direction = new R1CircularDirection(new R1Point(0), direction, directionDivisor, duration);
+            r2Direction = new R1CircularDirection(new R1Point(0), direction, directionLength, directionDivisor, duration);
 
 
-            r3Direction = new R1CircularDirection(new R1Point(-1), direction, directionLength, directionDivisor, duration);
+            r3Direction = new R1CircularDirection(new R1Point(-1), direction, directionLength, directionDivisor, duration,2);
 
-            r4Direction = new R1CircularDirection(new R1Point(-1), direction, directionLength, directionDivisor, duration, 3);
+            r4Direction = new R1CircularDirection(new R1Point(-1), direction,  directionLength, directionDivisor, duration, 3);
 
             /*CheckIsDirectionValid(-1);
             CheckIsDirectionValid(0);
             CheckIsDirectionValid(1);
             CheckIsDirectionValid(2);
-            CheckIsDirectionValid(3);
+            CheckIsDirectionValid(3);*/
 
-            CheckIsDimensionCorrect();
-            CheckIsPointCorrect();
-            CheckReflectAboutX();
-            CheckRotateAroundX();
-            CheckReflectEqualX();
-            CheckRotateAroundEqualX();
-            CheckTranslate();*/
-            CheckCompareTo();
+            //CheckIsDimensionCorrect();
+            //CheckIsPointCorrect();
+            //CheckReflectAboutX();
+            //CheckRotateAroundX();
+            //CheckReflectEqualX();
+            //CheckRotateAroundEqualX();
+            CheckTranslate();
+            /*CheckCompareTo();*/
         }
 
         public R1CircularDirectionTester(R1CircularDirection r1Direction, R1CircularDirection r2Direction, R1CircularDirection r3Direction, R1CircularDirection r4Direction)
@@ -395,17 +395,17 @@ namespace Primary_Queen.Unit_Testing_Classes
         public void CheckRotateAroundX()
         {
 
-            Console.WriteLine("\nBefore calling ReflectAboutAxis(-1) on : \n" +
+            Console.WriteLine("\nBefore calling RotateAroundAxis(-1,4) on : \n" +
             r3Direction.ToString());
             Console.WriteLine();
-            Console.WriteLine("\nAfter calling ReflectAboutAxis(-1) on : \n" +
+            Console.WriteLine("\nAfter calling RotateAroundAxis(-1,4) on : \n" +
             r3Direction.RotateAroundAxis(-1,4).ToString());
 
 
-            Console.WriteLine("\nBefore calling ReflectAboutAxis(2) on : \n" +
+            Console.WriteLine("\nBefore calling RotateAroundAxis(2,3) on : \n" +
             r4Direction.ToString());
             Console.WriteLine();
-            Console.WriteLine("\nAfter calling ReflectAboutAxis(2) on : \n" +
+            Console.WriteLine("\nAfter calling RotateAroundAxis(2,3) on : \n" +
             r4Direction.RotateAroundAxis(2,3).ToString());
 
 
@@ -749,15 +749,15 @@ namespace Primary_Queen.Unit_Testing_Classes
             duration.Add(10, 4500);
             duration.Add(11, 6000);
 
-            R1CircularDirection direction1 = new R1CircularDirection(new R1Point(5),1,5,duration);
-            R1CircularDirection direction2 = new R1CircularDirection(new R1Point(-5),1,5,duration);
-            R1CircularDirection direction3 = new R1CircularDirection(new R1Point(10), 2, 2.5f, duration);
-            R1CircularDirection direction4 = new R1CircularDirection(new R1Point(-10), 2, 3.5f, duration);
+            R1CircularDirection direction1 = new R1CircularDirection(new R1Point(5),1,25,5,duration);
+            R1CircularDirection direction2 = new R1CircularDirection(new R1Point(-5),1, 25, 5,duration);
+            R1CircularDirection direction3 = new R1CircularDirection(new R1Point(10), 2, 10, 2.5f, duration);
+            R1CircularDirection direction4 = new R1CircularDirection(new R1Point(-10), 2, 14, 3.5f, duration);
 
-            R1CircularDirection direction5 = new R1CircularDirection(new R1Point(5), 1, 5, duration);
-            R1CircularDirection direction6 = new R1CircularDirection(new R1Point(-5), 1, 5, duration);
-            R1CircularDirection direction7 = new R1CircularDirection(new R1Point(10), 2, 2.5f, duration);
-            R1CircularDirection direction8 = new R1CircularDirection(new R1Point(-10), 2, 3.5f, duration);
+            R1CircularDirection direction5 = new R1CircularDirection(new R1Point(5), 1, 30, 5, duration);
+            R1CircularDirection direction6 = new R1CircularDirection(new R1Point(-5), 1, 30, 5, duration);
+            R1CircularDirection direction7 = new R1CircularDirection(new R1Point(10), 2, 15, 2.5f, duration);
+            R1CircularDirection direction8 = new R1CircularDirection(new R1Point(-10), 2, 14, 3.5f, duration);
 
             R1CircularDirection direction11 = new R1CircularDirection(new R1Point(5),1,10,2,duration);
             R1CircularDirection direction22 = new R1CircularDirection(new R1Point(-5), 1,100, 20, duration);

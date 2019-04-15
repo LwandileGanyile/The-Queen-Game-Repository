@@ -42,17 +42,7 @@ namespace SharedResources
             
         }
 
-        protected NonCircular(Point _startingPoint, int direction,
-        List<bool> canShootList, Dictionary<int, int> duration, int directionDimension,
-        DoubleLinkedList<U> doubleLinkedList, int numberOfRepeatations)
-        : base(_startingPoint, direction,
-        canShootList, duration, directionDimension)
-        {
-
-            this.numberOfRepeatations = numberOfRepeatations;
-            this.doubleLinkedList = doubleLinkedList; ;
-
-        }
+       
 
         public int NumberOfRepeatations
         {
@@ -65,7 +55,6 @@ namespace SharedResources
             for (int i = 0; i < doubleLinkedList.Size; i++)
                 canShootList.Add(false);
         }
-
         
         public override void Clear()
         {

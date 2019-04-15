@@ -9,7 +9,7 @@ using Game_Defination;
 namespace SharedResources
 {
     public abstract class Parent<T>:IRotate<T>, IReflect<T>, IReflectable<T>,
-        ITranslate<T>, IDirectionDimension, IPointDimension, IDisplay, ICompare<T>
+        ITranslate<T>, IDirectionDimension, IPointDimension, IDisplay, ICompare<T>, IInitialize, IFill
     {
 
         protected Point _startingPoint;
@@ -17,7 +17,7 @@ namespace SharedResources
         protected int direction;
         protected List<bool> canShootList;
         protected  Dictionary<int,int> duration;
-        // Letters are made up of directions having each piece equals to divisor.
+        // Letters are made up of directions, each piece of a direction equals to divisor.
         protected int dimension; // Dimenison.
 
         protected Parent()
@@ -168,5 +168,7 @@ namespace SharedResources
 
         public abstract int CompareTo(T comparableInstance);
         public abstract T ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes);
+        public abstract void initializeAttributes();
+        public abstract void Fill();
     }
 }

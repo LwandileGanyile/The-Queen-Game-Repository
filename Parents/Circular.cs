@@ -21,7 +21,7 @@ namespace SharedResources
         :base(){
             numberOfRotations = 1;
             circularLinkedList = new CircularLinkedList<U>();
-
+            
 
         }
 
@@ -46,19 +46,11 @@ namespace SharedResources
       
         }
 
-        protected Circular(Point _startingPoint, int direction,
-        List<bool> canShootList, Dictionary<int, int> duration, int directionDimension,
-        CircularLinkedList<U> circularLinkedList,int numberOfRotations)
-        : base(_startingPoint, direction,
-        canShootList, duration, directionDimension)
+        protected void FillCanShootList()
         {
-
-            this.numberOfRotations = numberOfRotations;
-            this.circularLinkedList = circularLinkedList; 
-
+            for (int i = 0; i < circularLinkedList.Size; i++)
+                canShootList.Add(false);
         }
-
-       
 
         public int NumberOfRotations
         {
@@ -66,15 +58,14 @@ namespace SharedResources
             get;
         }
 
-        
-
         public override void Clear()
         {
             circularLinkedList.Clear();
         }
 
-       
-        
-        
+        public override string ToString()
+        {
+            return base.ToString() + "\nRotations how many times? " + numberOfRotations + "\n" + circularLinkedList.ToString();
+        }
     }
 }

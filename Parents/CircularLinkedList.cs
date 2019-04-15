@@ -10,7 +10,7 @@ namespace SharedResources
     public class CircularLinkedList<T> : MyLinkedList<T>
     {
         private MyNode<T> _head;
-        
+
 
         public CircularLinkedList()
         {

@@ -25,19 +25,11 @@ namespace Primary_Queen
             
         }
 
-        // Construct without specifying the  length property cause it doesnh't exist.
-        public R1CircularDirection(R1Point startingPoint, int direction,
-        float directionDivisor, Dictionary<int,int> duration)
-        : base(startingPoint.Position, direction, directionDivisor, new List<bool>(), duration, 1)
-        {
-            Fill();
-            FillCanShootList();
-        }
 
         // Construct without specifying the number of rotations.
         public R1CircularDirection(R1Point startingPoint, int direction, float directionLength,
-        float directionDivisor, Dictionary<int,int> duration)
-        : base(startingPoint.Position, direction, directionLength, directionDivisor, new List<bool>(), duration, 1, 1)
+        float directionDivisor,  Dictionary<int, int> duration)
+        : base(startingPoint.Position, direction, directionLength, directionDivisor, new List<bool>(), duration,1)
         {
             Fill();
             FillCanShootList();
@@ -45,19 +37,19 @@ namespace Primary_Queen
 
         // Construct by specifying the number of rotations.
         public R1CircularDirection(R1Point startingPoint, int direction, float directionLength,
-        float directionDivisor, Dictionary<int,int> duration, int numberOfRotations)
-        : base(startingPoint.Position, direction, directionLength, directionDivisor, new List<bool>(), duration, numberOfRotations)
+        float directionDivisor,  Dictionary<int, int> duration,  int numberOfRotations)
+        : base(startingPoint.Position, direction, directionLength,
+        directionDivisor, new List<bool>(), duration, 1, numberOfRotations)
         {
             Fill();
             FillCanShootList();
         }
 
-        
 
         // Add points making up this direction.
         // Directio 1 --> Right +x.
         // Any direction value correspond to Direction 2 --> Left -x.
-        
+
         /* The method suppose to be on the static R1Direction class. However i can't because
         I don't understand whether or not wildcard generics are supported in C#, if they are,
         how to use them.*/
@@ -104,14 +96,19 @@ namespace Primary_Queen
 
             R1Direction<R1CircularDirection, CircularLinkedList<R1Point>, CircularDirection<R1CircularDirection, R1Point>>.ReflectAboutAxis(axisIndex, ref direction);
 
-            return new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration); 
+            if(axisIndex==0)
+                return new R1CircularDirection(new R1Point(StartingPoint), (Direction==1)?2:1, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration,numberOfRotations); 
+            else
+                return new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, numberOfRotations);
         }
 
         // The method is unsupported for a one dimensional direction. 
         // However the method will return a non reflection of this current object.
         public override R1CircularDirection ReflectAroundEqualAxis(List<int> axisIndeces, int numberOfTimes)
         {
-            return new R1CircularDirection(new R1Point(StartingPoint),Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
+          
+            return new R1CircularDirection(new R1Point(StartingPoint),Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, numberOfRotations);
+           
         }
 
         /* The method is unsupported for a one dimensional direction. 
@@ -119,14 +116,14 @@ namespace Primary_Queen
            For the rotate method this R1CircularDirection instance will be returned because in R1 rotation isn't applicable.*/
         public override R1CircularDirection RotateAroundAxis(int indexOfAxis, int numberOfTimes)
         {
-            return new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
+            return new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, numberOfRotations);
         }
 
         // The method is unsupported for a one dimensional direction. 
         // However the method will return a non reflection of this current object.
         public override R1CircularDirection RotateAroundEqualAxis(List<int> indecesOfAxis, int numberOfTimes)
         {
-            return new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
+            return new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, numberOfRotations);
         }
 
         // Move direction.
@@ -139,7 +136,7 @@ namespace Primary_Queen
             R1Direction<R1CircularDirection,CircularLinkedList<R1Point>, CircularDirection<R1CircularDirection, R1Point>>.Translate(coordinateSystemDirection, amount, ref finalX);
 
             return new R1CircularDirection(new R1Point(finalX),
-                                            Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration);
+                                            Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration,numberOfRotations);
 
         }
 
@@ -171,7 +168,7 @@ namespace Primary_Queen
         {
             string output = base.ToString()+"\n";
 
-            return output+circularLinkedList.ToString()+"\nNumber Of rotations : "+numberOfRotations;
+            return output+circularLinkedList.ToString()+"\nNumber Of rotations : "+ numberOfRotations;
         }
 
         // Comparing two objects of this class.
@@ -226,7 +223,7 @@ namespace Primary_Queen
         // Can't be implemented.
         public override R1CircularDirection ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes)
         {
-            throw new NotImplementedException();
+            return new R1CircularDirection(new R1Point(StartingPoint), Direction, SharedDirection.DirectionLength, SharedDirection.Divisor, Duration, numberOfRotations);
         }
     }
 }

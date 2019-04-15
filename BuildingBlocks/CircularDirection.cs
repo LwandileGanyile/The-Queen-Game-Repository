@@ -16,36 +16,23 @@ namespace BuildingBlocks
 
         protected SharedDirection sharedDirection;
 
-        
-        protected CircularDirection():base()
+
+        protected CircularDirection() : base()
         {
             sharedDirection = new SharedDirection(10, 1);
 
         }
 
-        // Construct without specifying the canshoot property.
-        protected CircularDirection(Point startingPoint, int direction, float directionLength,
-        float divisor,Dictionary<int,int> duration, int directionDimension, int numberOfRotations)
-        : base(startingPoint, direction, duration, directionDimension, numberOfRotations)
-        {
-            sharedDirection = new SharedDirection(directionLength, divisor);
-        }
-
         // Construct without specifying the  length property cause it doesnh't exist.
-        protected CircularDirection(Point startingPoint, int direction,
+        protected CircularDirection(Point startingPoint, int direction, float directionLength,
         float directionDivisor, List<bool> canShootList, Dictionary<int,int> duration, int directionDimension)
         : base(startingPoint, direction, canShootList, duration, directionDimension, 1)
         {
-            sharedDirection = new SharedDirection(10 * directionDivisor, directionDivisor);
-        }
-
-        // Construct without specifying the number of rotations.
-        protected CircularDirection(Point startingPoint, int direction, float directionLength,
-        float directionDivisor, List<bool> canShootList,Dictionary<int,int> duration, int directionDimension)
-        :base(startingPoint, direction, canShootList,duration,directionDimension,1)
-        {
             sharedDirection = new SharedDirection(directionLength, directionDivisor);
         }
+
+        
+
 
         // Construct by specifying the number of rotations.
         protected CircularDirection(Point startingPoint, int direction, float directionLength,
