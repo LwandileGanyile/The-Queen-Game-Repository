@@ -43,6 +43,7 @@
     <Compile Include="Circular.cs" />
     <Compile Include="CircularLinkedList.cs" />
     <Compile Include="IFill.cs" />
+    <Compile Include="IInitialize.cs" />
     <Compile Include="MyNode.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Unit-Testing-Classes\CircularLinkedListTester.cs" />
