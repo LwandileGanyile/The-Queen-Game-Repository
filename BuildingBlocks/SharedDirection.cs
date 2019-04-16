@@ -14,10 +14,7 @@ namespace BuildingBlocks
         internal float _directionLength;
         internal float _divisor;
 
-        public override string ToString()
-        {
-            return "Direciton length : " + _directionLength + "\nDirection Divisor : " + _divisor;
-        }
+        //internal float _duration;
 
         public SharedDirection()
         {
@@ -28,7 +25,14 @@ namespace BuildingBlocks
         public SharedDirection(float _divisor)
         {
             this._divisor = _divisor;
-            _directionLength = 10*_divisor;
+
+            if (10 % _divisor == 0)
+                _directionLength = 10 * _divisor;
+            else
+            {
+                _divisor = 1.0f;
+                _directionLength = 10 ;
+            }
         }
 
       
@@ -37,6 +41,11 @@ namespace BuildingBlocks
         {
             this._divisor = _divisor;
             this._directionLength = _directionLength;
+        }
+
+        public override string ToString()
+        {
+            return "Direciton length : " + _directionLength + "\nDirection Divisor : " + _divisor;
         }
 
         public float Divisor

@@ -10,6 +10,7 @@ namespace NonCircularIteration
     public class DirectionIterator<T> : Iterator<T>
     {
         public DirectionIterator()
+         : base()
         {
 
         }
@@ -19,7 +20,5 @@ namespace NonCircularIteration
         {
 
         }
-
-
     }
 }

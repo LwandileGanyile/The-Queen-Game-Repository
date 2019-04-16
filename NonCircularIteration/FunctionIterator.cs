@@ -7,21 +7,18 @@ using SharedResources;
 
 namespace NonCircularIteration
 {
-    public class LetterIterator<T> : Iterator<T>
+    public class FunctionIterator<T> : Iterator<T>
     {
-
-        public LetterIterator()
-         : base()
+        public FunctionIterator()
+        : base()
         {
 
         }
 
-        public LetterIterator(int currentIndex, DoubleLinkedList<T> doubleLinkedList)
+        public FunctionIterator(int currentIndex, DoubleLinkedList<T> doubleLinkedList)
         : base(currentIndex, doubleLinkedList)
         {
 
         }
-
-
     }
 }

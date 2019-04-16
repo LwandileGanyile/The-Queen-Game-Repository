@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace NonCircularIteration
 {
-    public interface ILetterIterator<T>
+    public interface IFunctionIterator<T>
     {
-        LetterIterator<T> RetrievePlaneIterator();
+        FunctionIterator<T> RetrieveFunctionIterator();
     }
 }

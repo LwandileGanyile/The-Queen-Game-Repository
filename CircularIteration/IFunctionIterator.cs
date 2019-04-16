@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NonCircularIteration
+namespace CircularIteration
 {
-    public interface ILetterIterator<T>
+    public interface IFunctionIterator<T>
     {
-        LetterIterator<T> RetrievePlaneIterator();
+        FunctionIterator<T> RetrieveFunctionIterator();
     }
 }

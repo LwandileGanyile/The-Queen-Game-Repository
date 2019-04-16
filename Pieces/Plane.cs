@@ -78,7 +78,7 @@ namespace Pieces
  
         }
 
-        public bool AreNFarAway(int direction1, int direction2, int howFar)
+        public bool AreDirectionsNFarApart(int direction1, int direction2, int howFar)
         {
             int indexOfDirection1 = -1;
             int indexOfDirection2 = -1;
@@ -174,12 +174,12 @@ namespace Pieces
 
         public bool AreDirectionsNeighbors(int direction1, int direction2)
         {
-            return AreNFarAway(direction1, direction2, 1);
+            return AreDirectionsNFarApart(direction1, direction2, 1);
         }
 
         public bool AreDirectionsPerpendicular(int direction1, int direction2)
         {
-            return AreNFarAway(direction1, direction2, 2);
+            return AreDirectionsNFarApart(direction1, direction2, 2);
         }
 
         public void RetrieveDistancedDirections(int direction, int howFar, int[] distancedDirections)
@@ -215,6 +215,10 @@ namespace Pieces
         public abstract void FillDirections();
 
         public abstract Plane ReflectAboutAxis(int axisIndex);
+
+        public abstract bool AreDirectionsOpposite(int direction1, int direction2);
+        public abstract int GetOppositeDirection(int direction);
+        
 
         public abstract Plane RotateAroundAxis(int indexOfAxis, int numberOfTimes);
         public abstract Plane ReflectAboutEqualAxis(int[] axisIndeces, int numberOfTimes);

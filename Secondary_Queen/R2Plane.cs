@@ -65,5 +65,61 @@ namespace Secondary_Queen
         {
             return plane;
         }
+        
+        // Determines whether or not two directions are the opposite of each other.
+        public override bool AreDirectionsOpposite(int direction1, int direction2)
+        {
+            bool returnValue = false;
+
+            if ((direction1 == 1 && direction2 == 8) || (direction1 == 8 && direction2 == 1))
+                returnValue = true;
+            else if ((direction1 == 2 && direction2 == 3) || (direction1 == 3 && direction2 == 2))
+                returnValue = true;
+            else if ((direction1 == 6 && direction2 == 7) || (direction1 == 7 && direction2 == 6))
+                returnValue = true;
+            else if ((direction1 == 4 && direction2 == 5) || (direction1 == 5 && direction2 == 4))
+                returnValue = true;
+
+            return returnValue;
+        }
+
+        // The method returns the same passed direction parameter if that direction is invalid.
+        public override int GetOppositeDirection(int direction)
+        {
+            int oppositeDirection;
+
+            switch (direction)
+            {
+                case 1:
+                    oppositeDirection = 8;
+                    break;
+                case 2:
+                    oppositeDirection = 3;
+                    break;
+                case 3:
+                    oppositeDirection = 2;
+                    break;
+                case 4:
+                    oppositeDirection = 5;
+                    break;
+                case 5:
+                    oppositeDirection = 4;
+                    break;
+                case 6:
+                    oppositeDirection = 7;
+                    break;
+                case 7:
+                    oppositeDirection = 6;
+                    break;
+                case 8:
+                    oppositeDirection = 1;
+                    break;
+                default :
+                    oppositeDirection = direction;
+                    break;
+            }
+
+            return oppositeDirection;
+        }
     }
 }
